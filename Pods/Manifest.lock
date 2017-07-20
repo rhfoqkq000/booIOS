@@ -1,0 +1,29 @@
+PODS:
+  - Alamofire (4.5.0)
+  - DropDown (2)
+  - Material (2.6.3):
+    - Material/Core (= 2.6.3)
+  - Material/Core (2.6.3)
+  - RAMAnimatedTabBarController (2.0.13)
+  - SwiftyJSON (3.1.4)
+  - Toaster (2.0.4)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.4)
+  - DropDown (~> 2)
+  - Material (~> 2.6)
+  - RAMAnimatedTabBarController (~> 2.0.13)
+  - SwiftyJSON
+  - Toaster
+
+SPEC CHECKSUMS:
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  DropDown: 744784d9c9aa505100e942c16acd05430cbb2f0a
+  Material: af607a7ec0e9978ef85cf189a3d8ceeeb650400f
+  RAMAnimatedTabBarController: 2510f3b66954c3f77ea1042a35d34df8f5f3b604
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  Toaster: f13031c636ef065281bc11857be9a16c7659e04f
+
+PODFILE CHECKSUM: 05bf74068e008383c692ccda5f27baf2c1878332
+
+COCOAPODS: 1.2.1
