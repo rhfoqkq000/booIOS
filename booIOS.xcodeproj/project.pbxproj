@@ -27,6 +27,8 @@
 		CB1F4AE11F14E6E2009AACCC /* SeatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1F4AE01F14E6E2009AACCC /* SeatViewController.swift */; };
 		CB1F4AED1F14F20E009AACCC /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1F4AEC1F14F20E009AACCC /* DesignableTextField.swift */; };
 		CB1F4AEF1F14F921009AACCC /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1F4AEE1F14F921009AACCC /* UITextField.swift */; };
+		CB83924D1F21C79500705B35 /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB83924C1F21C79500705B35 /* MenuCollectionViewCell.swift */; };
+		CB83924F1F21CDCA00705B35 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB83924E1F21CDCA00705B35 /* MenuViewController.swift */; };
 		CBB50FCC1F1F682B0042EB47 /* ToolsAnimation.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBB50FCB1F1F682B0042EB47 /* ToolsAnimation.plist */; };
 		CBBAC80F1F1C791900669572 /* StuTabBarContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBAC80E1F1C791900669572 /* StuTabBarContoller.swift */; };
 		CBBAC8171F1C889300669572 /* StuPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBAC8161F1C889300669572 /* StuPageViewController.swift */; };
@@ -73,6 +75,8 @@
 		CB1F4AE01F14E6E2009AACCC /* SeatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeatViewController.swift; sourceTree = "<group>"; };
 		CB1F4AEC1F14F20E009AACCC /* DesignableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTextField.swift; sourceTree = "<group>"; };
 		CB1F4AEE1F14F921009AACCC /* UITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		CB83924C1F21C79500705B35 /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
+		CB83924E1F21CDCA00705B35 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		CBB50FCB1F1F682B0042EB47 /* ToolsAnimation.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ToolsAnimation.plist; sourceTree = "<group>"; };
 		CBBAC80E1F1C791900669572 /* StuTabBarContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StuTabBarContoller.swift; sourceTree = "<group>"; };
 		CBBAC8161F1C889300669572 /* StuPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StuPageViewController.swift; sourceTree = "<group>"; };
@@ -207,6 +211,15 @@
 			path = Seat;
 			sourceTree = "<group>";
 		};
+		CB8392491F21C75E00705B35 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				CB83924C1F21C79500705B35 /* MenuCollectionViewCell.swift */,
+				CB83924E1F21CDCA00705B35 /* MenuViewController.swift */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
 		CBB50FCA1F1F682B0042EB47 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +327,7 @@
 		CBF141C31F0E930E00D62BC0 /* booIOS */ = {
 			isa = PBXGroup;
 			children = (
+				CB8392491F21C75E00705B35 /* Menu */,
 				CBE0B70A1F1FC49900560F1A /* Home */,
 				CBB50FCA1F1F682B0042EB47 /* Resources */,
 				CBEC50CB1F1DE381009C7655 /* RAMAnimatedTabBarController */,
@@ -517,6 +531,7 @@
 				CBBAC8171F1C889300669572 /* StuPageViewController.swift in Sources */,
 				CB1F4AE11F14E6E2009AACCC /* SeatViewController.swift in Sources */,
 				CBF141C71F0E930E00D62BC0 /* ViewController.swift in Sources */,
+				CB83924F1F21CDCA00705B35 /* MenuViewController.swift in Sources */,
 				CB1F4AD01F14DF3F009AACCC /* EmptyViewController.swift in Sources */,
 				CB1F4AC61F14C968009AACCC /* ProfViewController.swift in Sources */,
 				CBEC50DF1F1DE381009C7655 /* RAMTransitionItemAnimations.swift in Sources */,
@@ -526,6 +541,7 @@
 				CBF141C51F0E930E00D62BC0 /* AppDelegate.swift in Sources */,
 				CBEC50E11F1DE381009C7655 /* RAMBadge.swift in Sources */,
 				CB1F4ADF1F14E6C4009AACCC /* SeatTableViewCell.swift in Sources */,
+				CB83924D1F21C79500705B35 /* MenuCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
