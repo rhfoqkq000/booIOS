@@ -1681,18 +1681,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.96862745100000003" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.96862745100000003" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                <real key="value" value="1"/>
+                            <userDefinedRuntimeAttribute type="color" keyPath="dividerColor">
+                                <color key="value" red="0.96862745100000003" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
-                        <segue destination="CTf-BQ-vYk" kind="relationship" relationship="viewControllers" id="WsT-jj-5Ml"/>
-                        <segue destination="Moa-Yn-6ev" kind="relationship" relationship="viewControllers" id="ack-CR-VbG"/>
-                        <segue destination="OKP-37-gfv" kind="relationship" relationship="viewControllers" id="vUE-tn-pcd"/>
-                        <segue destination="wSJ-L9-xhA" kind="relationship" relationship="viewControllers" id="atB-Jn-osU"/>
-                        <segue destination="HDk-Ts-jEe" kind="relationship" relationship="viewControllers" id="7kV-Yo-Q9t"/>
+                        <segue destination="OKP-37-gfv" kind="relationship" relationship="viewControllers" id="iIZ-I3-ReH"/>
+                        <segue destination="Moa-Yn-6ev" kind="relationship" relationship="viewControllers" id="QWR-td-ZCI"/>
+                        <segue destination="CTf-BQ-vYk" kind="relationship" relationship="viewControllers" id="NBc-Dt-dOi"/>
+                        <segue destination="wSJ-L9-xhA" kind="relationship" relationship="viewControllers" id="2o4-E8-gJv"/>
+                        <segue destination="HDk-Ts-jEe" kind="relationship" relationship="viewControllers" id="E5c-d3-wjs"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wns-BZ-9Pe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1854,7 +1856,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x78-Qq-SUi" sceneMemberID="firstResponder"/>
-                <customObject id="aaa-yz-rKq" customClass="RAMRotationAnimation" customModule="booIOS" customModuleProvider="target"/>
+                <customObject id="aaa-yz-rKq" customClass="RAMBounceAnimation" customModule="booIOS" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="-2266" y="106"/>
         </scene>
@@ -2139,7 +2141,7 @@
                     </tabBarItem>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bzC-bY-US4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="4gb-2O-RWO" customClass="RAMFumeAnimation" customModule="booIOS" customModuleProvider="target"/>
+                <customObject id="4gb-2O-RWO" customClass="RAMBounceAnimation" customModule="booIOS" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="855" y="106"/>
         </scene>
@@ -2284,6 +2286,24 @@
                 </customObject>
             </objects>
             <point key="canvasLocation" x="1784.8" y="105.69715142428787"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="waB-jX-JAG">
+            <objects>
+                <viewController id="t29-eg-ycG" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bVq-Yu-YOm"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZA1-aA-6q0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cPz-jy-KHH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O1e-mf-k54" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2814" y="106"/>
         </scene>
         <!--Achive View Controller-->
         <scene sceneID="UMx-oj-4CN">
@@ -3332,7 +3352,7 @@
     <resources>
         <image name="callFill" width="30" height="30"/>
         <image name="emptIcon" width="25" height="25"/>
-        <image name="home" width="35" height="35"/>
+        <image name="home" width="25" height="25"/>
         <image name="lock.png" width="24" height="24"/>
         <image name="login.png" width="309" height="122"/>
         <image name="mailFill" width="30" height="30"/>

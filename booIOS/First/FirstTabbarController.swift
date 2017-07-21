@@ -22,7 +22,6 @@
 
 import UIKit
 
-
 // MARK: Custom Badge
 
 extension RAMAnimatedTabBarItem {
@@ -54,7 +53,7 @@ extension RAMAnimatedTabBarItem {
 open class RAMAnimatedTabBarItem: UITabBarItem {
   
   @IBInspectable open var yOffSet: CGFloat = 0
-  
+    
   open override var isEnabled: Bool {
     didSet {
       iconView?.icon.alpha = isEnabled == true ? 1 : 0.5
@@ -121,6 +120,7 @@ open class RAMAnimatedTabBarItem: UITabBarItem {
     }
     
     animation.selectedState(iconView!.icon, textLabel: iconView!.textLabel)
+    
   }
 }
 
@@ -184,8 +184,14 @@ extension FirstTabbarController{
     containerTo?.backgroundColor = items[to].bgSelectedColor
     items[to].playAnimation()
   }
-}
 
+}
+//===============================================================================
+struct OffSet{
+    struct tabbar{
+        static let offsetY: CGFloat = 75
+    }
+}
 /// UITabBarController with item animations
 open class FirstTabbarController: UITabBarController {
   
@@ -248,15 +254,14 @@ open class FirstTabbarController: UITabBarController {
   override open func viewDidLoad() {
     super.viewDidLoad()
     
-    selectedIndex = 1
     
     self.didLoadView = true
     
     self.initializeContainers()
     
-    self.setupMiddleButton()
     
-    
+//    선택 시 
+    changeSelectedColor(UIColor(red: 247/255, green: 148/255, blue: 122/255, alpha: 1.0), iconSelectedColor: UIColor(red: 247/255, green: 148/255, blue: 122/255, alpha: 1.0))
   }
   
   fileprivate func initializeContainers() {
@@ -324,6 +329,8 @@ open class FirstTabbarController: UITabBarController {
       if 0 == index { // selected first elemet
         item.selectedState()
         container.backgroundColor = (items as [RAMAnimatedTabBarItem])[index].bgSelectedColor
+        icon.tintColor = UIColor(red: 247/255, green: 148/255, blue: 122/255, alpha: 1.0)
+        textLabel.textColor = UIColor(red: 247/255, green: 148/255, blue: 122/255, alpha: 1.0)
       }
       
       item.image = nil
@@ -477,29 +484,4 @@ open class FirstTabbarController: UITabBarController {
       }
     }
   }
-    func setupMiddleButton() {
-        
-        let menuButton = UIButton(frame: CGRect(x: 0, y: 0, width: 64, height: 64))
-        
-        var menuButtonFrame = menuButton.frame
-        menuButtonFrame.origin.y = self.view.bounds.height - menuButtonFrame.height
-        menuButtonFrame.origin.x = self.view.bounds.width/2 - menuButtonFrame.size.width/2
-        menuButton.frame = menuButtonFrame
-        
-        menuButton.backgroundColor = UIColor.white
-        menuButton.layer.cornerRadius = menuButtonFrame.height/2
-        
-        menuButton.setImage(UIImage(named: "home"), for: .normal) // 450 x 450px
-        menuButton.contentMode = .scaleAspectFit
-        menuButton.addTarget(self, action: #selector(FirstTabbarController.menuButtonAction(sender:)), for: UIControlEvents.touchUpInside)
-        
-        self.view.addSubview(menuButton)
-        
-        
-        self.view.layoutIfNeeded()
-    }
-    
-    func menuButtonAction(sender: UIButton) {
-        self.selectedIndex = 2
-    }
 }
