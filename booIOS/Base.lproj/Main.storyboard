@@ -1607,6 +1607,42 @@
             </objects>
             <point key="canvasLocation" x="2721" y="-299"/>
         </scene>
+        <!--Site View Controller-->
+        <scene sceneID="78S-BH-3YE">
+            <objects>
+                <viewController storyboardIdentifier="SiteViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HYe-M3-lPE" customClass="SiteViewController" customModule="booIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GXM-Gd-1d9"/>
+                        <viewControllerLayoutGuide type="bottom" id="uO8-Fb-r6H"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WkF-LR-luA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gHo-Ax-NW5">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="HYe-M3-lPE" id="Gqc-qY-dVZ"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gHo-Ax-NW5" firstAttribute="top" secondItem="GXM-Gd-1d9" secondAttribute="bottom" id="3R4-Cp-Jsf"/>
+                            <constraint firstItem="gHo-Ax-NW5" firstAttribute="leading" secondItem="WkF-LR-luA" secondAttribute="leading" id="Cin-Gm-pvI"/>
+                            <constraint firstItem="uO8-Fb-r6H" firstAttribute="top" secondItem="gHo-Ax-NW5" secondAttribute="bottom" id="DMH-60-RAh"/>
+                            <constraint firstAttribute="trailing" secondItem="gHo-Ax-NW5" secondAttribute="trailing" id="SaB-BU-8ps"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="gHo-Ax-NW5" id="Xr3-ct-QDX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aZd-Ih-fY7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4229.6000000000004" y="929.68515742128943"/>
+        </scene>
         <!--공지사항-->
         <scene sceneID="qD9-vE-F5x">
             <objects>
@@ -1671,7 +1707,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xe6-SZ-H8y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5406" y="1021"/>
+            <point key="canvasLocation" x="5406" y="930"/>
         </scene>
         <!--First Tabbar Controller-->
         <scene sceneID="cxX-4d-d07">
@@ -2189,7 +2225,7 @@
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CEU-ov-iEN">
                                 <rect key="frame" x="8" y="574" width="43" height="40"/>
-                                <color key="backgroundColor" red="1" green="0.98681143819999995" blue="0.88455881950000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.98431372549999996" green="0.78823529410000004" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="LNC-Sz-lv9"/>
                                     <constraint firstAttribute="width" constant="43" id="iPz-le-Mjc"/>
@@ -2203,7 +2239,8 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vmD-eF-on4">
                                 <rect key="frame" x="59" y="574" width="150" height="40"/>
-                                <color key="backgroundColor" red="0.93629045050000004" green="0.93629045050000004" blue="0.93629045050000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.98431372549999996" green="0.78823529410000004" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.98431372549019602" green="0.78823529411764703" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="시작시간">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -2213,7 +2250,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AqK-dK-64c">
                                 <rect key="frame" x="217" y="574" width="150" height="40"/>
-                                <color key="backgroundColor" red="0.93629045050000004" green="0.93629045050000004" blue="0.93629045050000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.98431372549999996" green="0.78823529410000004" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="종료시간">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -2223,7 +2260,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uSc-Et-VJA">
                                 <rect key="frame" x="8" y="622" width="359" height="40"/>
-                                <color key="backgroundColor" red="0.37254901959999998" green="0.6588235294" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="pR2-fd-Ati"/>
                                 </constraints>
@@ -2376,7 +2413,7 @@
                             <constraint firstItem="isv-Fb-dW5" firstAttribute="centerY" secondItem="cPz-jy-KHH" secondAttribute="centerY" id="suE-hg-4Nh"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="6oN-0N-7lO"/>
+                    <navigationItem key="navigationItem" title="메뉴" id="6oN-0N-7lO"/>
                     <connections>
                         <outlet property="menuCollection" destination="isv-Fb-dW5" id="28c-sq-6T1"/>
                     </connections>
@@ -2436,7 +2473,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0xy-Yp-czd" userLabel="전체확인">
                                 <rect key="frame" x="315" y="30" width="50" height="38"/>
-                                <color key="backgroundColor" red="0.75686274509999996" green="0.88235294119999996" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="GcD-f0-Wo8"/>
                                 </constraints>
@@ -2449,7 +2486,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KbW-ZV-Ac9" userLabel="일부확인">
                                 <rect key="frame" x="315" y="73" width="50" height="38"/>
-                                <color key="backgroundColor" red="1" green="0.86366776059999995" blue="0.49501444379999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.58039215690000001" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="bIF-4W-3nG"/>
                                 </constraints>

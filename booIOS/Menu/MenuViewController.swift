@@ -12,14 +12,15 @@ struct Ctrls {
     let empty = "EmptyViewController"
     let prof = "profController"
     let notice = "NoticeController"
+    let site = "SiteViewController"
 }
 
 class MenuViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var menuCollection: UICollectionView!
     
-    var images = ["roomIcon","profIcon", "leIcon", "siteIcon", "noticeIcon", "changeIcon", "helpIcon", "logoutIcon", "crownIcon"]
-    var titles = ["열람실", "To. 교수님", "쪽지함", "사이트", "공지사항","동이라/학회 변경", "설정/도움말", "로그아웃", "관리자로그인"]
+    var images = ["emptIcon","profIcon", "leIcon", "siteIcon", "noticeIcon", "changeIcon", "helpIcon", "logoutIcon", "crownIcon"]
+    var titles = ["빈강", "To. 교수님", "쪽지함", "사이트", "공지사항","동이라/학회 변경", "설정/도움말", "로그아웃", "관리자로그인"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +57,7 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
         case 2:
             break
         case 3:
+            self.navigationController?.pushViewController(returnTargetCtrl(ctrls.site),animated: true)
             break
         case 4:
             self.navigationController?.pushViewController(returnTargetCtrl(ctrls.notice),animated: true)

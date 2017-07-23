@@ -27,6 +27,7 @@
 		CB1F4AE11F14E6E2009AACCC /* SeatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1F4AE01F14E6E2009AACCC /* SeatViewController.swift */; };
 		CB1F4AED1F14F20E009AACCC /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1F4AEC1F14F20E009AACCC /* DesignableTextField.swift */; };
 		CB1F4AEF1F14F921009AACCC /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1F4AEE1F14F921009AACCC /* UITextField.swift */; };
+		CB3C48D11F24FA3C001B9995 /* SiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3C48D01F24FA3C001B9995 /* SiteViewController.swift */; };
 		CB83924D1F21C79500705B35 /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB83924C1F21C79500705B35 /* MenuCollectionViewCell.swift */; };
 		CB83924F1F21CDCA00705B35 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB83924E1F21CDCA00705B35 /* MenuViewController.swift */; };
 		CBB50FCC1F1F682B0042EB47 /* ToolsAnimation.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBB50FCB1F1F682B0042EB47 /* ToolsAnimation.plist */; };
@@ -75,6 +76,7 @@
 		CB1F4AE01F14E6E2009AACCC /* SeatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeatViewController.swift; sourceTree = "<group>"; };
 		CB1F4AEC1F14F20E009AACCC /* DesignableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTextField.swift; sourceTree = "<group>"; };
 		CB1F4AEE1F14F921009AACCC /* UITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		CB3C48D01F24FA3C001B9995 /* SiteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteViewController.swift; sourceTree = "<group>"; };
 		CB83924C1F21C79500705B35 /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		CB83924E1F21CDCA00705B35 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		CBB50FCB1F1F682B0042EB47 /* ToolsAnimation.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ToolsAnimation.plist; sourceTree = "<group>"; };
@@ -211,13 +213,21 @@
 			path = Seat;
 			sourceTree = "<group>";
 		};
+		CB3C48CF1F24F974001B9995 /* Site */ = {
+			isa = PBXGroup;
+			children = (
+				CB3C48D01F24FA3C001B9995 /* SiteViewController.swift */,
+			);
+			name = Site;
+			sourceTree = "<group>";
+		};
 		CB8392491F21C75E00705B35 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
 				CB83924C1F21C79500705B35 /* MenuCollectionViewCell.swift */,
 				CB83924E1F21CDCA00705B35 /* MenuViewController.swift */,
 			);
-			name = Menu;
+			path = Menu;
 			sourceTree = "<group>";
 		};
 		CBB50FCA1F1F682B0042EB47 /* Resources */ = {
@@ -327,6 +337,7 @@
 		CBF141C31F0E930E00D62BC0 /* booIOS */ = {
 			isa = PBXGroup;
 			children = (
+				CB3C48CF1F24F974001B9995 /* Site */,
 				CB8392491F21C75E00705B35 /* Menu */,
 				CBE0B70A1F1FC49900560F1A /* Home */,
 				CBB50FCA1F1F682B0042EB47 /* Resources */,
@@ -508,6 +519,7 @@
 				CBEC50DC1F1DE381009C7655 /* RAMFrameItemAnimation.swift in Sources */,
 				CB1F4ADC1F14E561009AACCC /* GradeViewController.swift in Sources */,
 				CBBAC80F1F1C791900669572 /* StuTabBarContoller.swift in Sources */,
+				CB3C48D11F24FA3C001B9995 /* SiteViewController.swift in Sources */,
 				CB1F4AED1F14F20E009AACCC /* DesignableTextField.swift in Sources */,
 				CB1F4AD71F14E2BF009AACCC /* AchiveViewController.swift in Sources */,
 				CBE0B70E1F1FC4E400560F1A /* HomeViewController.swift in Sources */,
