@@ -86,7 +86,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                 //UI 업데이트는 여기
 //                                self.tableview.reloadData()
                                 if loginIsSuccess == "1"{
-                                    self.performSegue(withIdentifier: "toEmpty", sender: self)
+                                    self.performSegue(withIdentifier: "loginSeque", sender: self)
                                 }else{
                                     print("로그인 실패")
                                     self.toastText("로그인 실패")

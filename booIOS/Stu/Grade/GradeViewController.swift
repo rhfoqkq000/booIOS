@@ -56,7 +56,7 @@ class GradeViewController: UIViewController {
     }
     
     func getJSON(targetId id:String,targetPw pw:String){
-        let parameters: Parameters = ["stuId": id,"stuPw":pw]
+        let parameters: Parameters = ["stuId": userDefaults.string(forKey:"stuId")!,"stuPw":userDefaults.string(forKey:"stuPw")!]
         let todoEndpoint: String = "https://www.dongaboomin.xyz:20433/donga/getGraduated"
         let queue = DispatchQueue(label: "xyz.dongaboomin.seat", qos: .utility, attributes: [.concurrent])
         Alamofire.request(todoEndpoint, method: .post, parameters: parameters).validate()

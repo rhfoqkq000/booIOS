@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wTE-Fo-koq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YUY-pN-LIJ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1605,7 +1605,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="edq-WR-vz6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="854" y="1056"/>
+            <point key="canvasLocation" x="2721" y="-299"/>
         </scene>
         <!--공지사항-->
         <scene sceneID="qD9-vE-F5x">
@@ -1671,12 +1671,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xe6-SZ-H8y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2266" y="-1809"/>
+            <point key="canvasLocation" x="5406" y="1021"/>
         </scene>
         <!--First Tabbar Controller-->
         <scene sceneID="cxX-4d-d07">
             <objects>
-                <tabBarController id="wTE-Fo-koq" customClass="FirstTabbarController" customModule="booIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="FirstTabbar" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wTE-Fo-koq" customClass="FirstTabbarController" customModule="booIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="0aY-aO-dqt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1687,14 +1687,14 @@
                     <connections>
                         <segue destination="OKP-37-gfv" kind="relationship" relationship="viewControllers" id="iIZ-I3-ReH"/>
                         <segue destination="Moa-Yn-6ev" kind="relationship" relationship="viewControllers" id="QWR-td-ZCI"/>
-                        <segue destination="CTf-BQ-vYk" kind="relationship" relationship="viewControllers" id="NBc-Dt-dOi"/>
-                        <segue destination="wSJ-L9-xhA" kind="relationship" relationship="viewControllers" id="2o4-E8-gJv"/>
-                        <segue destination="t29-eg-ycG" kind="relationship" relationship="viewControllers" id="GGP-a4-pDY"/>
+                        <segue destination="HDk-Ts-jEe" kind="relationship" relationship="viewControllers" id="PHq-sg-9Ye"/>
+                        <segue destination="wSJ-L9-xhA" kind="relationship" relationship="viewControllers" id="wiS-qt-gEb"/>
+                        <segue destination="eFO-gq-sW2" kind="relationship" relationship="viewControllers" id="coc-pT-UZh"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wns-BZ-9Pe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1028" y="-888"/>
+            <point key="canvasLocation" x="3300" y="-2087"/>
         </scene>
         <!--home-->
         <scene sceneID="vhR-rN-fRM">
@@ -1723,7 +1723,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="azW-CL-eHm" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="28Z-1d-z69" customClass="RAMBounceAnimation" customModule="booIOS" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="354" y="-888"/>
+            <point key="canvasLocation" x="934" y="-1052"/>
         </scene>
         <!--식단-->
         <scene sceneID="W84-4D-zUX">
@@ -1853,7 +1853,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x78-Qq-SUi" sceneMemberID="firstResponder"/>
                 <customObject id="aaa-yz-rKq" customClass="RAMBounceAnimation" customModule="booIOS" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="-2266" y="106"/>
+            <point key="canvasLocation" x="1975" y="-1052"/>
         </scene>
         <!--To. 교수님-->
         <scene sceneID="BWm-aW-agE">
@@ -1903,25 +1903,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="41N-zt-gws" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-279" y="1056"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="161-Zk-Q7a">
-            <objects>
-                <navigationController storyboardIdentifier="profNav" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tEc-ed-ckO" sceneMemberID="viewController">
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="WYN-Wd-nMX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Z3o-QY-VRB" kind="relationship" relationship="rootViewController" id="6GJ-6P-647"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Y97-Ja-ZHn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-279" y="106"/>
+            <point key="canvasLocation" x="1974" y="930"/>
         </scene>
         <!--Prof Detail View Controller-->
         <scene sceneID="uhg-LT-W7D">
@@ -1940,7 +1922,7 @@
                                 <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="69" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qgQ-Mb-ueH">
-                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="majorCell" rowHeight="69" id="lig-qA-K1i" customClass="ProfDetailCell" customModule="booIOS" customModuleProvider="target">
@@ -2034,7 +2016,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P5X-jK-kTD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-279" y="1911"/>
+            <point key="canvasLocation" x="1974" y="1690"/>
         </scene>
         <!--로그인-->
         <scene sceneID="0Ka-kC-bdH">
@@ -2136,11 +2118,12 @@
                         <outlet property="idTextField" destination="bg3-fK-gKq" id="gop-f7-UjE"/>
                         <outlet property="pwTextField" destination="rEf-ZR-nsq" id="ZJF-s4-4pr"/>
                         <outlet property="toEmptyButton" destination="59m-d2-PxX" id="A5S-Cm-Vjm"/>
+                        <segue destination="wTE-Fo-koq" kind="show" identifier="loginSeque" id="IPw-rW-tou"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Neq-D9-2Kr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3354" y="-888"/>
+            <point key="canvasLocation" x="1364" y="-2087"/>
         </scene>
         <!--학생정보-->
         <scene sceneID="cAR-rR-Wkh">
@@ -2155,7 +2138,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bzC-bY-US4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="4gb-2O-RWO" customClass="RAMBounceAnimation" customModule="booIOS" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="855" y="106"/>
+            <point key="canvasLocation" x="4230" y="-1052"/>
         </scene>
         <!--빈강-->
         <scene sceneID="10l-la-pb2">
@@ -2170,7 +2153,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="So7-TZ-d7D">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="515"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="564"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="3Vx-es-1hv" customClass="EmptyRoomCustomCell" customModule="booIOS" customModuleProvider="target">
@@ -2205,7 +2188,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CEU-ov-iEN">
-                                <rect key="frame" x="8" y="525" width="43" height="40"/>
+                                <rect key="frame" x="8" y="574" width="43" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.98681143819999995" blue="0.88455881950000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="LNC-Sz-lv9"/>
@@ -2219,7 +2202,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vmD-eF-on4">
-                                <rect key="frame" x="59" y="525" width="150" height="40"/>
+                                <rect key="frame" x="59" y="574" width="150" height="40"/>
                                 <color key="backgroundColor" red="0.93629045050000004" green="0.93629045050000004" blue="0.93629045050000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="시작시간">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -2229,7 +2212,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AqK-dK-64c">
-                                <rect key="frame" x="217" y="525" width="150" height="40"/>
+                                <rect key="frame" x="217" y="574" width="150" height="40"/>
                                 <color key="backgroundColor" red="0.93629045050000004" green="0.93629045050000004" blue="0.93629045050000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="종료시간">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -2239,7 +2222,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uSc-Et-VJA">
-                                <rect key="frame" x="8" y="573" width="359" height="40"/>
+                                <rect key="frame" x="8" y="622" width="359" height="40"/>
                                 <color key="backgroundColor" red="0.37254901959999998" green="0.6588235294" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="pR2-fd-Ati"/>
@@ -2275,11 +2258,6 @@
                             <constraint firstItem="CEU-ov-iEN" firstAttribute="top" secondItem="So7-TZ-d7D" secondAttribute="bottom" constant="10" id="zoJ-iJ-4GA"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="빈강" image="emptIcon" id="Hnl-om-dH0" customClass="RAMAnimatedTabBarItem" customModule="booIOS" customModuleProvider="target">
-                        <connections>
-                            <outlet property="animation" destination="Bs4-DL-WdD" id="hAv-vI-PuO"/>
-                        </connections>
-                    </tabBarItem>
                     <navigationItem key="navigationItem" title="빈강" id="OQb-qL-10d"/>
                     <connections>
                         <outlet property="dayDropdownButton" destination="CEU-ov-iEN" id="zdC-EQ-F0z"/>
@@ -2290,14 +2268,38 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bwW-bf-OO3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="Bs4-DL-WdD" customClass="RAMBounceAnimation" customModule="booIOS" customModuleProvider="target">
+            </objects>
+            <point key="canvasLocation" x="934" y="930"/>
+        </scene>
+        <!--menuNav-->
+        <scene sceneID="rLd-qB-MOF">
+            <objects>
+                <navigationController title="menuNav" id="eFO-gq-sW2" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="메뉴" image="menu1" id="e3v-VV-a5E" customClass="RAMAnimatedTabBarItem" customModule="booIOS" customModuleProvider="target">
+                        <connections>
+                            <outlet property="animation" destination="0cI-6X-sTO" id="tJ5-IE-O5K"/>
+                        </connections>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="menuNav" id="KjA-cQ-fFR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="t29-eg-ycG" kind="relationship" relationship="rootViewController" id="RIM-8f-OUG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B5F-At-KqI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="0cI-6X-sTO" customClass="RAMFrameItemAnimation" customModule="booIOS" customModuleProvider="target">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isDeselectAnimation" value="YES"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="imagesPath" value="ToolsAnimation"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="1784.8" y="105.69715142428787"/>
+            <point key="canvasLocation" x="5407" y="-1052"/>
         </scene>
         <!--메뉴-->
         <scene sceneID="waB-jX-JAG">
@@ -2307,11 +2309,11 @@
                         <viewControllerLayoutGuide type="top" id="bVq-Yu-YOm"/>
                         <viewControllerLayoutGuide type="bottom" id="ZA1-aA-6q0"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cPz-jy-KHH" customClass="MenuCollectionViewCell" customModule="booIOS" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="cPz-jy-KHH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="isv-Fb-dW5">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="menuCollection" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="isv-Fb-dW5">
                                 <rect key="frame" x="21" y="167" width="333" height="333"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -2374,27 +2376,14 @@
                             <constraint firstItem="isv-Fb-dW5" firstAttribute="centerY" secondItem="cPz-jy-KHH" secondAttribute="centerY" id="suE-hg-4Nh"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="메뉴" image="menu1" id="e3v-VV-a5E" customClass="RAMAnimatedTabBarItem" customModule="booIOS" customModuleProvider="target">
-                        <connections>
-                            <outlet property="animation" destination="0cI-6X-sTO" id="p6l-Qc-QdL"/>
-                        </connections>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="6oN-0N-7lO"/>
                     <connections>
                         <outlet property="menuCollection" destination="isv-Fb-dW5" id="28c-sq-6T1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O1e-mf-k54" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="0cI-6X-sTO" customClass="RAMFrameItemAnimation" customModule="booIOS" customModuleProvider="target">
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isDeselectAnimation" value="YES"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="imagesPath" value="ToolsAnimation"/>
-                        <userDefinedRuntimeAttribute type="number" keyPath="duration">
-                            <real key="value" value="1"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </customObject>
             </objects>
-            <point key="canvasLocation" x="1444" y="-888.30584707646187"/>
+            <point key="canvasLocation" x="5406" y="-28"/>
         </scene>
         <!--Achive View Controller-->
         <scene sceneID="UMx-oj-4CN">
@@ -2586,7 +2575,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oUr-VH-ObL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2513" y="1056"/>
+            <point key="canvasLocation" x="4230" y="-299"/>
         </scene>
         <!--Grade View Controller-->
         <scene sceneID="kSC-fy-O6k">
@@ -3216,45 +3205,45 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="750"/>
                     <connections>
-                        <outlet property="applyYear" destination="2Le-Yt-wdu" id="1ok-HH-BA0"/>
-                        <outlet property="avgGrade" destination="fMF-EJ-gDB" id="1Iy-O1-ZeR"/>
-                        <outlet property="dualMajor" destination="tb6-WG-pHo" id="DoI-9z-lba"/>
-                        <outlet property="earlyGrauated" destination="nz8-hc-gGe" id="jMp-Ht-SsY"/>
-                        <outlet property="getTwoLabel" destination="fRo-gb-hxS" id="gNf-P1-nKq"/>
-                        <outlet property="masterCon" destination="x9O-Of-WIQ" id="bmP-Nc-PbH"/>
-                        <outlet property="needTwoLabel" destination="ISw-Up-bBe" id="ZYm-1L-paX"/>
-                        <outlet property="resultTwoLabel" destination="qHE-A0-ovQ" id="wyN-GS-LH4"/>
-                        <outlet property="subMajor" destination="X5M-LS-b2P" id="peH-bt-WzP"/>
-                        <outlet property="topView" destination="z8Y-Ye-uux" id="53l-Oc-Vl4"/>
-                        <outletCollection property="kyoZeroCollection" destination="Tdv-gK-hU7" collectionClass="NSMutableArray" id="1Do-c9-Zyw"/>
-                        <outletCollection property="kyoZeroCollection" destination="t3J-LN-ray" collectionClass="NSMutableArray" id="8hy-5q-hqJ"/>
-                        <outletCollection property="kyoZeroCollection" destination="9G8-Qy-a6w" collectionClass="NSMutableArray" id="YVN-c0-S4b"/>
-                        <outletCollection property="kyoZeroCollection" destination="Zlh-kt-lCB" collectionClass="NSMutableArray" id="EFj-lg-ewO"/>
-                        <outletCollection property="needZeroCollection" destination="BSz-gF-Hyk" collectionClass="NSMutableArray" id="9GC-r6-Fxq"/>
-                        <outletCollection property="needZeroCollection" destination="Mzt-cg-dp6" collectionClass="NSMutableArray" id="PFr-so-mpn"/>
-                        <outletCollection property="needZeroCollection" destination="93Y-rQ-S7l" collectionClass="NSMutableArray" id="pbJ-bx-Y9L"/>
-                        <outletCollection property="needZeroCollection" destination="X9R-bR-CWN" collectionClass="NSMutableArray" id="Gez-Ye-GXf"/>
-                        <outletCollection property="getZeroCollection" destination="QSM-bD-fGh" collectionClass="NSMutableArray" id="Hh7-5I-UOC"/>
-                        <outletCollection property="getZeroCollection" destination="mKE-4H-AHi" collectionClass="NSMutableArray" id="4Xh-Xg-v7Y"/>
-                        <outletCollection property="getZeroCollection" destination="i5i-dX-gfe" collectionClass="NSMutableArray" id="sGT-Ct-wPe"/>
-                        <outletCollection property="getZeroCollection" destination="mt6-rR-EC9" collectionClass="NSMutableArray" id="hVx-bz-2mH"/>
-                        <outletCollection property="resultZeroCollection" destination="ZZJ-4o-UFO" collectionClass="NSMutableArray" id="uAV-cC-z93"/>
-                        <outletCollection property="resultZeroCollection" destination="Tm0-i8-8dr" collectionClass="NSMutableArray" id="VEL-pI-slS"/>
-                        <outletCollection property="resultZeroCollection" destination="JfK-Hj-TOP" collectionClass="NSMutableArray" id="kvh-qx-row"/>
-                        <outletCollection property="resultZeroCollection" destination="Vig-ME-3ok" collectionClass="NSMutableArray" id="fwK-nG-1Xc"/>
-                        <outletCollection property="majorOneCollection" destination="sDo-7x-1xn" collectionClass="NSMutableArray" id="Cj9-1a-ASe"/>
-                        <outletCollection property="majorOneCollection" destination="RtM-n7-LFt" collectionClass="NSMutableArray" id="dhR-FL-4pt"/>
-                        <outletCollection property="needOneCollection" destination="2nY-ga-0uO" collectionClass="NSMutableArray" id="VO0-3b-ScF"/>
-                        <outletCollection property="needOneCollection" destination="G59-MH-FpL" collectionClass="NSMutableArray" id="qKm-0x-lWP"/>
-                        <outletCollection property="getOneCollection" destination="05P-0Y-lqR" collectionClass="NSMutableArray" id="kCt-od-HOJ"/>
-                        <outletCollection property="getOneCollection" destination="utB-2A-nwL" collectionClass="NSMutableArray" id="3MZ-Lz-Iw1"/>
-                        <outletCollection property="resultOneCollection" destination="FRR-q0-Og6" collectionClass="NSMutableArray" id="mOy-hF-OA1"/>
-                        <outletCollection property="resultOneCollection" destination="UIJ-di-vqs" collectionClass="NSMutableArray" id="sVI-gy-ZkH"/>
+                        <outlet property="applyYear" destination="2Le-Yt-wdu" id="VaY-Uv-OeW"/>
+                        <outlet property="avgGrade" destination="fMF-EJ-gDB" id="5tv-3F-kFT"/>
+                        <outlet property="dualMajor" destination="tb6-WG-pHo" id="r9F-4Y-EFN"/>
+                        <outlet property="earlyGrauated" destination="nz8-hc-gGe" id="pwr-oV-41b"/>
+                        <outlet property="getTwoLabel" destination="fRo-gb-hxS" id="NOe-n1-XeJ"/>
+                        <outlet property="masterCon" destination="x9O-Of-WIQ" id="nE5-9L-UZK"/>
+                        <outlet property="needTwoLabel" destination="ISw-Up-bBe" id="TZg-nt-doC"/>
+                        <outlet property="resultTwoLabel" destination="qHE-A0-ovQ" id="oCX-MB-Etg"/>
+                        <outlet property="subMajor" destination="X5M-LS-b2P" id="2ba-bx-yDM"/>
+                        <outlet property="topView" destination="z8Y-Ye-uux" id="Ghb-k8-C1F"/>
+                        <outletCollection property="getZeroCollection" destination="QSM-bD-fGh" collectionClass="NSMutableArray" id="SHZ-pc-E0n"/>
+                        <outletCollection property="getZeroCollection" destination="mKE-4H-AHi" collectionClass="NSMutableArray" id="M6u-9I-rKx"/>
+                        <outletCollection property="getZeroCollection" destination="i5i-dX-gfe" collectionClass="NSMutableArray" id="J31-NN-sbu"/>
+                        <outletCollection property="getZeroCollection" destination="mt6-rR-EC9" collectionClass="NSMutableArray" id="H4N-lB-Idv"/>
+                        <outletCollection property="kyoZeroCollection" destination="Tdv-gK-hU7" collectionClass="NSMutableArray" id="Haw-JY-XnE"/>
+                        <outletCollection property="kyoZeroCollection" destination="t3J-LN-ray" collectionClass="NSMutableArray" id="uMI-yX-gnl"/>
+                        <outletCollection property="kyoZeroCollection" destination="9G8-Qy-a6w" collectionClass="NSMutableArray" id="lSb-lP-RVg"/>
+                        <outletCollection property="kyoZeroCollection" destination="Zlh-kt-lCB" collectionClass="NSMutableArray" id="tay-1S-wzT"/>
+                        <outletCollection property="getOneCollection" destination="05P-0Y-lqR" collectionClass="NSMutableArray" id="GAr-Y0-fx3"/>
+                        <outletCollection property="getOneCollection" destination="utB-2A-nwL" collectionClass="NSMutableArray" id="YXG-Nn-cWe"/>
+                        <outletCollection property="majorOneCollection" destination="sDo-7x-1xn" collectionClass="NSMutableArray" id="f5l-2F-3VY"/>
+                        <outletCollection property="majorOneCollection" destination="RtM-n7-LFt" collectionClass="NSMutableArray" id="1I8-hG-Duy"/>
+                        <outletCollection property="needOneCollection" destination="2nY-ga-0uO" collectionClass="NSMutableArray" id="lwF-Up-yFN"/>
+                        <outletCollection property="needOneCollection" destination="G59-MH-FpL" collectionClass="NSMutableArray" id="OBQ-h7-RaC"/>
+                        <outletCollection property="needZeroCollection" destination="BSz-gF-Hyk" collectionClass="NSMutableArray" id="GNd-y4-0sx"/>
+                        <outletCollection property="needZeroCollection" destination="Mzt-cg-dp6" collectionClass="NSMutableArray" id="jaw-5V-egZ"/>
+                        <outletCollection property="needZeroCollection" destination="93Y-rQ-S7l" collectionClass="NSMutableArray" id="poM-0O-Yko"/>
+                        <outletCollection property="needZeroCollection" destination="X9R-bR-CWN" collectionClass="NSMutableArray" id="Ri3-0A-3iU"/>
+                        <outletCollection property="resultOneCollection" destination="FRR-q0-Og6" collectionClass="NSMutableArray" id="25b-xr-M80"/>
+                        <outletCollection property="resultOneCollection" destination="UIJ-di-vqs" collectionClass="NSMutableArray" id="15N-3g-Ds3"/>
+                        <outletCollection property="resultZeroCollection" destination="ZZJ-4o-UFO" collectionClass="NSMutableArray" id="yGh-p0-MKk"/>
+                        <outletCollection property="resultZeroCollection" destination="Tm0-i8-8dr" collectionClass="NSMutableArray" id="dJt-hb-45a"/>
+                        <outletCollection property="resultZeroCollection" destination="JfK-Hj-TOP" collectionClass="NSMutableArray" id="m2K-Hi-vjw"/>
+                        <outletCollection property="resultZeroCollection" destination="Vig-ME-3ok" collectionClass="NSMutableArray" id="jAU-ze-fUb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DrS-9q-Yba" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1681" y="1093"/>
+            <point key="canvasLocation" x="3455" y="-262"/>
         </scene>
         <!--열람실-->
         <scene sceneID="QMv-yF-3wS">
@@ -3296,7 +3285,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="52" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fgA-OO-8hE">
-                                <rect key="frame" x="0.0" y="81" width="375" height="586"/>
+                                <rect key="frame" x="0.0" y="81" width="375" height="537"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SeatCell" rowHeight="52" id="8gX-V8-mvX" customClass="SeatTableViewCell" customModule="booIOS" customModuleProvider="target">
@@ -3404,6 +3393,7 @@
                             <constraint firstItem="MyW-ce-NG6" firstAttribute="leading" secondItem="jjj-cT-bxZ" secondAttribute="trailing" constant="3" id="gIH-GW-2Kw"/>
                             <constraint firstItem="jjj-cT-bxZ" firstAttribute="top" secondItem="CBB-ta-1VH" secondAttribute="top" id="gKV-mS-XLK"/>
                             <constraint firstItem="CBB-ta-1VH" firstAttribute="leading" secondItem="fJ3-BE-a1K" secondAttribute="trailing" constant="3" id="iq5-QF-TLS"/>
+                            <constraint firstItem="T6J-Ev-tS7" firstAttribute="top" secondItem="fgA-OO-8hE" secondAttribute="bottom" id="kpq-ba-K2Y"/>
                             <constraint firstItem="fgA-OO-8hE" firstAttribute="top" secondItem="CBB-ta-1VH" secondAttribute="bottom" constant="35" id="lsA-cw-rdy"/>
                             <constraint firstItem="fgA-OO-8hE" firstAttribute="top" secondItem="g8f-hz-WeD" secondAttribute="bottom" constant="35" id="oKL-Hq-FBb"/>
                             <constraint firstItem="CBB-ta-1VH" firstAttribute="height" secondItem="fJ3-BE-a1K" secondAttribute="height" id="piB-nz-GQM"/>
@@ -3411,24 +3401,28 @@
                             <constraint firstAttribute="trailing" secondItem="fgA-OO-8hE" secondAttribute="trailing" id="qpZ-BN-hhQ"/>
                             <constraint firstItem="jjj-cT-bxZ" firstAttribute="top" secondItem="TP3-A0-aHW" secondAttribute="bottom" constant="8" id="qq6-h1-fmI"/>
                             <constraint firstAttribute="trailing" secondItem="MyW-ce-NG6" secondAttribute="trailing" constant="3" id="ro8-Bx-FXu"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="fgA-OO-8hE" secondAttribute="bottom" id="vsZ-js-kxw"/>
                             <constraint firstItem="CBB-ta-1VH" firstAttribute="top" secondItem="fJ3-BE-a1K" secondAttribute="top" id="w4F-38-gEB"/>
                             <constraint firstItem="g8f-hz-WeD" firstAttribute="leading" secondItem="i21-JU-9Hy" secondAttribute="leading" constant="3" id="xt1-gz-buF"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="열람실" image="roomIcon" id="bra-pZ-W7v" customClass="RAMAnimatedTabBarItem" customModule="booIOS" customModuleProvider="target">
+                        <connections>
+                            <outlet property="animation" destination="ZKL-gU-iAS" id="bp0-IM-wsv"/>
+                        </connections>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" title="열람실" id="Qpr-Bp-udo"/>
                     <connections>
                         <outlet property="seatTableView" destination="fgA-OO-8hE" id="fnB-yk-Yhw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Urt-tU-BJq" sceneMemberID="firstResponder"/>
+                <customObject id="ZKL-gU-iAS" customClass="RAMBounceAnimation" customModule="booIOS" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="-1290.4000000000001" y="105.69715142428787"/>
+            <point key="canvasLocation" x="3096.8000000000002" y="-1052.0239880059971"/>
         </scene>
     </scenes>
     <resources>
         <image name="callFill" width="30" height="30"/>
-        <image name="emptIcon" width="25" height="25"/>
         <image name="home" width="25" height="25"/>
         <image name="leftArrow" width="25" height="25"/>
         <image name="lock.png" width="24" height="24"/>

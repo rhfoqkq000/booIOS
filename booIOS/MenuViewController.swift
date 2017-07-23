@@ -8,6 +8,12 @@
 
 import UIKit
 
+struct Ctrls {
+    let empty = "EmptyViewController"
+    let prof = "profController"
+    let notice = "NoticeController"
+}
+
 class MenuViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var menuCollection: UICollectionView!
@@ -39,9 +45,36 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell: UICollectionViewCell = collectionView.cellForItem(at: indexPath)!
-        cell.backgroundColor = UIColor.magenta
-        
-        collectionView.reloadData()
+        let ctrls = Ctrls()
+        switch indexPath.row {
+        case 0:
+            self.navigationController?.pushViewController(returnTargetCtrl(ctrls.empty),animated: true)
+            break
+        case 1:
+            self.navigationController?.pushViewController(returnTargetCtrl(ctrls.prof),animated: true)
+            break
+        case 2:
+            break
+        case 3:
+            break
+        case 4:
+            self.navigationController?.pushViewController(returnTargetCtrl(ctrls.notice),animated: true)
+            break
+        case 5:
+            break
+        case 6:
+            break
+        case 7:
+            break
+        case 8:
+            break
+        default:
+            print("오류에영")
+        }
+    }
+    
+    func returnTargetCtrl(_ idendtifier:String) -> UIViewController {
+        return self.storyboard!.instantiateViewController(withIdentifier: idendtifier)
+
     }
 }
