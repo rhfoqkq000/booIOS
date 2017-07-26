@@ -12,7 +12,8 @@ struct Ctrls {
     let empty = "EmptyViewController"
     let prof = "profController"
     let notice = "NoticeController"
-    let site = "SiteViewController"
+    let setting = "SettingViewController"
+    let login = "loginViewController"
 }
 
 class MenuViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
@@ -87,31 +88,65 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
         switch indexPath.section {
         case 0:
             switch indexPath.row{
+//                빈강
             case 0:
                 self.navigationController?.pushViewController(returnTargetCtrl(ctrls.empty),animated: true)
                 break
+//                To. 교수님
             case 1:
                 self.navigationController?.pushViewController(returnTargetCtrl(ctrls.prof),animated: true)
                 break
+//                쪽지함
             case 2:
                 break
+//                사이트
             case 3:
-                self.navigationController?.pushViewController(returnTargetCtrl(ctrls.site),animated: true)
+                UIApplication.shared.open(NSURL(string: "http://donga.ac.kr")! as URL)
                 break
             default:
                 break
             }
             break
         case 1:
-            switch  indexPath.row {
+            switch indexPath.row {
+//                공지사항
             case 0:
                 self.navigationController?.pushViewController(returnTargetCtrl(ctrls.notice),animated: true)
+                break
+//                동아리/학회 변경
+            case 1:
+                break
+//                설정/도움말
+            case 2:
+                self.navigationController?.pushViewController(returnTargetCtrl(ctrls.setting),animated: true)
                 break
             default:
                 break
             }
           break
         case 2:
+            switch indexPath.row{
+//                로그아웃
+            case 0:
+//                id, pw 날리기
+                let userDefaults = UserDefaults.standard
+                
+                userDefaults.removeObject(forKey: "stuId")
+                userDefaults.removeObject(forKey: "stuPw")
+            
+//                화면 바꾸기
+                let trans = self.storyboard!.instantiateViewController(withIdentifier: ctrls.login)
+                trans.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+                self.present(trans, animated: true)
+                
+                break
+//                관리자로그인
+            case 1:
+                
+                break
+            default:
+                break
+            }
             break
         default:
             print("오류에영")

@@ -7,10 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		368415EFDE6A3115FA2290DD /* Pods_booIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BC7F8CBA4291B83F8FE7AF5 /* Pods_booIOS.framework */; };
 		CB00E8741F1779B50023A62B /* roundConers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB00E8731F1779B50023A62B /* roundConers.swift */; };
 		CB00E8771F178AFF0023A62B /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB00E8761F178AFF0023A62B /* NoticeViewController.swift */; };
 		CB00E87B1F178EA10023A62B /* NoticeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB00E87A1F178EA10023A62B /* NoticeCell.swift */; };
 		CB15BC421F25FDA300371B5C /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB15BC411F25FDA300371B5C /* HeaderCollectionReusableView.swift */; };
+		CB15BC451F2622A300371B5C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB15BC441F2622A300371B5C /* SettingViewController.swift */; };
+		CB15BC471F2622B600371B5C /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB15BC461F2622B600371B5C /* SettingTableViewCell.swift */; };
+		CB170D2B1F2799C3008BFFBD /* MenuInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB170D2A1F2799C3008BFFBD /* MenuInfo.swift */; };
+		CB170D2E1F2799CD008BFFBD /* TimeTableInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB170D2C1F2799CD008BFFBD /* TimeTableInfo.swift */; };
+		CB170D2F1F2799CD008BFFBD /* TimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB170D2D1F2799CD008BFFBD /* TimeCell.swift */; };
 		CB1F4AB91F14C4CF009AACCC /* ResViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1F4AB71F14C4CF009AACCC /* ResViewController.swift */; };
 		CB1F4ABA1F14C4CF009AACCC /* ResCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1F4AB81F14C4CF009AACCC /* ResCell.swift */; };
 		CB1F4AC61F14C968009AACCC /* ProfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1F4AC21F14C968009AACCC /* ProfViewController.swift */; };
@@ -28,9 +34,12 @@
 		CB1F4AE11F14E6E2009AACCC /* SeatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1F4AE01F14E6E2009AACCC /* SeatViewController.swift */; };
 		CB1F4AED1F14F20E009AACCC /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1F4AEC1F14F20E009AACCC /* DesignableTextField.swift */; };
 		CB1F4AEF1F14F921009AACCC /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1F4AEE1F14F921009AACCC /* UITextField.swift */; };
-		CB3C48D11F24FA3C001B9995 /* SiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3C48D01F24FA3C001B9995 /* SiteViewController.swift */; };
+		CB6CA3641F270481003C07AA /* PushViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6CA3631F270481003C07AA /* PushViewController.swift */; };
+		CB6CA5621F275D1F003C07AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB6CA5611F275D1F003C07AA /* Assets.xcassets */; };
 		CB83924D1F21C79500705B35 /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB83924C1F21C79500705B35 /* MenuCollectionViewCell.swift */; };
 		CB83924F1F21CDCA00705B35 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB83924E1F21CDCA00705B35 /* MenuViewController.swift */; };
+		CB9E5C541F2859EA00203845 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9E5C531F2859EA00203845 /* Constants.swift */; };
+		CB9E5C571F285A2500203845 /* Obj-Header-bridge.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9E5C561F285A2500203845 /* Obj-Header-bridge.m */; };
 		CBB50FCC1F1F682B0042EB47 /* ToolsAnimation.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBB50FCB1F1F682B0042EB47 /* ToolsAnimation.plist */; };
 		CBBAC80F1F1C791900669572 /* StuTabBarContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBAC80E1F1C791900669572 /* StuTabBarContoller.swift */; };
 		CBBAC8171F1C889300669572 /* StuPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBAC8161F1C889300669572 /* StuPageViewController.swift */; };
@@ -46,21 +55,24 @@
 		CBF141C51F0E930E00D62BC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF141C41F0E930E00D62BC0 /* AppDelegate.swift */; };
 		CBF141C71F0E930E00D62BC0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF141C61F0E930E00D62BC0 /* ViewController.swift */; };
 		CBF141CA1F0E930E00D62BC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBF141C81F0E930E00D62BC0 /* Main.storyboard */; };
-		CBF141CC1F0E930E00D62BC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBF141CB1F0E930E00D62BC0 /* Assets.xcassets */; };
 		CBF141CF1F0E930E00D62BC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBF141CD1F0E930E00D62BC0 /* LaunchScreen.storyboard */; };
 		CBF141D71F0EB7BE00D62BC0 /* ScheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF141D61F0EB7BE00D62BC0 /* ScheViewController.swift */; };
 		CBF141DA1F0EB7E300D62BC0 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF141D91F0EB7E300D62BC0 /* CALayer.swift */; };
-		F5E94698A7ACFF1212FBEBC6 /* Pods_booIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31886B967B91808542151C85 /* Pods_booIOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		31886B967B91808542151C85 /* Pods_booIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_booIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E6E4BD7EB0E109AEB56EA03 /* Pods-booIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booIOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-booIOS/Pods-booIOS.release.xcconfig"; sourceTree = "<group>"; };
-		AEBD01AB29124A4254FEE41E /* Pods-booIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booIOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-booIOS/Pods-booIOS.debug.xcconfig"; sourceTree = "<group>"; };
+		354220A2D72C5D9C7FD841AF /* Pods-booIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booIOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-booIOS/Pods-booIOS.release.xcconfig"; sourceTree = "<group>"; };
+		41E12408C5ADABBA709C5C4E /* Pods-booIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booIOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-booIOS/Pods-booIOS.debug.xcconfig"; sourceTree = "<group>"; };
+		6BC7F8CBA4291B83F8FE7AF5 /* Pods_booIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_booIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB00E8731F1779B50023A62B /* roundConers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = roundConers.swift; sourceTree = "<group>"; };
 		CB00E8761F178AFF0023A62B /* NoticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		CB00E87A1F178EA10023A62B /* NoticeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeCell.swift; sourceTree = "<group>"; };
 		CB15BC411F25FDA300371B5C /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		CB15BC441F2622A300371B5C /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		CB15BC461F2622B600371B5C /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		CB170D2A1F2799C3008BFFBD /* MenuInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuInfo.swift; sourceTree = "<group>"; };
+		CB170D2C1F2799CD008BFFBD /* TimeTableInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTableInfo.swift; sourceTree = "<group>"; };
+		CB170D2D1F2799CD008BFFBD /* TimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCell.swift; sourceTree = "<group>"; };
 		CB1F4AB71F14C4CF009AACCC /* ResViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResViewController.swift; sourceTree = "<group>"; };
 		CB1F4AB81F14C4CF009AACCC /* ResCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResCell.swift; sourceTree = "<group>"; };
 		CB1F4AC21F14C968009AACCC /* ProfViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfViewController.swift; sourceTree = "<group>"; };
@@ -78,9 +90,13 @@
 		CB1F4AE01F14E6E2009AACCC /* SeatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeatViewController.swift; sourceTree = "<group>"; };
 		CB1F4AEC1F14F20E009AACCC /* DesignableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTextField.swift; sourceTree = "<group>"; };
 		CB1F4AEE1F14F921009AACCC /* UITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
-		CB3C48D01F24FA3C001B9995 /* SiteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteViewController.swift; sourceTree = "<group>"; };
+		CB6CA3631F270481003C07AA /* PushViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushViewController.swift; sourceTree = "<group>"; };
+		CB6CA5611F275D1F003C07AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB83924C1F21C79500705B35 /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		CB83924E1F21CDCA00705B35 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		CB9E5C531F2859EA00203845 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CB9E5C551F285A2500203845 /* booIOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "booIOS-Bridging-Header.h"; sourceTree = "<group>"; };
+		CB9E5C561F285A2500203845 /* Obj-Header-bridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Obj-Header-bridge.m"; sourceTree = "<group>"; };
 		CBB50FCB1F1F682B0042EB47 /* ToolsAnimation.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ToolsAnimation.plist; sourceTree = "<group>"; };
 		CBBAC80E1F1C791900669572 /* StuTabBarContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StuTabBarContoller.swift; sourceTree = "<group>"; };
 		CBBAC8161F1C889300669572 /* StuPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StuPageViewController.swift; sourceTree = "<group>"; };
@@ -97,7 +113,6 @@
 		CBF141C41F0E930E00D62BC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBF141C61F0E930E00D62BC0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CBF141C91F0E930E00D62BC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CBF141CB1F0E930E00D62BC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBF141CE1F0E930E00D62BC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CBF141D01F0E930E00D62BC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBF141D61F0EB7BE00D62BC0 /* ScheViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheViewController.swift; sourceTree = "<group>"; };
@@ -109,28 +124,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5E94698A7ACFF1212FBEBC6 /* Pods_booIOS.framework in Frameworks */,
+				368415EFDE6A3115FA2290DD /* Pods_booIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		426CCFC1D29CEE527AD33E39 /* Pods */ = {
+		2EED703BAC225E7D0D4A3514 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				AEBD01AB29124A4254FEE41E /* Pods-booIOS.debug.xcconfig */,
-				5E6E4BD7EB0E109AEB56EA03 /* Pods-booIOS.release.xcconfig */,
+				41E12408C5ADABBA709C5C4E /* Pods-booIOS.debug.xcconfig */,
+				354220A2D72C5D9C7FD841AF /* Pods-booIOS.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		B7E897C8EE743486958C3A4C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				31886B967B91808542151C85 /* Pods_booIOS.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		CB00E8751F178ADC0023A62B /* Notice */ = {
@@ -140,6 +147,33 @@
 				CB00E87A1F178EA10023A62B /* NoticeCell.swift */,
 			);
 			path = Notice;
+			sourceTree = "<group>";
+		};
+		CB15BC431F26226600371B5C /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				CB15BC441F2622A300371B5C /* SettingViewController.swift */,
+				CB15BC461F2622B600371B5C /* SettingTableViewCell.swift */,
+				CB6CA3631F270481003C07AA /* PushViewController.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		CB170D301F2799D4008BFFBD /* HRes */ = {
+			isa = PBXGroup;
+			children = (
+				CB170D2A1F2799C3008BFFBD /* MenuInfo.swift */,
+			);
+			path = HRes;
+			sourceTree = "<group>";
+		};
+		CB170D311F2799DC008BFFBD /* HSchedule */ = {
+			isa = PBXGroup;
+			children = (
+				CB170D2C1F2799CD008BFFBD /* TimeTableInfo.swift */,
+				CB170D2D1F2799CD008BFFBD /* TimeCell.swift */,
+			);
+			path = HSchedule;
 			sourceTree = "<group>";
 		};
 		CB1F4AB61F14C4AD009AACCC /* Res */ = {
@@ -215,14 +249,6 @@
 			path = Seat;
 			sourceTree = "<group>";
 		};
-		CB3C48CF1F24F974001B9995 /* Site */ = {
-			isa = PBXGroup;
-			children = (
-				CB3C48D01F24FA3C001B9995 /* SiteViewController.swift */,
-			);
-			path = Site;
-			sourceTree = "<group>";
-		};
 		CB8392491F21C75E00705B35 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +270,8 @@
 		CBE0B70A1F1FC49900560F1A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				CB170D311F2799DC008BFFBD /* HSchedule */,
+				CB170D301F2799D4008BFFBD /* HRes */,
 				CBE0B70D1F1FC4E400560F1A /* HomeViewController.swift */,
 			);
 			path = Home;
@@ -324,8 +352,8 @@
 			children = (
 				CBF141C31F0E930E00D62BC0 /* booIOS */,
 				CBF141C21F0E930E00D62BC0 /* Products */,
-				426CCFC1D29CEE527AD33E39 /* Pods */,
-				B7E897C8EE743486958C3A4C /* Frameworks */,
+				2EED703BAC225E7D0D4A3514 /* Pods */,
+				EED0196E089905B2B3C4A2FA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -340,7 +368,7 @@
 		CBF141C31F0E930E00D62BC0 /* booIOS */ = {
 			isa = PBXGroup;
 			children = (
-				CB3C48CF1F24F974001B9995 /* Site */,
+				CB15BC431F26226600371B5C /* Setting */,
 				CB8392491F21C75E00705B35 /* Menu */,
 				CBE0B70A1F1FC49900560F1A /* Home */,
 				CBB50FCA1F1F682B0042EB47 /* Resources */,
@@ -357,9 +385,12 @@
 				CBF141C41F0E930E00D62BC0 /* AppDelegate.swift */,
 				CBF141C61F0E930E00D62BC0 /* ViewController.swift */,
 				CBF141C81F0E930E00D62BC0 /* Main.storyboard */,
-				CBF141CB1F0E930E00D62BC0 /* Assets.xcassets */,
 				CBF141CD1F0E930E00D62BC0 /* LaunchScreen.storyboard */,
 				CBF141D01F0E930E00D62BC0 /* Info.plist */,
+				CB6CA5611F275D1F003C07AA /* Assets.xcassets */,
+				CB9E5C531F2859EA00203845 /* Constants.swift */,
+				CB9E5C561F285A2500203845 /* Obj-Header-bridge.m */,
+				CB9E5C551F285A2500203845 /* booIOS-Bridging-Header.h */,
 			);
 			path = booIOS;
 			sourceTree = "<group>";
@@ -387,11 +418,19 @@
 			isa = PBXGroup;
 			children = (
 				CBBAC8161F1C889300669572 /* StuPageViewController.swift */,
-				CB1F4AD41F14E262009AACCC /* Achive */,
 				CB1F4AD31F14E25D009AACCC /* Grade */,
+				CB1F4AD41F14E262009AACCC /* Achive */,
 				CB1F4AD21F14E255009AACCC /* Sche */,
 			);
 			path = Stu;
+			sourceTree = "<group>";
+		};
+		EED0196E089905B2B3C4A2FA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6BC7F8CBA4291B83F8FE7AF5 /* Pods_booIOS.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -401,12 +440,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CBF141D31F0E930E00D62BC0 /* Build configuration list for PBXNativeTarget "booIOS" */;
 			buildPhases = (
-				C49C1F8266E39990322796B2 /* [CP] Check Pods Manifest.lock */,
+				1A351B2BF290F038F4855ECD /* [CP] Check Pods Manifest.lock */,
 				CBF141BD1F0E930E00D62BC0 /* Sources */,
 				CBF141BE1F0E930E00D62BC0 /* Frameworks */,
 				CBF141BF1F0E930E00D62BC0 /* Resources */,
-				E28528F97F4171732B92D8D1 /* [CP] Embed Pods Frameworks */,
-				F414DAEB9C3218804110990A /* [CP] Copy Pods Resources */,
+				F2D9E3A7DB5A644522CDD768 /* [CP] Embed Pods Frameworks */,
+				E402523F51D91EFA47AF25D7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -430,6 +469,7 @@
 					CBF141C01F0E930E00D62BC0 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 74QTHQ5M6T;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -458,8 +498,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBF141CF1F0E930E00D62BC0 /* LaunchScreen.storyboard in Resources */,
-				CBF141CC1F0E930E00D62BC0 /* Assets.xcassets in Resources */,
 				CBF141CA1F0E930E00D62BC0 /* Main.storyboard in Resources */,
+				CB6CA5621F275D1F003C07AA /* Assets.xcassets in Resources */,
 				CBB50FCC1F1F682B0042EB47 /* ToolsAnimation.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -467,7 +507,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		C49C1F8266E39990322796B2 /* [CP] Check Pods Manifest.lock */ = {
+		1A351B2BF290F038F4855ECD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -482,22 +522,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		E28528F97F4171732B92D8D1 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-booIOS/Pods-booIOS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F414DAEB9C3218804110990A /* [CP] Copy Pods Resources */ = {
+		E402523F51D91EFA47AF25D7 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -512,6 +537,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-booIOS/Pods-booIOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F2D9E3A7DB5A644522CDD768 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-booIOS/Pods-booIOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -522,12 +562,13 @@
 				CBEC50DC1F1DE381009C7655 /* RAMFrameItemAnimation.swift in Sources */,
 				CB1F4ADC1F14E561009AACCC /* GradeViewController.swift in Sources */,
 				CBBAC80F1F1C791900669572 /* StuTabBarContoller.swift in Sources */,
-				CB3C48D11F24FA3C001B9995 /* SiteViewController.swift in Sources */,
+				CB9E5C571F285A2500203845 /* Obj-Header-bridge.m in Sources */,
 				CB1F4AED1F14F20E009AACCC /* DesignableTextField.swift in Sources */,
 				CB1F4AD71F14E2BF009AACCC /* AchiveViewController.swift in Sources */,
 				CBE0B70E1F1FC4E400560F1A /* HomeViewController.swift in Sources */,
 				CBF141D71F0EB7BE00D62BC0 /* ScheViewController.swift in Sources */,
 				CB1F4AEF1F14F921009AACCC /* UITextField.swift in Sources */,
+				CB170D2B1F2799C3008BFFBD /* MenuInfo.swift in Sources */,
 				CB1F4AB91F14C4CF009AACCC /* ResViewController.swift in Sources */,
 				CB1F4AC71F14C968009AACCC /* ProfCell.swift in Sources */,
 				CBEC50DE1F1DE381009C7655 /* RAMRotationAnimation.swift in Sources */,
@@ -543,7 +584,10 @@
 				CB1F4AD11F14DF3F009AACCC /* EmptyRoomCustomCell.swift in Sources */,
 				CB00E87B1F178EA10023A62B /* NoticeCell.swift in Sources */,
 				CB00E8741F1779B50023A62B /* roundConers.swift in Sources */,
+				CB170D2F1F2799CD008BFFBD /* TimeCell.swift in Sources */,
+				CB15BC471F2622B600371B5C /* SettingTableViewCell.swift in Sources */,
 				CBBAC8171F1C889300669572 /* StuPageViewController.swift in Sources */,
+				CB170D2E1F2799CD008BFFBD /* TimeTableInfo.swift in Sources */,
 				CB1F4AE11F14E6E2009AACCC /* SeatViewController.swift in Sources */,
 				CBF141C71F0E930E00D62BC0 /* ViewController.swift in Sources */,
 				CB83924F1F21CDCA00705B35 /* MenuViewController.swift in Sources */,
@@ -551,9 +595,12 @@
 				CB1F4AC61F14C968009AACCC /* ProfViewController.swift in Sources */,
 				CBEC50DF1F1DE381009C7655 /* RAMTransitionItemAnimations.swift in Sources */,
 				CB15BC421F25FDA300371B5C /* HeaderCollectionReusableView.swift in Sources */,
+				CB9E5C541F2859EA00203845 /* Constants.swift in Sources */,
 				CBEC50E21F1DE381009C7655 /* RAMItemAnimationProtocol.swift in Sources */,
 				CB1F4ACC1F14DD80009AACCC /* LoginViewController.swift in Sources */,
 				CB1F4AC91F14C968009AACCC /* ProfDetailCell.swift in Sources */,
+				CB6CA3641F270481003C07AA /* PushViewController.swift in Sources */,
+				CB15BC451F2622A300371B5C /* SettingViewController.swift in Sources */,
 				CBF141C51F0E930E00D62BC0 /* AppDelegate.swift in Sources */,
 				CBEC50E11F1DE381009C7655 /* RAMBadge.swift in Sources */,
 				CB1F4ADF1F14E6C4009AACCC /* SeatTableViewCell.swift in Sources */,
@@ -678,28 +725,33 @@
 		};
 		CBF141D41F0E930E00D62BC0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AEBD01AB29124A4254FEE41E /* Pods-booIOS.debug.xcconfig */;
+			baseConfigurationReference = 41E12408C5ADABBA709C5C4E /* Pods-booIOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 74QTHQ5M6T;
 				INFOPLIST_FILE = booIOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = book.booIOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "booIOS/booIOS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		CBF141D51F0E930E00D62BC0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5E6E4BD7EB0E109AEB56EA03 /* Pods-booIOS.release.xcconfig */;
+			baseConfigurationReference = 354220A2D72C5D9C7FD841AF /* Pods-booIOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 74QTHQ5M6T;
 				INFOPLIST_FILE = booIOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = book.booIOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "booIOS/booIOS-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

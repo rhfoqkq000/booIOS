@@ -26,8 +26,6 @@ class StuPageViewController: UIPageViewController, UIPageViewControllerDelegate,
         self.dataSource = self
         self.delegate = self
         
-        
-        
         // This sets up the first view that will show up on our page control
         if let firstViewController = orderedViewControllers.first {
             setViewControllers([firstViewController],
@@ -35,7 +33,7 @@ class StuPageViewController: UIPageViewController, UIPageViewControllerDelegate,
                                animated: true,
                                completion: nil)
         }
-        
+
         configurePageControl()
         
         // Do any additional setup after loading the view.
@@ -43,12 +41,12 @@ class StuPageViewController: UIPageViewController, UIPageViewControllerDelegate,
     
     func configurePageControl() {
         // The total number of pages that are available is based on how many available colors we have.
-        pageControl = UIPageControl(frame: CGRect(x: 0,y: UIScreen.main.bounds.maxY - 50,width: UIScreen.main.bounds.width,height: 50))
+        pageControl = UIPageControl(frame: CGRect(x: 0,y: UIScreen.main.bounds.maxY - 100,width: UIScreen.main.bounds.width,height: 50))
         self.pageControl.numberOfPages = orderedViewControllers.count
         self.pageControl.currentPage = 0
-        self.pageControl.tintColor = UIColor.black
+        self.pageControl.tintColor = UIColor(red: 247/255, green: 148/255, blue: 122/255, alpha: 1.0)
         self.pageControl.pageIndicatorTintColor = UIColor.lightGray
-        self.pageControl.currentPageIndicatorTintColor = UIColor.black
+        self.pageControl.currentPageIndicatorTintColor = UIColor(red: 247/255, green: 148/255, blue: 122/255, alpha: 1.0)
         self.view.addSubview(pageControl)
     }
     

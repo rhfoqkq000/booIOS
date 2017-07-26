@@ -9,6 +9,7 @@ target 'booIOS' do
     pod 'SwiftyJSON'
     pod ‘DropDown’, ‘~> 2’
     pod ‘Toaster’
-    pod 'Material', '~> 2.6'
+    pod 'RNCryptor', '~> 5.0'
+    pod 'couchbase-lite-ios', '~> 1.4.0'
     pod 'RAMAnimatedTabBarController', "~> 2.0.13"
 end
