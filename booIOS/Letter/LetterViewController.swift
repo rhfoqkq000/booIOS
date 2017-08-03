@@ -10,13 +10,11 @@ import UIKit
 
 class LetterViewController: UIViewController {
     
-    
-    @IBOutlet weak var segmentCtr: TabySegmentedControl!
     var container: ContainerViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        segmentCtr.initUI()
+ 
         
     }
     

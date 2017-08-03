@@ -100,7 +100,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                                                     print("욧시 디바이스정보가들어갔어")
                                                                     
                                                                 }else{
-                                                                    print("result code not matched")
+                                                                    print("디바이스 정보 입력 후의 result code not matched")
                                                                 }
                                                             case .failure(let error):
                                                                 self.con.toastText("불러오기 실패")
@@ -132,7 +132,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                                                     print("욧시 디바이스 정보가 고쳐졌어")
                                                                     
                                                                 }else{
-                                                                    print("result code not matched")
+                                                                    print("디바이스 정보 고쳐지고 나서 result code not matched")
                                                                 }
                                                             case .failure(let error):
                                                                 self.con.toastText("불러오기 실패")
