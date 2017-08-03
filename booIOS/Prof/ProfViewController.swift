@@ -12,8 +12,7 @@ import Alamofire
 class ProfViewController: UITableViewController{
 
     @IBOutlet weak var tableview: UITableView!
-    
-    
+        
     let sections = ["경영대학", "사회과학대학"]
     let manage = ["경영학과", "국제관광학과", "국제무역학과", "경영정보학과"]
     let society = ["정치외교학과", "행정학과", "사회학과", "사회복지학과", "미디어커뮤니케이션학과","경제학과", "금융학과"]
@@ -34,7 +33,6 @@ class ProfViewController: UITableViewController{
     
 //    섹션정하기
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
         return sections[section]
     }
     

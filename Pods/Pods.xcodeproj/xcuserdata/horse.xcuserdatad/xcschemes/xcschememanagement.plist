@@ -14,7 +14,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>GTMSessionFetcher.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>GoogleToolboxForMac.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-booIOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Protobuf.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -29,6 +44,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RaisePlaceholder.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -39,30 +59,20 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>nanopb.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1356EA9AB5049530F2A660D9FB6CE4A0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>5168099F2EBFC99A707C03C9EADE01A5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>53EE7D6A452BCA5BD2A758233CC3C293</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>710420AEAB2A866B3D11A0360E7DB5D5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7B616EA10A9CF0AA924F3C4C084571C8</key>
+		<key>6D5CEDECD3D8DC52EA507E0431BDA8A0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,7 +82,47 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F1410EFA2669DD346BEE97451E259CCF</key>
+		<key>8D196CEFF7D85A3EAED7A87F6622BBA0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>979ADA330DB144AD70F56AFCB3AAEA86</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>98C1B1D21D4C756ADF22FF95AB5CFCE7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9F7EB7B3F88C9F01D7D2375630E42137</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A42A21E2FDFDAE1723301FDCF18F5569</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BE45A77EEFC3D39B77E43726A9195065</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C052BEBFBD0AB5218CC64BA3450F6547</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E4DD95323C54A78F879DAB0F1508B8E7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F89600D604BCC00925EFCADE8A1CBA18</key>
 		<dict>
 			<key>primary</key>
 			<true/>

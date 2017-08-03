@@ -9,12 +9,17 @@
 import Foundation
 
 class TimeTableInfo {
-    var index = Int()
-    var type = String()
+    var index = Int()//숫자
+    var type = String()//노말은 3개, 비정상은 3개 아닌것
     var title = String()
     var startTime = Int()
     var endTime = Int()
     var room = String()
     var time = String()
     var day = String()
+    
+    func convertToDictionary() -> [String : Any] {
+        let dic: [String: Any] = ["index":index, "type":type, "title":title, "startTime":startTime, "endTime":endTime, "room":room, "time":time, "day":day]
+        return dic
+    }
 }

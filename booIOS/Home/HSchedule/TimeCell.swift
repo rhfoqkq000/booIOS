@@ -13,6 +13,7 @@ class TimeCell: UITableViewCell {
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var roomLabel: UILabel!
+    @IBOutlet weak var noText: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

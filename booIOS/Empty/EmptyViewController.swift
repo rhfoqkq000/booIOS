@@ -21,15 +21,16 @@ class EmptyViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet var secondTimeDropdownButton: UIButton!
     let secondTimeDropdown = DropDown()
     
+    let con = Constants()
+    
     @IBOutlet var selectButton: UIButton!
     
     let dayList = ["월", "화", "수", "목", "금"]
     let fromTimeList = ["3(09:00~09:30)", "4(09:30~10:00)", "5(10:00~10:30)", "6(10:30~11:00)", "7(11:00~11:30)", "8(11:30~12:00)", "9(12:00~12:30)", "10(12:30~13:00)", "11(13:00~13:30)", "12(13:30~14:00)", "13(14:00~14:30)", "14(14:30~15:00)", "15(15:00~15:30)", "16(15:30~16:00)", "17(16:00~16:30)", "18(16:30~17:00)", "19(17:00~17:30)", "20(17:30~18:00)"]
+    
     var toTimeList:[String] = []
     
     var selectedDay = ""
-//    var selectedFromTime = "3(09:00~09:30)"
-//    var selectedToTime = "3(09:00~09:30)"
     
     var numberOfList:JSON = [:]
     
@@ -37,13 +38,12 @@ class EmptyViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     
     @IBAction func dayDropdownButtonAction(_ sender: AnyObject) {
-                dayDropdown.anchorView = dayDropdownButton
-                dayDropdown.dataSource = dayList
-                dayDropdown.selectionAction = {[unowned self](index, item) in
-                    self.dayDropdownButton.setTitle(item, for: UIControlState.normal)
-                }
-                dayDropdown.show()
-                print(dayDropdownButton.currentTitle!)
+        dayDropdown.anchorView = dayDropdownButton
+        dayDropdown.dataSource = dayList
+        dayDropdown.selectionAction = {[unowned self](index, item) in
+            self.dayDropdownButton.setTitle(item, for: UIControlState.normal)
+        }
+        dayDropdown.show()
     }
     
     @IBAction func firstTimeDropdownButtonAction(_ sender: AnyObject) {
@@ -56,7 +56,6 @@ class EmptyViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 self.toTimeList.append(self.fromTimeList[i])
             }
             self.secondTimeDropdownButton.setTitle(self.toTimeList[0], for: UIControlState.normal)
-            print(self.toTimeList)
         }
         firstTimeDropdown.show()
     }
@@ -70,13 +69,6 @@ class EmptyViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         secondTimeDropdown.show()
     }
-    
-    
-    func toastText(_ text:String){
-        let toast = Toast(text: text, duration:Delay.short)
-        toast.show()
-    }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,8 +105,6 @@ class EmptyViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func substringFirstCharacter(_ string:String)->String{
-        //let index = string.index((string.startIndex), offsetBy: 1)
-        //return string.substring(to: index)
         return string.components(separatedBy: "(")[0]
     }
     
@@ -150,11 +140,11 @@ class EmptyViewController: UIViewController, UITableViewDelegate, UITableViewDat
                                 if json["result_code"] == 1{
                                     self.numberOfList = json["result_body"]
                                 }else{
-                                    self.toastText("불러오기 실패")
+                                    self.con.toastText("불러오기 실패")
                                 }
                             case .failure(let error):
                                 print(error)
-                                self.toastText("불러오기 실패")
+                                self.con.toastText("불러오기 실패")
                             }
                             
                             DispatchQueue.main.async {

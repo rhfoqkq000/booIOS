@@ -14,6 +14,7 @@ struct Ctrls {
     let notice = "NoticeController"
     let setting = "SettingViewController"
     let login = "loginViewController"
+    let letter = "LetterViewController"
 }
 
 class MenuViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
@@ -98,6 +99,7 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 break
 //                쪽지함
             case 2:
+                  self.navigationController?.pushViewController(returnTargetCtrl(ctrls.letter),animated: true)
                 break
 //                사이트
             case 3:
@@ -133,6 +135,8 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 
                 userDefaults.removeObject(forKey: "stuId")
                 userDefaults.removeObject(forKey: "stuPw")
+                userDefaults.removeObject(forKey: "id")
+                userDefaults.removeObject(forKey: "deviceInserted")
             
 //                화면 바꾸기
                 let trans = self.storyboard!.instantiateViewController(withIdentifier: ctrls.login)

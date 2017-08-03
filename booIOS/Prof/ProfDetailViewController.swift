@@ -15,6 +15,7 @@ class ProfDetailViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var tableview: UITableView!
     
+    let con = Constants()
     
 //    선택한 셀의 학과를 받아오기 위한 값
     var major :String = ""
@@ -39,15 +40,19 @@ class ProfDetailViewController: UIViewController, UITableViewDataSource, UITable
                             switch response.result{
                             case .success(let value):
                                 let json = JSON(value)
-                                self.profArray = json["result_body"]
+                                if json["result_code"] == 1{
+                                    self.profArray = json["result_body"]
+                                }else{
+                                    print("ProfDetailViewController result code not matched")
+                                    self.con.toastText("불러오기 실패")
+                                }
                           
                             case .failure(let error):
+                                self.con.toastText("불러오기 실패")
                                 print(error)
                             }
                             
                             DispatchQueue.main.async {
-                                //                        print("Main: \(Thread.current) is main thread: \(Thread.isMainThread)")
-                                
                                 //UI 업데이트는 여기
                                 self.indicator.stopAnimating()
                                 self.tableview.reloadData()
@@ -65,10 +70,10 @@ class ProfDetailViewController: UIViewController, UITableViewDataSource, UITable
         let cell = tableView.dequeueReusableCell(withIdentifier: "majorCell", for: indexPath) as! ProfDetailCell
         
         if profArray.isEmpty {
+            self.con.toastText("불러오기 실패")
             print("어이쿠 저런...")
         } else {
             let dicTemp = profArray[indexPath.row]
-            
             
             cell.profName.text = dicTemp["name"].string!
             cell.profMajor.text = dicTemp["major"].string!

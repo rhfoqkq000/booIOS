@@ -18,12 +18,15 @@ class AchiveViewController: UIViewController, UITableViewDataSource, UITableView
     
     var jsonGrade:JSON = [:]
     
+    var jsonDetail:JSON = [:]
+    
+    let con = Constants()
+    
     let TotalSpeList = ["전체학기성적", "일부학기성적"]
     var yearList:[String] = []
     //테이블뷰에서 쓰이는 연도+학기
     var yearTermList:[String] = []
     
-//    var test = 0
     var resultArr = [[GradeInfo]]()
     var year = ["2011 1","2011 2","2015 1","2015 2","2016 1","2016 2","2017 1"]
     var infosArr = [GradeInfo]()
@@ -160,7 +163,7 @@ class AchiveViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        toastText("이수구분 : \(resultArr[indexPath.section][indexPath.row].seperator), 학점 : \(resultArr[indexPath.section][indexPath.row].point)")
+        con.toastText("이수구분 : \(resultArr[indexPath.section][indexPath.row].seperator), 학점 : \(resultArr[indexPath.section][indexPath.row].point)")
     }
     
     
@@ -172,7 +175,7 @@ class AchiveViewController: UIViewController, UITableViewDataSource, UITableView
             getJSON(userDefaults.string(forKey: "stuId")!, userDefaults.string(forKey: "stuPw")!, "", "")
             
         }else{
-            toastText("항목을 선택해주세요.")
+            con.toastText("항목을 선택해주세요.")
         }
     }
     
@@ -183,20 +186,12 @@ class AchiveViewController: UIViewController, UITableViewDataSource, UITableView
             if dropdownSpeButton.currentTitle != "년도" && dropdownDetailButton.currentTitle != "선택해주세요."{
             getJSON(userDefaults.string(forKey: "stuId")!, userDefaults.string(forKey: "stuPw")!, dropdownSpeButton.title(for: UIControlState.normal)!, detailSpeDict[dropdownDetailButton.title(for: UIControlState.normal)!]!)
             }else{
-                toastText("항목을 선택해주세요.")
+                con.toastText("항목을 선택해주세요.")
 
             }
         }else{
-            toastText("항목을 선택해주세요.")
+            con.toastText("항목을 선택해주세요.")
         }
-    }
-    
-    
-
-    func toastText(_ text:String){
-        ToastCenter.default.cancelAll()
-        let toast = Toast(text: text, duration:Delay.short)
-        toast.show()
     }
     
     func getJSON(_ id:String, _ pw:String, _ year:String, _ smt:String){
@@ -210,81 +205,76 @@ class AchiveViewController: UIViewController, UITableViewDataSource, UITableView
                             case .success(let value):
                                 let json = JSON(value)
                                 if json["result_code"] == 1{
-                                    let jsonDetail = json["result_body"]["detail"]
-                                    var info = GradeInfo()
-                                    
+                                    self.jsonDetail = json["result_body"]["detail"]
                                     self.jsonGrade = json["result_body"]
-                            
                                     self.fillArr = []
                                     self.resultArr = []
                                     self.checkList = []
                                     self.infosArr = []
                                     
-                                    var fillIdx = 0
-                                    print("jsonDetail.count = \(jsonDetail.count)")
-                                    for i in 1..<jsonDetail.count{
-                                        
-                                        if self.checkWhiteSpace(jsonDetail[i][0].stringValue) == true {
-                                            info.year = jsonDetail[fillIdx][0].stringValue
-                                            info.term = jsonDetail[fillIdx][1].stringValue
-                                            info.lecName = jsonDetail[i][3].stringValue
-                                            info.seperator = jsonDetail[i][4].stringValue
-                                            info.point = jsonDetail[i][5].stringValue
-                                            info.grade = jsonDetail[i][6].stringValue
-                                            
-                                            self.infosArr.append(info)
-                                            if i == jsonDetail.count-1 {
-                                                self.fillArr.append(i+1)
-                                            }
-                                        } else {
-                                            fillIdx = i
-                                            info.year = jsonDetail[fillIdx][0].stringValue
-                                            info.term = jsonDetail[fillIdx][1].stringValue
-                                            info.lecName = jsonDetail[i][3].stringValue
-                                            info.seperator = jsonDetail[i][4].stringValue
-                                            info.point = jsonDetail[i][5].stringValue
-                                            info.grade = jsonDetail[i][6].stringValue
-                                            
-                                            self.infosArr.append(info)
-                                            self.fillArr.append(fillIdx)
-                                            if i == jsonDetail.count-1 {
-                                                self.fillArr.append(i+1)
-                                            }
-                                        }
-                                    }
-                                    for i in 0..<self.fillArr.count {
-                                        if i < self.fillArr.count-1 {
-                                            self.checkList.append(abs(self.fillArr[i] - self.fillArr[i+1]))
-                                        }
-                                    }
-                                    print("self.infosArr : \(self.infosArr)")
-                                    print("self.fillArr : \(self.fillArr)")
-                                    print("self.fillArr.count : \(self.fillArr.count)")
-                                    for i in 0..<self.fillArr.count {
-                                        if i == 1 {
-                                            let tempArr = self.infosArr[0..<self.fillArr[i]-1]
-                                            print("tempArr1 : \(i),\(tempArr)\n")
-                                            self.resultArr.append(Array(tempArr))
-                                        } else if (i>1) {
-                                            if i < self.fillArr.count {
-                                                let tempArr = self.infosArr[self.fillArr[i-1]-1..<self.fillArr[i]-1]
-                                                print("tempArr2 : \(i),\(tempArr)\n")
-                                                self.resultArr.append(Array(tempArr))
-                                            }
-                                        }
-                                    }
                                 }else{
-                                    print("result_code not matched")
-                                    self.toastText("불러오기 실패")
+                                    print("AchievViewController result_code not matched")
+                                    self.con.toastText("불러오기 실패")
                                 }
                                 
                             case .failure(let error):
                                 print(error)
-                                self.toastText("불러오기 실패")
+                                self.con.toastText("불러오기 실패")
                             }
                             
                             DispatchQueue.main.async {
                                 //UI 업데이트는 여기
+                                
+                                var info = GradeInfo()
+                                var fillIdx = 0
+                                let jsonDetail = self.jsonDetail
+                                for i in 1..<jsonDetail.count{
+                                    if self.checkWhiteSpace(jsonDetail[i][0].stringValue) == true {
+                                        info.year = jsonDetail[fillIdx][0].stringValue
+                                        info.term = jsonDetail[fillIdx][1].stringValue
+                                        info.lecName = jsonDetail[i][3].stringValue
+                                        info.seperator = jsonDetail[i][4].stringValue
+                                        info.point = jsonDetail[i][5].stringValue
+                                        info.grade = jsonDetail[i][6].stringValue
+                                        
+                                        self.infosArr.append(info)
+                                        if i == jsonDetail.count-1 {
+                                            self.fillArr.append(i+1)
+                                        }
+                                    } else {
+                                        fillIdx = i
+                                        info.year = jsonDetail[fillIdx][0].stringValue
+                                        info.term = jsonDetail[fillIdx][1].stringValue
+                                        info.lecName = jsonDetail[i][3].stringValue
+                                        info.seperator = jsonDetail[i][4].stringValue
+                                        info.point = jsonDetail[i][5].stringValue
+                                        info.grade = jsonDetail[i][6].stringValue
+                                        
+                                        self.infosArr.append(info)
+                                        self.fillArr.append(fillIdx)
+                                        if i == jsonDetail.count-1 {
+                                            self.fillArr.append(i+1)
+                                        }
+                                    }
+                                }
+                                for i in 0..<self.fillArr.count {
+                                    if i < self.fillArr.count-1 {
+                                        self.checkList.append(abs(self.fillArr[i] - self.fillArr[i+1]))
+                                    }
+                                }
+                                for i in 0..<self.fillArr.count {
+                                    if i == 1 {
+                                        let tempArr = self.infosArr[0..<self.fillArr[i]-1]
+                                        print("tempArr1 : \(i),\(tempArr)\n")
+                                        self.resultArr.append(Array(tempArr))
+                                    } else if (i>1) {
+                                        if i < self.fillArr.count {
+                                            let tempArr = self.infosArr[self.fillArr[i-1]-1..<self.fillArr[i]-1]
+                                            print("tempArr2 : \(i),\(tempArr)\n")
+                                            self.resultArr.append(Array(tempArr))
+                                        }
+                                    }
+                                }
                                 
                                 self.achievedGradeLabel.text = self.jsonGrade["allGrade"].stringValue
                                 self.averageGradeLabel.text = self.jsonGrade["avgGrade"].stringValue
@@ -292,7 +282,6 @@ class AchiveViewController: UIViewController, UITableViewDataSource, UITableView
                                 self.speGradeTableView.reloadData()
 //                                self.speGradeTableView.reloadSections([self.checkList.count-1], with: .none)
 //                                self.speGradeTableView.reloadData()
-
                             }
             }
         )

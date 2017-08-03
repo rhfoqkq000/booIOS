@@ -27,6 +27,8 @@ class ScheViewController: UIViewController {
     
     let userDefaults = UserDefaults()
     
+    let con = Constants()
+    
     let oneColor:UIColor = UIColor(red: 255/255, green: 231/255, blue: 150/255, alpha: 1.0)
     let twoColor:UIColor = UIColor(red: 251/255, green: 187/255, blue: 153/255, alpha: 1.0)
     let threeColor:UIColor = UIColor(red: 250/255, green: 243/255, blue: 223/255, alpha: 1.0)
@@ -84,12 +86,16 @@ class ScheViewController: UIViewController {
                             switch response.result{
                             case .success(let value):
                                 let json = JSON(value)
-                                self.scheduleArray = json["result_body"]
-                                
+                                if json["result_code"] == 1{
+                                    self.scheduleArray = json["result_body"]
+                                }else{
+                                    print("ScheViewController")
+                                    self.con.toastText("불러오기 실패")
+                                }
                                 
                             case .failure(let error):
                                 print(error)
-                                
+                                self.con.toastText("불러오기 실패")
                             }
                             
                             DispatchQueue.main.async {

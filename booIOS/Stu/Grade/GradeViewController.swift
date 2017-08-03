@@ -40,6 +40,8 @@ class GradeViewController: UIViewController {
     
     var result_body:JSON = [:]
     
+    let con = Constants()
+    
     let userDefaults = UserDefaults()
 
     override func viewDidLoad() {
@@ -65,10 +67,16 @@ class GradeViewController: UIViewController {
                             switch response.result{
                             case .success(let value):
                                 let json = JSON(value)
-                                self.result_body = json["result_body"]
+                                if json["result_code"] == 1{
+                                    self.result_body = json["result_body"]
+                                }else{
+                                    print("GradeViewController result code not matched")
+                                    self.con.toastText("불러오기 실패")
+                                }
                                 
                             case .failure(let error):
                                 print(error)
+                                self.con.toastText("불러오기 실패")
                             }
                             
                             DispatchQueue.main.async {

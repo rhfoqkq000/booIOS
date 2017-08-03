@@ -17,17 +17,18 @@ class ResViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet var indicator: UIActivityIndicatorView!
 
-    
-    
+
     //        오늘 날짜 얻어오기
     let date = Date()
     let formatter = DateFormatter()
     var result:String = ""
     var count = 0.0
     
-    let name = ["국제관", "교직원", "종합강의동"]
+    let name = [ "종합강의동","국제관", "교직원"]
     var content = [String?]()
     var cell = ResCell()
+    
+    let con = Constants()
     
     var convert = Date()
 
@@ -59,45 +60,47 @@ class ResViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             Alamofire.request(todoEndpoint, method: .get).validate()
                 .responseJSON(queue: queue,
                               completionHandler : { response in
-                        // You are now running on the concurrent `queue` you created earlier.
                         var inter : String = ""
                         var gang  : String = ""
                         var bumin_kyo  : String = ""
                         self.content.removeAll()
                                 
-                        print("Parsing JSON on thread: \(Thread.current) is main thread: \(Thread.isMainThread)")
-                                
                         switch response.result{
                         case .success(let value):
                             let json = JSON(value)
-                            print(value)
-                            inter = json["result_body"]["inter"].stringValue
-                            gang = json["result_body"]["gang"].stringValue
-                            bumin_kyo = json["result_body"]["bumin_kyo"].stringValue
+                            if json["result_code"] == 200{
+                                inter = json["result_body"]["inter"].stringValue
+                                gang = json["result_body"]["gang"].stringValue
+                                bumin_kyo = json["result_body"]["bumin_kyo"].stringValue
+                            }else{
+                                self.con.toastText("불러오기 실패")
+                                print("ResViewController result code not matched")
+                            }
                         case .failure(let error):
+                            self.con.toastText("불러오기 실패")
                             print(error)
                         }
-                                let interStr = try! NSAttributedString(
-                                data: inter.data(using: String.Encoding.unicode, allowLossyConversion: true)!,
-                                    options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
-                                    documentAttributes: nil)
-                                
-                                let gangStr = try! NSAttributedString(
-                                    data: gang.data(using: String.Encoding.unicode, allowLossyConversion: true)!,
-                                    options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
-                                    documentAttributes: nil)
-                                
-                                let buminStr = try! NSAttributedString(
-                                    data: bumin_kyo.data(using: String.Encoding.unicode, allowLossyConversion: true)!,
-                                    options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
-                                    documentAttributes: nil)
-                                print(interStr)
+
                                 
                         DispatchQueue.main.async {
-                        print("Main: \(Thread.current) is main thread: \(Thread.isMainThread)")
-
-                            self.content.append(interStr.string)
+                            let interStr = try! NSAttributedString(
+                                data: inter.data(using: String.Encoding.unicode, allowLossyConversion: true)!,
+                                options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
+                                documentAttributes: nil)
+                            
+                            let gangStr = try! NSAttributedString(
+                                data: gang.data(using: String.Encoding.unicode, allowLossyConversion: true)!,
+                                options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
+                                documentAttributes: nil)
+                            
+                            let buminStr = try! NSAttributedString(
+                                data: bumin_kyo.data(using: String.Encoding.unicode, allowLossyConversion: true)!,
+                                options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
+                                documentAttributes: nil)
+                            print(interStr)
+                            
                             self.content.append(gangStr.string)
+                            self.content.append(interStr.string)
                             self.content.append(buminStr.string)
 
                             
@@ -119,12 +122,21 @@ class ResViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         cell = tableView.dequeueReusableCell(withIdentifier: "resCell")! as! ResCell
         if content.isEmpty {
-            print("어이쿠 저런...")
+            print("식당 값이 없당")
         } else {
-            cell.resName.text = name[indexPath.row]
-            cell.resContent.text = content[indexPath.row]!
+            let pattern = "^\\n"
+            let trim = content[indexPath.row]?.removingWhitespaces()
+            if (trim!.matches(pattern)) {
+                cell.resContent.text = "메뉴가 없당!"
+            } else {
+                
+                cell.resContent.text = content[indexPath.row]!
+            }
+
+        cell.resName.text = name[indexPath.row]
 //          셀 배경 없애기
-            cell.backgroundColor = UIColor.clear
+        cell.backgroundColor = UIColor.clear
+
             
         }
         return cell

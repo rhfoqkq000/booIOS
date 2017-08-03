@@ -17,6 +17,8 @@ class SeatViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     var result_body_pro:JSON = [:]
     
+    let con = Constants()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -38,6 +40,7 @@ class SeatViewController: UIViewController,UITableViewDataSource,UITableViewDele
         
         if result_body.isEmpty {
             print("어이쿠 저런...")
+            con.toastText("불러오기 실패")
         } else {
             let dicTemp = result_body[indexPath.row]
             
@@ -75,17 +78,21 @@ class SeatViewController: UIViewController,UITableViewDataSource,UITableViewDele
         Alamofire.request(todoEndpoint, method: .get).validate()
             .responseJSON(queue: queue,
                           completionHandler : { response in
-                            //                        print(“Parsing JSON on thread: \(Thread.current) is main thread: \(Thread.isMainThread)“)
                             switch response.result{
                             case .success(let value):
                                 let json = JSON(value)
-                                self.result_body = json["result_body"]
+                                if json["result_code"] == 1{
+                                    self.result_body = json["result_body"]
+                                }else{
+                                    print("SeatViewController getJSON result code not matched")
+                                    self.con.toastText("불러오기 실패")
+                                }
                             case .failure(let error):
+                                self.con.toastText("불러오기 실패")
                                 print(error)
                             }
                             
                             DispatchQueue.main.async {
-                                //                        print(“Main: \(Thread.current) is main thread: \(Thread.isMainThread)“)
                                 self.seatTableView.reloadData()
                             }
             }
