@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C3146D7EBC3F1A8FB08F60C /* Pods_booIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58D511663BEDD999FEE5F376 /* Pods_booIOS.framework */; };
 		A05501781F29D18E0087EF03 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05501771F29D18E0087EF03 /* UIDevice.swift */; };
+		AB20133A1C828811C96CB997 /* Pods_booIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47EB6DDDFCAD8E4B4A504C98 /* Pods_booIOS.framework */; };
 		CB00E8741F1779B50023A62B /* RoundConers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB00E8731F1779B50023A62B /* RoundConers.swift */; };
 		CB00E8771F178AFF0023A62B /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB00E8761F178AFF0023A62B /* NoticeViewController.swift */; };
 		CB00E87B1F178EA10023A62B /* NoticeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB00E87A1F178EA10023A62B /* NoticeCell.swift */; };
+		CB094CFC1F34618700F0F366 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB094CFB1F34618700F0F366 /* GoogleService-Info.plist */; };
 		CB15BC421F25FDA300371B5C /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB15BC411F25FDA300371B5C /* HeaderCollectionReusableView.swift */; };
 		CB15BC451F2622A300371B5C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB15BC441F2622A300371B5C /* SettingViewController.swift */; };
 		CB15BC471F2622B600371B5C /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB15BC461F2622B600371B5C /* SettingTableViewCell.swift */; };
@@ -52,7 +53,6 @@
 		CBB50FCC1F1F682B0042EB47 /* ToolsAnimation.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBB50FCB1F1F682B0042EB47 /* ToolsAnimation.plist */; };
 		CBBAC80F1F1C791900669572 /* StuTabBarContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBAC80E1F1C791900669572 /* StuTabBarContoller.swift */; };
 		CBBAC8171F1C889300669572 /* StuPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBAC8161F1C889300669572 /* StuPageViewController.swift */; };
-		CBC7F1561F31C5D800FC4A25 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBC7F1551F31C5D800FC4A25 /* GoogleService-Info.plist */; };
 		CBC7F15A1F31FBF200FC4A25 /* RegexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC7F1591F31FBF200FC4A25 /* RegexString.swift */; };
 		CBE0B70E1F1FC4E400560F1A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0B70D1F1FC4E400560F1A /* HomeViewController.swift */; };
 		CBEC50DB1F1DE381009C7655 /* RAMBounceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEC50CE1F1DE381009C7655 /* RAMBounceAnimation.swift */; };
@@ -75,12 +75,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		339832DBF989AC5368D354DC /* Pods-booIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booIOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-booIOS/Pods-booIOS.release.xcconfig"; sourceTree = "<group>"; };
-		58D511663BEDD999FEE5F376 /* Pods_booIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_booIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		47EB6DDDFCAD8E4B4A504C98 /* Pods_booIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_booIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A05501771F29D18E0087EF03 /* UIDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
+		B12D697880BA49209FCAC4FE /* Pods-booIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booIOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-booIOS/Pods-booIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		CB00E8731F1779B50023A62B /* RoundConers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundConers.swift; sourceTree = "<group>"; };
 		CB00E8761F178AFF0023A62B /* NoticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		CB00E87A1F178EA10023A62B /* NoticeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeCell.swift; sourceTree = "<group>"; };
+		CB094CFB1F34618700F0F366 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CB15BC411F25FDA300371B5C /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		CB15BC441F2622A300371B5C /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		CB15BC461F2622B600371B5C /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
@@ -102,7 +103,7 @@
 		CB1F4ADB1F14E561009AACCC /* GradeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeViewController.swift; sourceTree = "<group>"; };
 		CB1F4ADE1F14E6C4009AACCC /* SeatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeatTableViewCell.swift; sourceTree = "<group>"; };
 		CB1F4AE01F14E6E2009AACCC /* SeatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeatViewController.swift; sourceTree = "<group>"; };
-		CB35BC771F3076B5004DB646 /* booIOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = booIOS.entitlements; sourceTree = "<group>"; };
+		CB35BC771F3076B5004DB646 /* booIOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = booIOS.entitlements; path = ../booIOS.entitlements; sourceTree = "<group>"; };
 		CB35BC781F3076D2004DB646 /* PushKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PushKit.framework; path = System/Library/Frameworks/PushKit.framework; sourceTree = SDKROOT; };
 		CB35BC7A1F3076DC004DB646 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		CB5B2EF01F32E8A70086E045 /* AttendLetterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendLetterViewController.swift; sourceTree = "<group>"; };
@@ -124,7 +125,6 @@
 		CBBAC80E1F1C791900669572 /* StuTabBarContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StuTabBarContoller.swift; sourceTree = "<group>"; };
 		CBBAC8161F1C889300669572 /* StuPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StuPageViewController.swift; sourceTree = "<group>"; };
 		CBC7F1531F3198AC00FC4A25 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
-		CBC7F1551F31C5D800FC4A25 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CBC7F1591F31FBF200FC4A25 /* RegexString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexString.swift; sourceTree = "<group>"; };
 		CBE0B70D1F1FC4E400560F1A /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CBEC50CE1F1DE381009C7655 /* RAMBounceAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMBounceAnimation.swift; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 		CBF5E89D1F32228A00338767 /* NoticeLetterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeLetterViewController.swift; sourceTree = "<group>"; };
 		CBF5E8A21F3225BF00338767 /* NoticeLetterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeLetterCell.swift; sourceTree = "<group>"; };
 		CBF5E8A41F322C7F00338767 /* LetterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterViewController.swift; sourceTree = "<group>"; };
-		F665DB57BA28A74D29A2F3CE /* Pods-booIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booIOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-booIOS/Pods-booIOS.debug.xcconfig"; sourceTree = "<group>"; };
+		D8CF2CCE6E2CC16B34141B61 /* Pods-booIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booIOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-booIOS/Pods-booIOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,18 +156,18 @@
 			files = (
 				CB35BC7B1F3076DC004DB646 /* UserNotifications.framework in Frameworks */,
 				CB35BC791F3076D2004DB646 /* PushKit.framework in Frameworks */,
-				2C3146D7EBC3F1A8FB08F60C /* Pods_booIOS.framework in Frameworks */,
+				AB20133A1C828811C96CB997 /* Pods_booIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		584B9F55B7B7AB50A365E222 /* Pods */ = {
+		2B0FA21B9C15B6078F89AD81 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F665DB57BA28A74D29A2F3CE /* Pods-booIOS.debug.xcconfig */,
-				339832DBF989AC5368D354DC /* Pods-booIOS.release.xcconfig */,
+				B12D697880BA49209FCAC4FE /* Pods-booIOS.debug.xcconfig */,
+				D8CF2CCE6E2CC16B34141B61 /* Pods-booIOS.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -178,7 +178,7 @@
 				CBC7F1531F3198AC00FC4A25 /* libicucore.tbd */,
 				CB35BC7A1F3076DC004DB646 /* UserNotifications.framework */,
 				CB35BC781F3076D2004DB646 /* PushKit.framework */,
-				58D511663BEDD999FEE5F376 /* Pods_booIOS.framework */,
+				47EB6DDDFCAD8E4B4A504C98 /* Pods_booIOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -326,6 +326,7 @@
 		CBB50FCA1F1F682B0042EB47 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CB35BC771F3076B5004DB646 /* booIOS.entitlements */,
 				CBB50FCB1F1F682B0042EB47 /* ToolsAnimation.plist */,
 			);
 			path = Resources;
@@ -417,7 +418,7 @@
 				CBF141C31F0E930E00D62BC0 /* booIOS */,
 				CBF141C21F0E930E00D62BC0 /* Products */,
 				71B35D63163BE4303F84F061 /* Frameworks */,
-				584B9F55B7B7AB50A365E222 /* Pods */,
+				2B0FA21B9C15B6078F89AD81 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -432,8 +433,8 @@
 		CBF141C31F0E930E00D62BC0 /* booIOS */ = {
 			isa = PBXGroup;
 			children = (
+				CB094CFB1F34618700F0F366 /* GoogleService-Info.plist */,
 				CBF5E89C1F32225C00338767 /* Letter */,
-				CB35BC771F3076B5004DB646 /* booIOS.entitlements */,
 				CB15BC431F26226600371B5C /* Setting */,
 				CB8392491F21C75E00705B35 /* Menu */,
 				CBE0B70A1F1FC49900560F1A /* Home */,
@@ -457,7 +458,6 @@
 				CB9E5C561F285A2500203845 /* Obj-Header-bridge.m */,
 				CB9E5C551F285A2500203845 /* booIOS-Bridging-Header.h */,
 				CB86B7231F2B4F490064FF22 /* Assets.xcassets */,
-				CBC7F1551F31C5D800FC4A25 /* GoogleService-Info.plist */,
 			);
 			path = booIOS;
 			sourceTree = "<group>";
@@ -520,12 +520,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CBF141D31F0E930E00D62BC0 /* Build configuration list for PBXNativeTarget "booIOS" */;
 			buildPhases = (
-				D9C1215CDF63578B7FE717A3 /* [CP] Check Pods Manifest.lock */,
+				902D761822424C37CCC58966 /* [CP] Check Pods Manifest.lock */,
 				CBF141BD1F0E930E00D62BC0 /* Sources */,
 				CBF141BE1F0E930E00D62BC0 /* Frameworks */,
 				CBF141BF1F0E930E00D62BC0 /* Resources */,
-				8CC0BA7AF2C5E002FBBC3C53 /* [CP] Embed Pods Frameworks */,
-				8BB91FCB8747D4317C90402C /* [CP] Copy Pods Resources */,
+				916E358187A57E0A680D336E /* [CP] Embed Pods Frameworks */,
+				C17A6EC017464981F632C3B3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -587,7 +587,7 @@
 			files = (
 				CBF141CF1F0E930E00D62BC0 /* LaunchScreen.storyboard in Resources */,
 				CBF141CA1F0E930E00D62BC0 /* Main.storyboard in Resources */,
-				CBC7F1561F31C5D800FC4A25 /* GoogleService-Info.plist in Resources */,
+				CB094CFC1F34618700F0F366 /* GoogleService-Info.plist in Resources */,
 				CBB50FCC1F1F682B0042EB47 /* ToolsAnimation.plist in Resources */,
 				CB86B7241F2B4F490064FF22 /* Assets.xcassets in Resources */,
 			);
@@ -596,22 +596,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		8BB91FCB8747D4317C90402C /* [CP] Copy Pods Resources */ = {
+		902D761822424C37CCC58966 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-booIOS/Pods-booIOS-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		8CC0BA7AF2C5E002FBBC3C53 /* [CP] Embed Pods Frameworks */ = {
+		916E358187A57E0A680D336E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -626,19 +626,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-booIOS/Pods-booIOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D9C1215CDF63578B7FE717A3 /* [CP] Check Pods Manifest.lock */ = {
+		C17A6EC017464981F632C3B3 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-booIOS/Pods-booIOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -826,7 +826,7 @@
 		};
 		CBF141D41F0E930E00D62BC0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F665DB57BA28A74D29A2F3CE /* Pods-booIOS.debug.xcconfig */;
+			baseConfigurationReference = B12D697880BA49209FCAC4FE /* Pods-booIOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -849,7 +849,7 @@
 		};
 		CBF141D51F0E930E00D62BC0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 339832DBF989AC5368D354DC /* Pods-booIOS.release.xcconfig */;
+			baseConfigurationReference = D8CF2CCE6E2CC16B34141B61 /* Pods-booIOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

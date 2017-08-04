@@ -1,6 +1,8 @@
 //import UIKit
 //import UserNotifications
 //
+//import Firebase
+//
 //
 //@UIApplicationMain
 //class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -12,6 +14,7 @@
 //        // Override point for customization after application launch.
 //        /**************************** Push service start *****************************/
 //        // iOS 10 support
+//        FirebaseApp.configure()
 //        if #available(iOS 10, *) {
 //            UNUserNotificationCenter.current().requestAuthorization(options:[.badge, .alert, .sound]){ (granted, error) in }
 //            application.registerForRemoteNotifications()
@@ -96,7 +99,7 @@
 //  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
-//
+
 import UIKit
 import UserNotifications
 
@@ -148,7 +151,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Messaging.messaging().appDidReceiveMessage(userInfo)
         // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)")
+            print("1Message ID: \(messageID)")
         }
         
         // Print full message.
@@ -177,7 +180,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Messaging.messaging().appDidReceiveMessage(userInfo)
         // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)")
+            print("2Message ID: \(messageID)")
         }
         
         // Print full message.
@@ -222,7 +225,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         print(userInfo)
         
         // Change this to your preferred presentation option
-        completionHandler([])
+        completionHandler([.alert, .badge, .sound])
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter,
@@ -252,6 +255,7 @@ extension AppDelegate : MessagingDelegate {
     // Receive data messages on iOS 10+ directly from FCM (bypassing APNs) when the app is in the foreground.
     // To enable direct data messages, you can set Messaging.messaging().shouldEstablishDirectChannel to true.
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
+        //포그라운드에서 수신됨
         print("Received data message: \(remoteMessage.appData)")
     }
     // [END ios_10_data_message]
