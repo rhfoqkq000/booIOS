@@ -12,19 +12,19 @@ class SubNoticeLetterViewController: UIViewController {
     @IBOutlet weak var fromTo: UITextView!
     @IBOutlet weak var contentTitle: UITextView!
     @IBOutlet weak var content: UITextView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        fromTo.textaddBorderBottom(height: 1, color: UIColor.darkGray)
-        contentTitle.textaddBorderBottom(height: 1, color: UIColor.darkGray)
         
-        fromTo.text = "보낸이"
-        contentTitle.text = "제목"
-        content.text = "내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용"
+        //        fromTo.textaddBorderBottom(height: 1, color: UIColor.darkGray)
+        //        contentTitle.textaddBorderBottom(height: 1, color: UIColor.darkGray)
+        
+        fromTo.text = LetterSingleton._sharedInstance.noticeLetterName
+        contentTitle.text = LetterSingleton._sharedInstance.noticeLetterTitle
+        content.text = LetterSingleton._sharedInstance.noticeLetterBody
         adjustUITextViewHeight(content)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

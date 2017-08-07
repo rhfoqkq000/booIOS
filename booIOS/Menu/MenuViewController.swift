@@ -15,6 +15,7 @@ struct Ctrls {
     let setting = "SettingViewController"
     let login = "loginViewController"
     let letter = "LetterViewController"
+    let circleChange = "CircleChangeViewController"
 }
 
 class MenuViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
@@ -115,8 +116,9 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
             case 0:
                 self.navigationController?.pushViewController(returnTargetCtrl(ctrls.notice),animated: true)
                 break
-//                동아리/학회 변경
+            //    동아리/학회 변경
             case 1:
+                self.navigationController?.pushViewController(returnTargetCtrl(ctrls.circleChange),animated: true)
                 break
 //                설정/도움말
             case 2:
@@ -146,7 +148,7 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 break
 //                관리자로그인
             case 1:
-                
+                UIApplication.shared.open(NSURL(string: "http://donga.ac.kr")! as URL)
                 break
             default:
                 break

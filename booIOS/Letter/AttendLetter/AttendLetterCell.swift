@@ -9,7 +9,7 @@
 import UIKit
 
 class AttendLetterCell: UITableViewCell {
-
+    
     @IBOutlet weak var attendLetterMainView: UIView!
     @IBOutlet weak var attendLetterSubView: UIView!
     
@@ -21,11 +21,11 @@ class AttendLetterCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }

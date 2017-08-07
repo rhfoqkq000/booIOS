@@ -73,6 +73,9 @@ class ScheViewController: UIViewController {
     }
     
     func getJSON(){
+        let progressHUD = ProgressHUD(text: "로딩 중입니다...")
+        self.view.addSubview(progressHUD)
+        progressHUD.show()
         let todoEndpoint: String = "https://www.dongaboomin.xyz:20433/donga/getTimeTable"
         let parameters = ["stuId" :userDefaults.string(forKey:"stuId")!, "stuPw" :userDefaults.string(forKey:"stuPw")!]
         
@@ -150,7 +153,7 @@ class ScheViewController: UIViewController {
                                         break
                                     }
                                 }
-                              
+                                progressHUD.hide()
                                 self.view.reloadInputViews()
                             }
             }

@@ -129,6 +129,9 @@ class EmptyViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     
     func getJSON(selectDay day:String, toTime to:String, fromTime from:String){
+        let progressHUD = ProgressHUD(text: "로딩 중입니다...")
+        self.view.addSubview(progressHUD)
+        progressHUD.show()
         let todoEndpoint: String = "https://www.dongaboomin.xyz:20433/donga/empty/room?day=\(day)&from=\(from)&to=\(to)"
         let queue = DispatchQueue(label: "com.Boo", qos: .utility, attributes: [.concurrent])
         Alamofire.request(todoEndpoint, method: .get).validate()
@@ -149,6 +152,7 @@ class EmptyViewController: UIViewController, UITableViewDelegate, UITableViewDat
                             
                             DispatchQueue.main.async {
                                 //UI 업데이트는 여기
+                                progressHUD.hide()
                                 self.tableview.reloadData()
                             }
             }

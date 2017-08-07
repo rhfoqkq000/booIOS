@@ -73,6 +73,9 @@ class SeatViewController: UIViewController,UITableViewDataSource,UITableViewDele
     }
     
     func getJSON(){
+        let progressHUD = ProgressHUD(text: "로딩 중입니다...")
+        self.view.addSubview(progressHUD)
+        progressHUD.show()
         let todoEndpoint: String = "https://www.dongaboomin.xyz:20433/donga/getWebSeat"
         let queue = DispatchQueue(label: "xyz.dongaboomin.seat", qos: .utility, attributes: [.concurrent])
         Alamofire.request(todoEndpoint, method: .get).validate()
@@ -93,6 +96,7 @@ class SeatViewController: UIViewController,UITableViewDataSource,UITableViewDele
                             }
                             
                             DispatchQueue.main.async {
+                                progressHUD.hide()
                                 self.seatTableView.reloadData()
                             }
             }

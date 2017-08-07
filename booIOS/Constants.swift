@@ -28,6 +28,7 @@ class Constants {
     }
     
     func toastText(_ text:String){
+        ToastCenter.default.cancelAll()
         let toast = Toast(text: text, duration:Delay.short)
         toast.show()
     }

@@ -54,6 +54,9 @@ class ResViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func getJSON(targetDate date:String){
+        let progressHUD = ProgressHUD(text: "로딩 중입니다...")
+        self.view.addSubview(progressHUD)
+        progressHUD.show()
         let todoEndpoint: String = "http://www.dongaboomin.xyz:3000/meal?date=\(date)"
             let queue = DispatchQueue(label: "book.booIOS", qos: .utility, attributes: [.concurrent])
             
@@ -105,6 +108,7 @@ class ResViewController: UIViewController, UITableViewDelegate, UITableViewDataS
 
                             
 //                          callback
+                            progressHUD.hide()
                             self.tableview.reloadData()
                             
                         }

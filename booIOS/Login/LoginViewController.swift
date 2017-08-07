@@ -48,8 +48,54 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func getUserCircle(_ id:String, _ pw:String,_ loginIsSuccess:String) {
+        let todoEndpoint: String = "https://www.dongaboomin.xyz:20433/donga/getUserCircle"
+        let parameters = ["user_id":id]
+        var isGetUserCirlce = 0
+        let queue = DispatchQueue(label: "com.Boo", qos: .utility, attributes: [.concurrent])
+        Alamofire.request(todoEndpoint, method: .post, parameters:parameters, encoding:JSONEncoding(options:[])).validate()
+            .responseJSON(queue: queue,
+                          completionHandler : { response in
+                            switch response.result{
+                            case .success(let value):
+                                let json = JSON(value)
+                                if json["result_code"] == 1{
+                                    let result_body = json["result_body"]
+                                    if result_body.count == 0{
+                                        isGetUserCirlce = 1
+                                    }
+                                }else{
+                                    print("getUserCircle-Login result code not matched")
+                                    self.con.toastText("불러오기 실패")
+                                }
+                            case .failure(let error):
+                                self.con.toastText("불러오기 실패")
+                                print(error)
+                            }
+                            
+                            DispatchQueue.main.async {
+                                if isGetUserCirlce == 0 {
+                                    if loginIsSuccess == "1"{
+                                        self.performSegue(withIdentifier: "loginSeque", sender: self)
+                                    }else{
+                                        print("로그인 실패")
+                                        self.con.toastText("로그인 실패")
+                                    }
+                                } else {
+                                    self.performSegue(withIdentifier: "circleSetSegue", sender: self)
+                                }
+                            }
+            }
+        )
+    }
+
+    
 
     func getJSON(_ id:String, _ pw:String){
+        let progressHUD = ProgressHUD(text: "로딩 중입니다...")
+        self.view.addSubview(progressHUD)
+        progressHUD.show()
         let todoEndpoint: String = "https://www.dongaboomin.xyz:20433/donga/login"
         let parameters = ["stuId":id, "stuPw":pw]
         let queue = DispatchQueue(label: "com.Boo", qos: .utility, attributes: [.concurrent])
@@ -157,13 +203,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             
                             DispatchQueue.main.async {
                                 //UI 업데이트는 여기
-//                                self.tableview.reloadData()
-                                if loginIsSuccess == "1"{
-                                    self.performSegue(withIdentifier: "loginSeque", sender: self)
-                                }else{
-                                    print("로그인 실패")
-                                    self.con.toastText("로그인 실패")
-                                }
+                                progressHUD.hide()
+                                self.getUserCircle(self.userDefaults.string(forKey: "id")!,pw,loginIsSuccess)
+
                             
                             }
             }

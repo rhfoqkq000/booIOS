@@ -59,6 +59,9 @@ class GradeViewController: UIViewController {
     }
     
     func getJSON(targetId id:String,targetPw pw:String){
+        let progressHUD = ProgressHUD(text: "로딩 중입니다...")
+        self.view.addSubview(progressHUD)
+        progressHUD.show()
         let parameters: Parameters = ["stuId": userDefaults.string(forKey:"stuId")!,"stuPw":userDefaults.string(forKey:"stuPw")!]
         let todoEndpoint: String = "https://www.dongaboomin.xyz:20433/donga/getGraduated"
         let queue = DispatchQueue(label: "xyz.dongaboomin.seat", qos: .utility, attributes: [.concurrent])
@@ -113,6 +116,7 @@ class GradeViewController: UIViewController {
                                 self.getTwoLabel.text = getArr[10].string!
                                 self.resultTwoLabel.text = resultArr[10].string!
                                 
+                                progressHUD.hide()
 
                             }
             }

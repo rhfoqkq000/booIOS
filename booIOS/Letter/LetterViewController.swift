@@ -14,7 +14,7 @@ class LetterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
- 
+        
         
     }
     
@@ -34,8 +34,8 @@ class LetterViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "container"{
             
-            container = segue.destination as! ContainerViewController 
+            container = segue.destination as! ContainerViewController
         }
     }
-
+    
 }

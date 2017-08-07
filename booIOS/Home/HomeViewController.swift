@@ -300,6 +300,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     
     func getJSON(){
+        let progressHUD = ProgressHUD(text: "로딩 중입니다...")
+        self.view.addSubview(progressHUD)
+        progressHUD.show()
         let todoEndpoint: String = "https://www.dongaboomin.xyz:20433/donga/getTimeTable"
         let parameters = ["stuId" :"1124305", "stuPw" :"Ekfqlc152!"]
         print("getJSON 통신시작합니당")
@@ -385,7 +388,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                                         
                                     }
                                 }
-                                
+                                progressHUD.hide()
                                 self.refreshArr(targetArr: self.infoArr)
                                 self.timeTableView.reloadData()
                             }
@@ -585,6 +588,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     
     func getResMenu(targetDate date:String){
+        let progressHUD = ProgressHUD(text: "로딩 중입니다...")
+        self.view.addSubview(progressHUD)
+        progressHUD.show()
         let todoEndpoint: String = "http://www.dongaboomin.xyz:3000/meal?date=\(date)"
         let queue = DispatchQueue(label: "book.booIOS", qos: .utility, attributes: [.concurrent])
         print("getResMenu 시작합니당")
@@ -604,6 +610,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                             }
                             
                             DispatchQueue.main.async {
+                                progressHUD.hide()
                                 let json = self.getResMenuResult_body
                                 if json["result_code"] == 200{
                                     var inter : String = ""

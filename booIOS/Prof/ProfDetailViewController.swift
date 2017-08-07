@@ -28,7 +28,10 @@ class ProfDetailViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func getJSON(targetDate major:String){
-        let todoEndpoint: String = "https://www.dongaboomin.xyz:20433/donga/getPro?major=\(major)"
+        let progressHUD = ProgressHUD(text: "로딩 중입니다...")
+        self.view.addSubview(progressHUD)
+        progressHUD.show()
+        let todoEndpoint: String = "http://www.dongaboomin.xyz:3000/getPro?major=\(major)"
         let todoEndpointEscapes = todoEndpoint.addingPercentEncoding( withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
         
         let queue = DispatchQueue(label: "com.example.boo", qos: .utility, attributes: [.concurrent])
@@ -40,7 +43,7 @@ class ProfDetailViewController: UIViewController, UITableViewDataSource, UITable
                             switch response.result{
                             case .success(let value):
                                 let json = JSON(value)
-                                if json["result_code"] == 1{
+                                if json["result_code"] == 200{
                                     self.profArray = json["result_body"]
                                 }else{
                                     print("ProfDetailViewController result code not matched")
@@ -54,6 +57,7 @@ class ProfDetailViewController: UIViewController, UITableViewDataSource, UITable
                             
                             DispatchQueue.main.async {
                                 //UI 업데이트는 여기
+                                progressHUD.hide()
                                 self.indicator.stopAnimating()
                                 self.tableview.reloadData()
                               
