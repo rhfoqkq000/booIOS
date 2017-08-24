@@ -111,6 +111,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     let gcmMessageIDKey = "gcm.message_id"
+    let userDefaults = UserDefaults.standard
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -161,8 +162,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication)
     {
         Messaging.messaging().shouldEstablishDirectChannel = true
-        
-        application.applicationIconBadgeNumber = 0;
+        if self.window?.rootViewController is LetterViewController{
+            print("쪽지")
+        }
+//        application.applicationIconBadgeNumber = 0;
     }
     
     // Application entered in background
@@ -179,14 +182,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // With swizzling disabled you must let Messaging know about the message, for Analytics
         // Messaging.messaging().appDidReceiveMessage(userInfo)
         // Print message ID.
-        if let messageID = userInfo[gcmMessageIDKey] {
-            print("2Message ID: \(messageID)")
-        }
+//        if let messageID = userInfo[gcmMessageIDKey] {
+//            print("2Message ID: \(messageID)")
+//        }
         
         // Print full message.
-        print(userInfo)
+//        print(userInfo)
         
         completionHandler(UIBackgroundFetchResult.newData)
+        
+        userDefaults.set(userDefaults.integer(forKey: "notReadPush")+1, forKey: "notReadPush")
+        UIApplication.shared.applicationIconBadgeNumber = userDefaults.integer(forKey: "notReadPush")
+        print("didReceiveRemoteNotification 앱 뱃지 \(userDefaults.integer(forKey: "notReadPush"))로 늘어남 ^0^")
+        
     }
     // [END receive_message]
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
@@ -212,33 +220,35 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        let userInfo = notification.request.content.userInfo
+//        let userInfo = notification.request.content.userInfo
         
         // With swizzling disabled you must let Messaging know about the message, for Analytics
         // Messaging.messaging().appDidReceiveMessage(userInfo)
         // Print message ID.
-        if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)")
-        }
-        
+//        if let messageID = userInfo[gcmMessageIDKey] {
+////            print("Message ID: \(messageID)")
+//        }
+//        
         // Print full message.
-        print(userInfo)
+//        print(userInfo)
         
         // Change this to your preferred presentation option
-        completionHandler([.alert, .badge, .sound])
+        completionHandler([.alert, UNNotificationPresentationOptions(rawValue: UInt(userDefaults.integer(forKey: "notReadPush")+1)), .sound])
+//        userDefaults.set(userDefaults.integer(forKey: "notReadPush")+1, forKey: "notReadPush")
+//        print("userNotificationCenter 앱 뱃지 \(userDefaults.integer(forKey: "notReadPush"))로 늘어남 ^0^")
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
-        let userInfo = response.notification.request.content.userInfo
+//        let userInfo = response.notification.request.content.userInfo
         // Print message ID.
-        if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)")
-        }
+//        if let messageID = userInfo[gcmMessageIDKey] {
+////            print("Message ID: \(messageID)")
+//        }
         
         // Print full message.
-        print(userInfo)
+//        print(userInfo)
         
         completionHandler()
     }
@@ -256,7 +266,12 @@ extension AppDelegate : MessagingDelegate {
     // To enable direct data messages, you can set Messaging.messaging().shouldEstablishDirectChannel to true.
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
         //포그라운드에서 수신됨
-        print("Received data message: \(remoteMessage.appData)")
+//        print("Received data message: \(remoteMessage.appData)")
+        
+//        userDefaults.set(userDefaults.integer(forKey: "notReadPush")+1, forKey: "notReadPush")
+//        UIApplication.shared.applicationIconBadgeNumber = userDefaults.integer(forKey: "notReadPush")
+//        print("MESSAGING 앱 뱃지 \(userDefaults.integer(forKey: "notReadPush"))로 늘어남 ^0^")
+        
     }
     // [END ios_10_data_message]
 }

@@ -89,12 +89,12 @@ class AttendLetterViewController:  UIViewController, UITableViewDelegate, UITabl
         cell.attendLetterDate.text = result_body[indexPath.row]["getTime"].stringValue
         cell.attendLetterName.text = result_body[indexPath.row]["title"].stringValue
         cell.attendLetterTitle.text = result_body[indexPath.row]["body"].stringValue
-        if result_body[indexPath.row]["read_check"].stringValue == "1"{
-            //            print("\(indexPath.row)번째 칸의 read_check는 \(result_body[indexPath.row]["read_check"].stringValue)")
-            cell.attendLetterSubView.backgroundColor = UIColor.blue
-        }else{
-            cell.attendLetterSubView.backgroundColor = UIColor.red
-        }
+//        if result_body[indexPath.row]["read_check"].stringValue == "1"{
+//            //            print("\(indexPath.row)번째 칸의 read_check는 \(result_body[indexPath.row]["read_check"].stringValue)")
+//            cell.attendLetterSubView.backgroundColor = UIColor.blue
+//        }else{
+//            cell.attendLetterSubView.backgroundColor = UIColor.red
+//        }
         
         return cell
     }
@@ -103,6 +103,13 @@ class AttendLetterViewController:  UIViewController, UITableViewDelegate, UITabl
         let progressHUD = ProgressHUD(text: "로딩 중입니다...")
         self.view.addSubview(progressHUD)
         progressHUD.show()
+        
+//        if result_body[indexPath.row]["read_check"] == 0{
+//            userDefaults.set(userDefaults.integer(forKey: "notReadPush")-1, forKey: "notReadPush")
+//            UIApplication.shared.applicationIconBadgeNumber = userDefaults.integer(forKey: "notReadPush")
+//            print("앱 뱃지 \(userDefaults.integer(forKey: "notReadPush"))로 줄어듬 ^0^")
+//        }
+        
         let parameters: Parameters = ["circle_notis_id": self.result_body[indexPath.row]["id"]]
         let todoEndpoint: String = "https://www.dongaboomin.xyz:20433/circle_read"
         let queue = DispatchQueue(label: "xyz.dongaboomin.circleRead", qos: .utility, attributes: [.concurrent])
@@ -125,8 +132,8 @@ class AttendLetterViewController:  UIViewController, UITableViewDelegate, UITabl
                             
                             DispatchQueue.main.async {
                                 progressHUD.hide()
-                                let cell = self.tableview.cellForRow(at: indexPath) as! AttendLetterCell
-                                cell.attendLetterSubView.backgroundColor = UIColor.blue
+//                                let cell = self.tableview.cellForRow(at: indexPath) as! AttendLetterCell
+//                                cell.attendLetterSubView.backgroundColor = UIColor.blue
                             }
             }
         )

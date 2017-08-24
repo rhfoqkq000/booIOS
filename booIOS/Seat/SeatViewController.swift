@@ -21,10 +21,21 @@ class SeatViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         getJSON()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Hide the navigation bar for current view controller
+        self.navigationController?.isNavigationBarHidden = true;
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // Show the navigation bar on other view controllers
+        self.navigationController?.isNavigationBarHidden = false;
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -48,14 +59,6 @@ class SeatViewController: UIViewController,UITableViewDataSource,UITableViewDele
             cell.seatTotalCountLabel.text = dicTemp["all"].string!
             cell.seatUserLabel.text = dicTemp["use"].string!
             cell.seatLeftLabel.text = dicTemp["remain"].string!
-//            let utilDouble:Double = Double(dicTemp["util"].string!)!
-//            if  utilDouble<49{
-//                cell.seatUseRatingLabel.textColor = UIColor.green
-//            } else if 50<utilDouble&&utilDouble<99 {
-//                cell.seatUseRatingLabel.textColor = UIColor.yellow
-//            } else if utilDouble==100{
-//                cell.seatUseRatingLabel.textColor = UIColor.red
-//            }
             let round = lround(Double(dicTemp["util"].string!)!)
             let uicolor = color(round)
             
@@ -71,12 +74,22 @@ class SeatViewController: UIViewController,UITableViewDataSource,UITableViewDele
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return result_body.count
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "seatDetail" {
+            let indexPath = self.seatTableView.indexPathForSelectedRow
+            let no = (indexPath?.row)!+1
+            let senderController = segue.destination as! SeatDetailViewController
+            senderController.sendURL = "http://168.115.33.207/WebSeat/roomview5.asp?room_no=\(no)"
+        }
+    }
+
     
     func getJSON(){
         let progressHUD = ProgressHUD(text: "로딩 중입니다...")
         self.view.addSubview(progressHUD)
         progressHUD.show()
-        let todoEndpoint: String = "https://www.dongaboomin.xyz:20433/donga/getWebSeat"
+        let todoEndpoint: String = "http://www.dongaboomin.xyz:3000/getWebSeat"
         let queue = DispatchQueue(label: "xyz.dongaboomin.seat", qos: .utility, attributes: [.concurrent])
         Alamofire.request(todoEndpoint, method: .get).validate()
             .responseJSON(queue: queue,
@@ -84,7 +97,7 @@ class SeatViewController: UIViewController,UITableViewDataSource,UITableViewDele
                             switch response.result{
                             case .success(let value):
                                 let json = JSON(value)
-                                if json["result_code"] == 1{
+                                if json["result_code"] == 200{
                                     self.result_body = json["result_body"]
                                 }else{
                                     print("SeatViewController getJSON result code not matched")

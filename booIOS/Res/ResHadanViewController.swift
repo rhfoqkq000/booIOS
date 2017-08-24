@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class ResViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class ResHadanViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     
     @IBOutlet weak var dateLabel: UILabel!
@@ -24,7 +24,7 @@ class ResViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     var result:String = ""
     var count = 0.0
     
-    let name = [ "종합강의동","국제관", "교직원"]
+    let name = [ "학생회관","교수회관", "도서관"]
     var content = [String?]()
     var cell = ResCell()
     
@@ -56,25 +56,28 @@ class ResViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     func getJSON(targetDate date:String){
         let progressHUD = ProgressHUD(text: "로딩 중입니다...")
         self.view.addSubview(progressHUD)
-        progressHUD.show()
+//        progressHUD.show()
         let todoEndpoint: String = "http://www.dongaboomin.xyz:3000/meal?date=\(date)"
-            let queue = DispatchQueue(label: "book.booIOS", qos: .utility, attributes: [.concurrent])
+        print("오늘 날짜 맞지? \(date)")
+            let queue = DispatchQueue(label: "xyz.dongaboomin.res.hadan", qos: .utility, attributes: [.concurrent])
             
             Alamofire.request(todoEndpoint, method: .get).validate()
                 .responseJSON(queue: queue,
                               completionHandler : { response in
-                        var inter : String = ""
-                        var gang  : String = ""
-                        var bumin_kyo  : String = ""
+                        var hadan_gang : String = ""
+                        var hadan_kyo  : String = ""
+                        var library  : String = ""
                         self.content.removeAll()
                                 
                         switch response.result{
                         case .success(let value):
                             let json = JSON(value)
                             if json["result_code"] == 200{
-                                inter = json["result_body"]["inter"].stringValue
-                                gang = json["result_body"]["gang"].stringValue
-                                bumin_kyo = json["result_body"]["bumin_kyo"].stringValue
+                                hadan_gang = json["result_body"]["hadan_gang"].stringValue
+                                hadan_kyo = json["result_body"]["hadan_kyo"].stringValue
+                                library = json["result_body"]["library"].stringValue
+                                
+                                print("출력되니? \(hadan_gang)")
                             }else{
                                 self.con.toastText("불러오기 실패")
                                 print("ResViewController result code not matched")
@@ -86,29 +89,31 @@ class ResViewController: UIViewController, UITableViewDelegate, UITableViewDataS
 
                                 
                         DispatchQueue.main.async {
-                            let interStr = try! NSAttributedString(
-                                data: inter.data(using: String.Encoding.unicode, allowLossyConversion: true)!,
+                            let hadan_gangStr = try! NSAttributedString(
+                                data: hadan_gang.data(using: String.Encoding.unicode, allowLossyConversion: true)!,
                                 options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
                                 documentAttributes: nil)
                             
-                            let gangStr = try! NSAttributedString(
-                                data: gang.data(using: String.Encoding.unicode, allowLossyConversion: true)!,
+                            let hadan_kyoStr = try! NSAttributedString(
+                                data: hadan_kyo.data(using: String.Encoding.unicode, allowLossyConversion: true)!,
                                 options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
                                 documentAttributes: nil)
                             
-                            let buminStr = try! NSAttributedString(
-                                data: bumin_kyo.data(using: String.Encoding.unicode, allowLossyConversion: true)!,
+                            let libraryStr = try! NSAttributedString(
+                                data: library.data(using: String.Encoding.unicode, allowLossyConversion: true)!,
                                 options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
                                 documentAttributes: nil)
-                            print(interStr)
                             
-                            self.content.append(gangStr.string)
-                            self.content.append(interStr.string)
-                            self.content.append(buminStr.string)
+                            print("하단 강의 ::::: \(hadan_gangStr)")
+                            
+                            self.content.append(hadan_gangStr.string)
+                            self.content.append(hadan_kyoStr.string)
+                            self.content.append(libraryStr.string)
 
+                            print(self.content)
                             
 //                          callback
-                            progressHUD.hide()
+//                            progressHUD.hide()
                             self.tableview.reloadData()
                             
                         }
@@ -127,6 +132,7 @@ class ResViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         cell = tableView.dequeueReusableCell(withIdentifier: "resCell")! as! ResCell
         if content.isEmpty {
             print("식당 값이 없당")
+            cell.resContent.text = "메뉴가 없당!"
         } else {
             let pattern = "^\\n"
             let trim = content[indexPath.row]?.removingWhitespaces()

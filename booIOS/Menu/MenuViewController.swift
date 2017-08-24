@@ -35,6 +35,18 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Hide the navigation bar for current view controller
+        self.navigationController?.isNavigationBarHidden = true;
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // Show the navigation bar on other view controllers
+        self.navigationController?.isNavigationBarHidden = false;
+    }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 3
     }
@@ -139,6 +151,8 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 userDefaults.removeObject(forKey: "stuPw")
                 userDefaults.removeObject(forKey: "id")
                 userDefaults.removeObject(forKey: "deviceInserted")
+                userDefaults.removeObject(forKey: "isScheSaved")
+//                userDefaults.removeObject(forKey: "privacyAgreement")
             
 //                화면 바꾸기
                 let trans = self.storyboard!.instantiateViewController(withIdentifier: ctrls.login)
@@ -148,7 +162,7 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 break
 //                관리자로그인
             case 1:
-                UIApplication.shared.open(NSURL(string: "http://donga.ac.kr")! as URL)
+                UIApplication.shared.open(NSURL(string: "http://dongaboomin.xyz:8000/admin/index")! as URL)
                 break
             default:
                 break

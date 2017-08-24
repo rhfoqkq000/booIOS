@@ -262,9 +262,6 @@ class AchiveViewController: UIViewController, UITableViewDataSource, UITableView
                                             }
                                         }
                                     }
-                                    
-                                    self.achievedGradeLabel.text = self.jsonGrade["allGrade"].stringValue
-                                    self.averageGradeLabel.text = self.jsonGrade["avgGrade"].stringValue
                                 }else{
                                     print("AchievViewController result_code not matched")
                                     self.con.toastText("불러오기 실패")
@@ -277,9 +274,8 @@ class AchiveViewController: UIViewController, UITableViewDataSource, UITableView
                             
                             DispatchQueue.main.async {
                                 //UI 업데이트는 여기
-                                
-
-                                
+                                self.achievedGradeLabel.text = self.jsonGrade["allGrade"].stringValue
+                                self.averageGradeLabel.text = self.jsonGrade["avgGrade"].stringValue
                                 self.speGradeTableView.reloadData()
 //                                self.speGradeTableView.reloadSections([self.checkList.count-1], with: .none)
 //                                self.speGradeTableView.reloadData()

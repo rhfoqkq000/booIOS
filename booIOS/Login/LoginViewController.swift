@@ -31,8 +31,51 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if userDefaults.string(forKey: "stuId") != nil && (userDefaults.string(forKey:"stuPw") != nil){
-            getJSON(userDefaults.string(forKey: "stuId")!, userDefaults.string(forKey: "stuPw")!)
+        print("로그인 시작부분이야")
+        
+        if userDefaults.string(forKey: "stuId") != nil && (userDefaults.string(forKey:"stuPw") != nil) && (userDefaults.string(forKey: "id") != nil){
+            let progressHUD = ProgressHUD(text: "로딩 중입니다...")
+            self.view.addSubview(progressHUD)
+            progressHUD.show()
+            let device_id = UIDevice.current.identifierForVendor!.uuidString
+            let token = InstanceID.instanceID().token()!
+            let deviceUpdateTodoEndpoint: String = "https://www.dongaboomin.xyz:20433/deviceUpdate"
+            let deviceUpdateParameters = ["device_id":device_id, "push_service_id": token]
+            let deviceUpdateQueue = DispatchQueue(label: "com.Boo", qos: .utility, attributes: [.concurrent])
+            var isUpdated = 0
+            Alamofire.request(deviceUpdateTodoEndpoint, method: .post, parameters: deviceUpdateParameters, encoding: JSONEncoding(options:[])).validate()
+                .responseJSON(queue: deviceUpdateQueue,
+                              completionHandler : { response in
+                                
+                                switch response.result{
+                                case .success(let value):
+                                    let json = JSON(value)
+                                    if json["result_code"] == 1{
+                                        self.userDefaults.set(22, forKey: "deviceInserted")
+                                        isUpdated = 1
+                                        print("욧시 로그인 없이 디바이스 정보가 고쳐졌어")
+                                        
+                                    }else{
+                                        self.con.toastText("로그인 실패")
+                                        print("result code not matched")
+                                    }
+                                case .failure(let error):
+                                    self.con.toastText("로그인 실패")
+                                    print(error)
+                                }
+                                
+                                DispatchQueue.main.async {
+                                    progressHUD.hide()
+                                    if isUpdated == 1{
+                                        self.performSegue(withIdentifier: "loginSeque", sender: self)
+                                    }else{
+                                        print("isUpdated not matched")
+                                        self.con.toastText("로그인 실패")
+                                    }
+                                    
+                                }
+                }
+            )
         }
 
         idTextField.addBorderBottom(height: 1.0, color: UIColor.lightGray)
@@ -123,7 +166,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                         let device_id = UIDevice.current.identifierForVendor!.uuidString
                                         let os_enum = "IOS"
                                         let model = UIDevice.current.modelName
-                                        let tOperator = CTTelephonyNetworkInfo().subscriberCellularProvider?.carrierName
+//                                        let tOperator = CTTelephonyNetworkInfo().subscriberCellularProvider?.carrierName
                                         let systemVersion = UIDevice.current.systemVersion
                                         let token = InstanceID.instanceID().token()!
                                         print(token)
@@ -145,8 +188,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                                                     self.userDefaults.set(22, forKey: "deviceInserted")
                                                                     print("욧시 디바이스정보가들어갔어")
                                                                     
-                                                                }else{
+                                                                    self.getUserCircle(self.userDefaults.string(forKey: "id")!,pw,loginIsSuccess)
+
+                                                                    
+                                                                    
+                                                                }else if json["result_code"] == 2{
+                                                                    self.getUserCircle(self.userDefaults.string(forKey: "id")!,pw,loginIsSuccess)
+
                                                                     print("디바이스 정보 입력 후의 result code not matched")
+                                                                }else{
+                                                                                                                                        self.con.toastText("로그인 실패")
                                                                 }
                                                             case .failure(let error):
                                                                 self.con.toastText("불러오기 실패")
@@ -177,7 +228,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                                                     self.userDefaults.set(22, forKey: "deviceInserted")
                                                                     print("욧시 디바이스 정보가 고쳐졌어")
                                                                     
+                                                                    
+                                                                    self.getUserCircle(self.userDefaults.string(forKey: "id")!,pw,loginIsSuccess)
+
+                                                                    
+                                                                    
                                                                 }else{
+                                                                    self.con.toastText("로그인 실패! 앱을 재실행해주세요.")
                                                                     print("디바이스 정보 고쳐지고 나서 result code not matched")
                                                                 }
                                                             case .failure(let error):
@@ -193,6 +250,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                     }
 
                                 }else{
+                                    print("비밀번호 틀린것같음")
                                     self.con.toastText("로그인 실패")
                                 }
 
@@ -203,8 +261,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             
                             DispatchQueue.main.async {
                                 //UI 업데이트는 여기
+                                print("UIUPDATE START")
                                 progressHUD.hide()
-                                self.getUserCircle(self.userDefaults.string(forKey: "id")!,pw,loginIsSuccess)
+//                                self.getUserCircle(self.userDefaults.string(forKey: "id")!,pw,loginIsSuccess)
 
                             
                             }

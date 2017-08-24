@@ -1,11 +1,3 @@
-//
-//  ScheViewController.swift
-//  booIOS
-//
-//  Created by candy on 2017. 7. 7..
-//  Copyright © 2017년 univ. All rights reserved.
-//
-
 import UIKit
 import Alamofire
 import SwiftyJSON
@@ -20,6 +12,8 @@ class ScheViewController: UIViewController {
     @IBOutlet var viewArray: Array<UIView>?
     @IBOutlet var bottomArray : Array<UIView>?
     @IBOutlet var topArray : Array<UIView>?
+    
+    @IBOutlet var allTimeView: UIView!
     
     var scheduleArray:JSON = [:]
     var blank:String = ""
@@ -48,17 +42,19 @@ class ScheViewController: UIViewController {
     
     var colorArray = [UIColor]()
     
+    var mainManager = CBLManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//                view 오른쪽에만 테두리 추가
+        //                view 오른쪽에만 테두리 추가
         for i in 1..<(viewArray?.count)!{
             viewArray?[i].layer.addBorder(edge: [.left], color: UIColor.init(red: 206/225, green: 206/225, blue: 208/225, alpha: 1.0), thickness: 1.0)
         }
         
-//        view 밑에만 테두리 추가
+        //        view 밑에만 테두리 추가
         for j in 1..<(bottomArray?.count)!{
-             bottomArray?[j].layer.addBorder(edge: [.top], color: UIColor.init(red: 206/225, green: 206/225, blue: 208/225, alpha: 1.0), thickness: 1.0)
+            bottomArray?[j].layer.addBorder(edge: [.top], color: UIColor.init(red: 206/225, green: 206/225, blue: 208/225, alpha: 1.0), thickness: 1.0)
         }
         
         //        view 위만 테두리 추가
@@ -103,7 +99,7 @@ class ScheViewController: UIViewController {
                             
                             DispatchQueue.main.async {
                                 //UI 업데이트는 여기
-                                
+                                print("scheduleArray count :: \(self.scheduleArray.count)")
                                 for i in 0..<self.scheduleArray.count{
                                     
                                     let start = self.scheduleArray[i][6].string!
@@ -116,7 +112,7 @@ class ScheViewController: UIViewController {
                                         realTime = Int(startTime.substring(from: startTime.index(after: startTime.startIndex)))!-3
                                     }
                                     
-//                                    과목명
+                                    //                                    과목명
                                     let lectureName = self.scheduleArray[i][3].string!
                                     
                                     //           요일
@@ -153,6 +149,7 @@ class ScheViewController: UIViewController {
                                         break
                                     }
                                 }
+                                
                                 progressHUD.hide()
                                 self.view.reloadInputViews()
                             }
@@ -164,18 +161,15 @@ class ScheViewController: UIViewController {
         
         //       강의실 자르기
         let room = (getStart.components(separatedBy: " ")[0]).components(separatedBy: "(")[1]
-      
-        //       과목명
         
+        //       과목명
         if lectureName != "" {
             blank = lectureName
             array[realTime+1].text = lectureName
-           
+            
         }else{
             array[realTime+1].text = blank
-            
         }
-        
         //        라벨 집어넣기
         array[realTime].text = room
     }

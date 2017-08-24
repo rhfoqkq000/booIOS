@@ -25,11 +25,6 @@ class ProfViewController: UITableViewController{
         
         profData = [0 : manage, 1 : society]
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    
-    }
     
 //    섹션정하기
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -81,7 +76,7 @@ class ProfViewController: UITableViewController{
             
         }
     }
-    
+
     //    텍스트뷰 높이 자동 조절
     override func viewWillAppear(_ animated: Bool) {
         tableview.estimatedRowHeight = 100

@@ -103,18 +103,30 @@ class GradeViewController: UIViewController {
                                     self.kyoZeroCollection?[idx].text = self.subStringMajorTitle(title: arrTitle[idx].string!)
                                     self.needZeroCollection?[idx].text = needArr[idx+1].string!
                                     self.getZeroCollection?[idx].text = getArr[idx+1].string!
+                                    let resultZeroString = resultArr[idx+1].string!.substring(to: resultArr[idx+1].string!.index(after: resultArr[idx+1].string!.startIndex))
+                                    if resultZeroString == "-"{
+                                        self.resultZeroCollection?[idx].textColor = UIColor.red
+                                    }
                                     self.resultZeroCollection?[idx].text = resultArr[idx+1].string!
                                     if idx < 2 {
                                         self.majorOneCollection?[idx].text = arrTitle[idx+6].string!
                                         self.needOneCollection?[idx].text = needArr[idx+7].string!
                                         self.getOneCollection?[idx].text = getArr[idx+7].string!
                                         self.resultOneCollection?[idx].text = resultArr[idx+7].string!
+                                        let resultOneString = resultArr[idx+7].string!.substring(to: resultArr[idx+7].string!.index(after: resultArr[idx+7].string!.startIndex))
+                                        if resultOneString == "-"{
+                                            self.resultOneCollection?[idx].textColor = UIColor.red
+                                        }
                                     }
                                 }
                                 
                                 self.needTwoLabel.text = needArr[10].string!
                                 self.getTwoLabel.text = getArr[10].string!
                                 self.resultTwoLabel.text = resultArr[10].string!
+                                let resultTwoString = resultArr[10].string!.substring(to: resultArr[10].string!.index(after: resultArr[10].string!.startIndex))
+                                if resultTwoString == "-"{
+                                    self.resultTwoLabel.textColor = UIColor.red
+                                }
                                 
                                 progressHUD.hide()
 

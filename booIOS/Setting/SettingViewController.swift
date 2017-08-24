@@ -12,6 +12,7 @@ struct SettingCtrls {
     let push = "PushViewController"
     let developer = "DeveloperViewController"
     let version = "VersionViewController"
+    let app = "appViewController"
 }
 
 
@@ -58,6 +59,7 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
             UIApplication.shared.open(NSURL(string: "https://www.dongaboomin.xyz:20433/privacy")! as URL)
             break
         case 3:
+            navigationController?.pushViewController(returnTargetCtrl(ctrls.app), animated: true)
             break
         case 4:
             navigationController?.pushViewController(returnTargetCtrl(ctrls.version), animated: true)

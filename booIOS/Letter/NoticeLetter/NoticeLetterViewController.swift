@@ -124,11 +124,11 @@ class NoticeLetterViewController: UIViewController, UITableViewDelegate, UITable
         cell.noticeLetterDate.text = result_body[indexPath.row]["getTime"].stringValue
         cell.noticeLetterName.text = result_body[indexPath.row]["title"].stringValue
         cell.noticeLetterTitle.text = result_body[indexPath.row]["body"].stringValue
-        if result_body[indexPath.row]["read_check"].stringValue == "1"{
-            cell.noticeLetterSubView.backgroundColor = UIColor.blue
-        }else{
-            cell.noticeLetterSubView.backgroundColor = UIColor.red
-        }
+//        if result_body[indexPath.row]["read_check"].stringValue == "1"{
+//            cell.noticeLetterSubView.backgroundColor = UIColor.blue
+//        }else{
+//            cell.noticeLetterSubView.backgroundColor = UIColor.red
+//        }
         
         return cell
     }
@@ -137,6 +137,13 @@ class NoticeLetterViewController: UIViewController, UITableViewDelegate, UITable
         let progressHUD = ProgressHUD(text: "로딩 중입니다...")
         self.view.addSubview(progressHUD)
         progressHUD.show()
+        
+//        if result_body[indexPath.row]["read_check"] == 0{
+//            userDefaults.set(userDefaults.integer(forKey: "notReadPush")-1, forKey: "notReadPush")
+//            UIApplication.shared.applicationIconBadgeNumber = userDefaults.integer(forKey: "notReadPush")
+//            print("앱 뱃지 \(userDefaults.integer(forKey: "notReadPush"))로 줄어듬 ^0^")
+//        }
+        
         print("공지아이디는 \(self.result_body[indexPath.row]["id"])")
         let parameters: Parameters = ["notis_id": self.result_body[indexPath.row]["id"]]
         let todoEndpoint: String = "https://www.dongaboomin.xyz:20433/normal_read"
@@ -160,8 +167,8 @@ class NoticeLetterViewController: UIViewController, UITableViewDelegate, UITable
                             
                             DispatchQueue.main.async {
                                 progressHUD.hide()
-                                let cell = self.tableview.cellForRow(at: indexPath) as! NoticeLetterCell
-                                cell.noticeLetterSubView.backgroundColor = UIColor.blue
+//                                let cell = self.tableview.cellForRow(at: indexPath) as! NoticeLetterCell
+//                                cell.noticeLetterSubView.backgroundColor = UIColor.blue
                             }
             }
         )

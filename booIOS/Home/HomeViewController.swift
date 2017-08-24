@@ -65,29 +65,15 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        userDefaults.set(0, forKey: "notReadPush")
+        print("notReadPush는 사실은 \(userDefaults.integer(forKey: "notReadPush"))임")
 
         timeTableView.backgroundColor = UIColor(red: 247/255, green: 148/255, blue: 122/255, alpha: 1.0)
-        
-//        view 모서리 둥글게
-//        시간표
-        timeSuperView.layer.cornerRadius = 20
-        timeSubView.viewroundCorners(corners: [.topRight,.topLeft], radius: 20)
-        timeTableView.viewroundCorners(corners: [.bottomLeft, .bottomRight], radius: 20)
-//        메뉴
-        menuSuperView.layer.cornerRadius = 20
-        menuSubView.viewroundCorners(corners: [.topRight,.topLeft], radius: 20)
-        
-//        swipe
-        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
-        swipeDown.direction = UISwipeGestureRecognizerDirection.down
-        self.view.addGestureRecognizer(swipeDown)
         
         let date = Date()
         day = getTargetDay(targetDay: date)
 //        day = "목"
         
-        //        오늘 날짜 얻어오기
         let formatter = DateFormatter()
         var result:String = ""
         formatter.dateFormat = "yyyy-MM-dd"
@@ -163,12 +149,22 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             print("viewDidLoad : couchbaseLite에 저장 ㄴㄴ -> getJSON 실행")
             getJSON()
         }else{
-            monday2 = doc.properties?["monSchedule"] as! [[String:Any]]
-            tueday2 = doc.properties?["tueSchedule"] as! [[String:Any]]
-            wenday2 = doc.properties?["wenSchedule"] as! [[String:Any]]
-            thrday2 = doc.properties?["thrSchedule"] as! [[String:Any]]
-            friday2 = doc.properties?["friSchedule"] as! [[String:Any]]
-            print("viewDidLoad : monday type ::::: \(type(of: monday))")
+            print("couchbase에 저장되어있음 그래서 꺼낼거임")
+            if doc.properties?["monSchedule"] != nil{
+                monday2 = doc.properties?["monSchedule"] as! [[String:Any]]
+            }
+            if doc.properties?["tueSchedule"] != nil{
+                tueday2 = doc.properties?["tueSchedule"] as! [[String:Any]]
+            }
+            if doc.properties?["wenSchedule"] != nil{
+                wenday2 = doc.properties?["wenSchedule"] as! [[String:Any]]
+            }
+            if doc.properties?["thrSchedule"] != nil{
+                thrday2 = doc.properties?["thrSchedule"] as! [[String:Any]]
+            }
+            if doc.properties?["friSchedule"] != nil{
+                friday2 = doc.properties?["friSchedule"] as! [[String:Any]]
+            }
         }
         
         do{
@@ -192,7 +188,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         homeToday.text = allNow
         
 //        홈 위 텍스트
-        getHomeText(targetDay: day)
+        getHomeText()
         
     }
     
@@ -241,25 +237,32 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("cellForRowAt 실행됨")
         let cell = tableView.dequeueReusableCell(withIdentifier: "TimeCell", for: indexPath) as! TimeCell
-        if userDefaults.object(forKey: "isScheSaved") == nil{
-            var currentDay = [TimeTableInfo]()
-            if day == "월"{
-                currentDay = monday
-            } else if day == "화"{
-                currentDay = tueday
-            } else if day == "수"{
-                currentDay = wenday
-            } else if day == "목"{
-                currentDay = thrday
-            } else if day == "금"{
-                currentDay = friday
-            }
-            let sortedArr = currentDay.sorted { $0.startTime < $1.startTime }
-            cell.titleLabel.text = sortedArr[indexPath.row].title
-            cell.timeLabel.text = (fakeToRealDic[sortedArr[indexPath.row].startTime]?.components(separatedBy: "~")[0])!
-            cell.roomLabel.text = sortedArr[indexPath.row].room
-        }else{
+//        if userDefaults.object(forKey: "isScheSaved") == nil{
+//            var currentDay = [TimeTableInfo]()
+//            if day == "월"{
+//                currentDay = monday
+//            } else if day == "화"{
+//                currentDay = tueday
+//            } else if day == "수"{
+//                currentDay = wenday
+//            } else if day == "목"{
+//                currentDay = thrday
+//            } else if day == "금"{
+//                currentDay = friday
+//            }
+//            let sortedArr = currentDay.sorted { $0.startTime < $1.startTime }
+//            cell.titleLabel.text = sortedArr[indexPath.row].title
+//            cell.timeLabel.text = (fakeToRealDic[sortedArr[indexPath.row].startTime]?.components(separatedBy: "~")[0])!
+//            cell.roomLabel.text = sortedArr[indexPath.row].room
+//            print("titleLabel :: \(sortedArr[indexPath.row].title), timeLabel :: \((fakeToRealDic[sortedArr[indexPath.row].startTime]?.components(separatedBy: "~")[0])!), roomLabel :: \(sortedArr[indexPath.row].room)")
+//            cell.backgroundColor = UIColor(red: 247/255, green: 148/255, blue: 122/255, alpha: 1.0)
+//            
+////            self.userDefaults.set(10, forKey: "isScheSaved")
+////            print("박았다 ㄹㅇ루")
+//
+//        }else{
             var currentDay = [[String:Any]]()
             if day == "월"{
                 currentDay = monday2
@@ -272,28 +275,34 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             } else if day == "금"{
                 currentDay = friday2
             }
-            
-            var currentDay2 = [TimeTableInfo]()
-            for i in 0..<currentDay.count{
-                let info = TimeTableInfo()
-                info.room = currentDay[i]["room"] as! String
-                info.day = currentDay[i]["day"] as! String
-                info.title = currentDay[i]["title"] as! String
-                info.endTime = currentDay[i]["endTime"] as! Int
-                info.type = currentDay[i]["type"] as! String
-                info.time = currentDay[i]["time"] as! String
-                info.startTime = currentDay[i]["startTime"] as! Int
-                info.index = currentDay[i]["index"] as! Int
-                currentDay2.append(info)
-            }
-            let sortedArr = currentDay2.sorted { $0.startTime < $1.startTime }
-            
-            cell.titleLabel.text = sortedArr[indexPath.row].title
-            cell.timeLabel.text = (fakeToRealDic[sortedArr[indexPath.row].startTime]?.components(separatedBy: "~")[0])!
-            cell.roomLabel.text = sortedArr[indexPath.row].room
-            cell.backgroundColor = UIColor(red: 247/255, green: 148/255, blue: 122/255, alpha: 1.0)
-        }
+            if currentDay.count != 0 {
+                print("currentDay.count가 0이 아님")
 
+                var currentDay2 = [TimeTableInfo]()
+                for i in 0..<currentDay.count{
+                    let info = TimeTableInfo()
+                    info.room = currentDay[i]["room"] as! String
+                    info.day = currentDay[i]["day"] as! String
+                    info.title = currentDay[i]["title"] as! String
+                    info.endTime = currentDay[i]["endTime"] as! Int
+                    info.type = currentDay[i]["type"] as! String
+                    info.time = currentDay[i]["time"] as! String
+                    info.startTime = currentDay[i]["startTime"] as! Int
+                    info.index = currentDay[i]["index"] as! Int
+                    currentDay2.append(info)
+                }
+                let sortedArr = currentDay2.sorted { $0.startTime < $1.startTime }
+                
+                cell.titleLabel.text = sortedArr[indexPath.row].title
+                cell.timeLabel.text = (fakeToRealDic[sortedArr[indexPath.row].startTime]?.components(separatedBy: "~")[0])!
+                cell.roomLabel.text = sortedArr[indexPath.row].room
+                cell.backgroundColor = UIColor(red: 247/255, green: 148/255, blue: 122/255, alpha: 1.0)
+            }else{
+                print("currentDay.count가 0임")
+            }
+            
+//        }
+            
         return cell
     }
     
@@ -304,7 +313,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.view.addSubview(progressHUD)
         progressHUD.show()
         let todoEndpoint: String = "https://www.dongaboomin.xyz:20433/donga/getTimeTable"
-        let parameters = ["stuId" :"1124305", "stuPw" :"Ekfqlc152!"]
+        let parameters:[String:Any] = ["stuId" :userDefaults.string(forKey: "stuId")!, "stuPw" :userDefaults.string(forKey: "stuPw")!]
         print("getJSON 통신시작합니당")
         
         let queue = DispatchQueue(label: "xyz.dongaboomin.TimeTable", qos: .utility, attributes: [.concurrent])
@@ -389,8 +398,48 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                                     }
                                 }
                                 progressHUD.hide()
+
+                                print("infoArr.count == \(self.infoArr.count)")
                                 self.refreshArr(targetArr: self.infoArr)
+
+                                print("getJSON() 얼추 끝났고 day2로 가공한당")
+                                let database: CBLDatabase
+                                do {
+                                    database = try self.mainManager.databaseNamed("app")
+                                } catch {
+                                    print("viewDidLoad : Database creation or opening failed")
+                                    self.con.toastText("불러오기 실패")
+                                    return
+                                }
+                                let doc = database.document(withID: self.userDefaults.string(forKey: "stuId")!+"HOME")!
+
+                                if doc.properties?["monSchedule"] != nil{
+                                    self.monday2 = doc.properties?["monSchedule"] as! [[String:Any]]
+                                }
+                                if doc.properties?["tueSchedule"] != nil{
+                                    self.tueday2 = doc.properties?["tueSchedule"] as! [[String:Any]]
+                                }
+                                if doc.properties?["wenSchedule"] != nil{
+                                    self.wenday2 = doc.properties?["wenSchedule"] as! [[String:Any]]
+                                }
+                                if doc.properties?["thrSchedule"] != nil{
+                                    self.thrday2 = doc.properties?["thrSchedule"] as! [[String:Any]]
+                                }
+                                if doc.properties?["friSchedule"] != nil{
+                                    self.friday2 = doc.properties?["friSchedule"] as! [[String:Any]]
+                                }
+                                
+                                do{
+                                    try database.close()
+                                }catch{
+                                    print("HomeViewController database closing failed")
+                                    return
+                                }
+                                
                                 self.timeTableView.reloadData()
+                                
+                                self.userDefaults.set(10, forKey: "isScheSaved")
+                                print("박았다 ㄹㅇ루")
                             }
             }
         )
@@ -435,6 +484,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 reInfo.time = timeArr[i].time
                 reInfo.index = timeArr[i].index
                 tueday.append(reInfo)
+                print(reInfo.title)
                 setCouchbase(day: "tueSchedule", dayArr: tueday)
             } else if (timeArr[i].day == "수") {
                 let reInfo = TimeTableInfo()
@@ -491,7 +541,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             print("doc.properties가 nil인것갓은디")
             do {
                 let dicArray = dayArr.map{ $0.convertToDictionary() }
-                print(dicArray)
                 try doc.update({(newRev)->Bool in
                     newRev[day] = dicArray
                     return true
@@ -533,14 +582,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 }
             }
         }
+//        print("대체 \(day)엔 뭐가 들어있냐 :: \((doc.properties?[day] as! [[String:Any]]))")
         do{
             try database.close()
         }catch{
             print("HomeViewController database closing failed")
             return
         }
-        // isScheSaved가 10이면 저장된 것, 없으면 저장되지 않은 것
-        userDefaults.set(10, forKey: "isScheSaved")
     }
     
     func getTargetDay(targetDay day: Date) -> String {
@@ -551,7 +599,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func returnDayCount(targetDay day:String) -> Int {
-        if userDefaults.object(forKey: "isScheSaved") != nil{
+//        if userDefaults.object(forKey: "isScheSaved") != nil{
             var count:Int = 0
             if day == "월"{
                 count =  monday2.count
@@ -564,25 +612,25 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             } else if day == "금"{
                 count = friday2.count
             }
-            print("returnDayCount에서 isScheSaved가 nil 아님 그래서 \(count) 리턴함")
+            print("returnDayCount에서 \(count) 리턴함")
 
             return count
-        }else{
-            var count:Int = 0
-            if day == "월"{
-                count =  monday.count
-            } else if day == "화"{
-                count = tueday.count
-            } else if day == "수"{
-                count = wenday.count
-            } else if day == "목"{
-                count = thrday.count
-            } else if day == "금"{
-                count = friday.count
-            }
-            print("returnDayCount에서 isScheSaved가 nil임 그래서 \(count) 리턴함")
-            return count
-        }
+//        }else{
+//            var count:Int = 0
+//            if day == "월"{
+//                count =  monday.count
+//            } else if day == "화"{
+//                count = tueday.count
+//            } else if day == "수"{
+//                count = wenday.count
+//            } else if day == "목"{
+//                count = thrday.count
+//            } else if day == "금"{
+//                count = friday.count
+//            }
+//            print("returnDayCount에서 isScheSaved가 nil임 그래서 \(count) 리턴함")
+//            return count
+//        }
     }
 
     
@@ -688,82 +736,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-    func respondToSwipeGesture(gesture: UIGestureRecognizer) {
-        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-            switch swipeGesture.direction {
-            case UISwipeGestureRecognizerDirection.right:
-                print("Swiped right")
-            case UISwipeGestureRecognizerDirection.down:
-                print("HomeViewController 다 새로고쳐버리겠다")
-                userDefaults.removeObject(forKey: "isScheSaved")
-                let subManager = CBLManager.copy(mainManager)
-                let database: CBLDatabase
-                do {
-                    database = try subManager().databaseNamed("app")
-                } catch {
-                    print("HomeViewController Database creation or opening failed")
-                    con.toastText("불러오기 실패")
-                    return
-                }
-                let doc2 = database.document(withID: userDefaults.string(forKey: "stuId")!+"HOME")!
-                do{
-                    try doc2.delete()
-                }catch{
-                    print("HomeViewController Database deleting failed")
-                    con.toastText("불러오기 실패")
-                    return
-                }
-                getJSON()
-                userDefaults.set(result, forKey:"mealDate")
-                getResMenu(targetDate: result)
-                do{
-                    try database.close()
-                }catch{
-                    print("HomeViewController database closing failed")
-                    con.toastText("불러오기 실패")
-                    return
-                }
-            case UISwipeGestureRecognizerDirection.left:
-                print("Swiped left")
-            case UISwipeGestureRecognizerDirection.up:
-                print("Swiped up")
-            default:
-                break
-            }
-        }
-    }
     
-    func getHomeText(targetDay weekOfDay:String){
-        var weekOfDayNumber: Int = 0
-        
-        switch weekOfDay {
-        case "일":
-            weekOfDayNumber = 0
-            break
-        case "월":
-            weekOfDayNumber = 1
-            break
-        case "화":
-            weekOfDayNumber = 2
-            break
-        case "수":
-            weekOfDayNumber = 3
-            break
-        case "목":
-            weekOfDayNumber = 4
-            break
-        case "금":
-            weekOfDayNumber = 5
-            break
-        case "토":
-            weekOfDayNumber = 6
-            break
-        default:
-            print("놉놉")
-            break
-        }
-        
-        let todoEndpoint: String = "http://www.dongaboomin.xyz:8000/api/greet?day=\(weekOfDayNumber)"
+    func getHomeText(){
+        let todoEndpoint: String = "http://www.dongaboomin.xyz:8000/api/greet"
         let todoEndpointEscapes = todoEndpoint.addingPercentEncoding( withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
         
         let queue = DispatchQueue(label: "com.example.boo", qos: .utility, attributes: [.concurrent])
@@ -775,8 +750,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                             switch response.result{
                             case .success(let value):
                                 let json = JSON(value)
-                                if json["result_code"] == 1{
-                                    greetText = json["greetDTO"]["greetText"].stringValue
+                                if json["result_code"] == 200{
+                                    greetText = json["result_body"]["greetText"].stringValue
                                 }else{
                                     print("홈 텍스트 데이터 실패")
                                     self.con.toastText("불러오기 실패")
@@ -794,4 +769,53 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }
         )
     }
+    
+    
+    @IBAction func titmeTableRefreshAction(_ sender: AnyObject) {
+        print("홈화면 시간표를 다 새로고쳐버리겠다")
+        
+        infoArr.removeAll()
+        monday.removeAll()
+        monday2.removeAll()
+        tueday.removeAll()
+        tueday2.removeAll()
+        wenday.removeAll()
+        wenday2.removeAll()
+        thrday.removeAll()
+        thrday2.removeAll()
+        friday.removeAll()
+        friday2.removeAll()
+        
+        userDefaults.removeObject(forKey: "isScheSaved")
+        
+        let subManager = CBLManager.copy(mainManager)
+        let database: CBLDatabase
+        do {
+            database = try subManager().databaseNamed("app")
+        } catch {
+            print("HomeViewController Database creation or opening failed")
+            con.toastText("불러오기 실패")
+            return
+        }
+        let doc2 = database.document(withID: userDefaults.string(forKey: "stuId")!+"HOME")!
+        do{
+            try doc2.delete()
+        }catch{
+            print("HomeViewController Database deleting failed")
+            con.toastText("불러오기 실패")
+            return
+        }
+        getJSON()
+        do{
+            try database.close()
+        }catch{
+            print("HomeViewController database closing failed")
+            con.toastText("불러오기 실패")
+            return
+        }
+        timeTableView.reloadData()
+    }
+    
+    
+    
 }
