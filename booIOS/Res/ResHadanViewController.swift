@@ -15,7 +15,7 @@ class ResHadanViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var tableview: UITableView!
-    @IBOutlet var indicator: UIActivityIndicatorView!
+//    @IBOutlet var indicator: UIActivityIndicatorView!
 
 
     //        오늘 날짜 얻어오기
@@ -42,7 +42,6 @@ class ResHadanViewController: UIViewController, UITableViewDelegate, UITableView
         formatter.dateFormat = "yyyy-MM-dd"
         result = formatter.string(from: date)
         self.dateLabel.text = result
-        print(date)
         
         convert = formatter.date(from: dateLabel.text!)!
         getJSON(targetDate: result)
@@ -56,9 +55,8 @@ class ResHadanViewController: UIViewController, UITableViewDelegate, UITableView
     func getJSON(targetDate date:String){
         let progressHUD = ProgressHUD(text: "로딩 중입니다...")
         self.view.addSubview(progressHUD)
-//        progressHUD.show()
+        progressHUD.show()
         let todoEndpoint: String = "http://www.dongaboomin.xyz:3000/meal?date=\(date)"
-        print("오늘 날짜 맞지? \(date)")
             let queue = DispatchQueue(label: "xyz.dongaboomin.res.hadan", qos: .utility, attributes: [.concurrent])
             
             Alamofire.request(todoEndpoint, method: .get).validate()
@@ -77,10 +75,8 @@ class ResHadanViewController: UIViewController, UITableViewDelegate, UITableView
                                 hadan_kyo = json["result_body"]["hadan_kyo"].stringValue
                                 library = json["result_body"]["library"].stringValue
                                 
-                                print("출력되니? \(hadan_gang)")
                             }else{
                                 self.con.toastText("불러오기 실패")
-                                print("ResViewController result code not matched")
                             }
                         case .failure(let error):
                             self.con.toastText("불러오기 실패")
@@ -104,16 +100,12 @@ class ResHadanViewController: UIViewController, UITableViewDelegate, UITableView
                                 options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
                                 documentAttributes: nil)
                             
-                            print("하단 강의 ::::: \(hadan_gangStr)")
-                            
                             self.content.append(hadan_gangStr.string)
                             self.content.append(hadan_kyoStr.string)
                             self.content.append(libraryStr.string)
 
-                            print(self.content)
-                            
 //                          callback
-//                            progressHUD.hide()
+                            progressHUD.hide()
                             self.tableview.reloadData()
                             
                         }
@@ -131,7 +123,6 @@ class ResHadanViewController: UIViewController, UITableViewDelegate, UITableView
         
         cell = tableView.dequeueReusableCell(withIdentifier: "resCell")! as! ResCell
         if content.isEmpty {
-            print("식당 값이 없당")
             cell.resContent.text = "메뉴가 없당!"
         } else {
             let pattern = "^\\n"

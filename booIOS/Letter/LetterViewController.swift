@@ -12,6 +12,8 @@ class LetterViewController: UIViewController {
     
     var container: ContainerViewController!
     
+    @IBOutlet weak var segController: UISegmentedControl!
+
     let userDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
@@ -19,7 +21,6 @@ class LetterViewController: UIViewController {
         
         userDefaults.set(0, forKey: "notReadPush")
         UIApplication.shared.applicationIconBadgeNumber = 0
-        print("앱 뱃지 0됨 ^0^")
     }
     
     override func didReceiveMemoryWarning() {
@@ -40,6 +41,10 @@ class LetterViewController: UIViewController {
             
             container = segue.destination as! ContainerViewController
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        segController.selectedSegmentIndex = 0;
     }
     
 }

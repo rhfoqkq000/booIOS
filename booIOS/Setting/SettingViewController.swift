@@ -68,7 +68,6 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
             navigationController?.pushViewController(returnTargetCtrl(ctrls.developer), animated: true)
             break
         default:
-            print("읭?")
             break
         }
     }

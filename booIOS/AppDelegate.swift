@@ -102,6 +102,8 @@
 
 import UIKit
 import UserNotifications
+import Fabric
+import Crashlytics
 
 import Firebase
 
@@ -115,6 +117,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        Fabric.with([Crashlytics.self])
         FirebaseApp.configure()
         
         // [START set_messaging_delegate]

@@ -19,9 +19,16 @@ class SeatViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     let con = Constants()
     
+    let userDefaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getJSON()
+        
+        if userDefaults.object(forKey: "isFirstSeat") == nil {
+            con.toastText("각 줄을 터치하시면 좌석현황을 보여드립니다.")
+            userDefaults.set(0, forKey: "isFirstSeat")
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -50,7 +57,6 @@ class SeatViewController: UIViewController,UITableViewDataSource,UITableViewDele
         cell.backgroundColor = UIColor.clear
         
         if result_body.isEmpty {
-            print("어이쿠 저런...")
             con.toastText("불러오기 실패")
         } else {
             let dicTemp = result_body[indexPath.row]
@@ -100,7 +106,6 @@ class SeatViewController: UIViewController,UITableViewDataSource,UITableViewDele
                                 if json["result_code"] == 200{
                                     self.result_body = json["result_body"]
                                 }else{
-                                    print("SeatViewController getJSON result code not matched")
                                     self.con.toastText("불러오기 실패")
                                 }
                             case .failure(let error):

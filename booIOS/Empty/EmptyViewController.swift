@@ -98,7 +98,6 @@ class EmptyViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }else if dayString == "금"{
             selectedDay = "5"
         }
-        print("day:\(selectedDay), from:\(substringFirstCharacter(firstTimeDropdownButton.currentTitle!)), to:\(substringFirstCharacter(secondTimeDropdownButton.currentTitle!))")
         getJSON(selectDay: selectedDay, toTime: substringFirstCharacter(secondTimeDropdownButton.currentTitle!), fromTime: substringFirstCharacter(firstTimeDropdownButton.currentTitle!))
         
         tableview.isHidden = false
@@ -133,7 +132,7 @@ class EmptyViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.view.addSubview(progressHUD)
         progressHUD.show()
         let todoEndpoint: String = "https://www.dongaboomin.xyz:20433/donga/empty/room?day=\(day)&from=\(from)&to=\(to)"
-        let queue = DispatchQueue(label: "com.Boo", qos: .utility, attributes: [.concurrent])
+        let queue = DispatchQueue(label: "xyz.dongaboomin.empty", qos: .utility, attributes: [.concurrent])
         Alamofire.request(todoEndpoint, method: .get).validate()
             .responseJSON(queue: queue,
                           completionHandler : { response in

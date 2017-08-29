@@ -3,7 +3,10 @@ PODS:
   - couchbase-lite-ios (1.4.0):
     - couchbase-lite-ios/SQLite (= 1.4.0)
   - couchbase-lite-ios/SQLite (1.4.0)
+  - Crashlytics (3.8.5):
+    - Fabric (~> 1.6.3)
   - DropDown (2)
+  - Fabric (1.6.12)
   - Firebase/Auth (4.0.4):
     - Firebase/Core
     - FirebaseAuth (= 4.0.0)
@@ -60,7 +63,9 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.4)
   - couchbase-lite-ios (~> 1.4.0)
+  - Crashlytics
   - DropDown (~> 2)
+  - Fabric
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Messaging
@@ -73,7 +78,9 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   couchbase-lite-ios: 5b9f59ce74c2d981c41795f0949d31354d90c459
+  Crashlytics: dfbae35ef22ca189240d230ad501feea4ee85d2d
   DropDown: 744784d9c9aa505100e942c16acd05430cbb2f0a
+  Fabric: f050464eac45a2ce5a8e6e6a07e977c0df32fe28
   Firebase: 1492bf04e1b73a7353b4fb2cf5a20bac9692f341
   FirebaseAnalytics: ad41720e3e67fc63fbe3d2948d3e26932a8de311
   FirebaseAuth: ebb6abcbabae00fc47446d690c19ce68d8484fde
@@ -90,6 +97,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   Toaster: f13031c636ef065281bc11857be9a16c7659e04f
 
-PODFILE CHECKSUM: cdb99c9e3a9367980c166b6ca7aadc69f0cb42f7
+PODFILE CHECKSUM: 10135cc9f4257dfb387605a7c9bcd370e0d2a0ad
 
 COCOAPODS: 1.2.1

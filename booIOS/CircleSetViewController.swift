@@ -84,7 +84,6 @@ class CircleSetViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath){
             cell.accessoryType = .checkmark
-            print(cell.tag)
         }
     }
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
@@ -185,7 +184,6 @@ class CircleSetViewController: UIViewController, UITableViewDelegate, UITableVie
                                 if json["result_code"] == 1{
                                     //                                    self.con.toastText("성공!")
                                 }else{
-                                    print("HomeViewController getJSON result code not matched")
                                     self.con.toastText("불러오기 실패")
                                 }
                                 

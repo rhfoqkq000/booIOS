@@ -197,7 +197,7 @@ class AchiveViewController: UIViewController, UITableViewDataSource, UITableView
     func getJSON(_ id:String, _ pw:String, _ year:String, _ smt:String){
         let todoEndpoint: String = "https://dongaboomin.xyz:20433/donga/getSpeGrade"
         let parameters = ["stuId":id, "stuPw":pw, "year":year, "smt":smt]
-        let queue = DispatchQueue(label: "com.Boo", qos: .utility, attributes: [.concurrent])
+        let queue = DispatchQueue(label: "xyz.dongaboomin.achive", qos: .utility, attributes: [.concurrent])
         Alamofire.request(todoEndpoint, method: .post, parameters:parameters, encoding:JSONEncoding(options:[])).validate()
             .responseJSON(queue: queue,
                           completionHandler : { response in
@@ -252,12 +252,10 @@ class AchiveViewController: UIViewController, UITableViewDataSource, UITableView
                                     for i in 0..<self.fillArr.count {
                                         if i == 1 {
                                             let tempArr = self.infosArr[0..<self.fillArr[i]-1]
-                                            print("tempArr1 : \(i),\(tempArr)\n")
                                             self.resultArr.append(Array(tempArr))
                                         } else if (i>1) {
                                             if i < self.fillArr.count {
                                                 let tempArr = self.infosArr[self.fillArr[i-1]-1..<self.fillArr[i]-1]
-                                                print("tempArr2 : \(i),\(tempArr)\n")
                                                 self.resultArr.append(Array(tempArr))
                                             }
                                         }

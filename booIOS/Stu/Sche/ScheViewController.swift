@@ -47,21 +47,21 @@ class ScheViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let scheBlack = UIColor.init(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.1)
+        
         //                view 오른쪽에만 테두리 추가
         for i in 1..<(viewArray?.count)!{
-            viewArray?[i].layer.addBorder(edge: [.left], color: UIColor.init(red: 206/225, green: 206/225, blue: 208/225, alpha: 1.0), thickness: 1.0)
+            viewArray?[i].layer.addBorder(edge: [.left], color: scheBlack, thickness: 1.0)
         }
         
         //        view 밑에만 테두리 추가
         for j in 1..<(bottomArray?.count)!{
-            bottomArray?[j].layer.addBorder(edge: [.top], color: UIColor.init(red: 206/225, green: 206/225, blue: 208/225, alpha: 1.0), thickness: 1.0)
+            bottomArray?[j].layer.addBorder(edge: [.top], color: scheBlack, thickness: 1.0)
         }
         
         //        view 위만 테두리 추가
-        for k in 0..<(topArray?.count)!{
-            topArray?[k].layer.addBorder(edge: [.top], color: UIColor.init(red: 206/225, green: 206/225, blue: 208/225, alpha: 1.0), thickness: 1.0)
-            
-        }
+        topArray?[0].layer.addBorder(edge: [.top], color: scheBlack, thickness: 1.0)
+
         
         colorArray = [oneColor,twoColor,threeColor,fourColor,fiveColor,sixColor,sevenColor,eightColor,nineColor,tenColor,eleColor,tweColor,thirColor,fourtColor,fivetColor,sixtColor]
         
@@ -75,7 +75,7 @@ class ScheViewController: UIViewController {
         let todoEndpoint: String = "https://www.dongaboomin.xyz:20433/donga/getTimeTable"
         let parameters = ["stuId" :userDefaults.string(forKey:"stuId")!, "stuPw" :userDefaults.string(forKey:"stuPw")!]
         
-        let queue = DispatchQueue(label: "book.boo-ios", qos: .utility, attributes: [.concurrent])
+        let queue = DispatchQueue(label: "xyz.dongaboomin.sche", qos: .utility, attributes: [.concurrent])
         
         Alamofire.request(todoEndpoint, method: .post, parameters: parameters, encoding:JSONEncoding(options:[])).validate()
             
@@ -159,8 +159,18 @@ class ScheViewController: UIViewController {
     }
     func setText(_ array : Array<UILabel>,_ i :Int, _ getStart :String, _ realTime :Int, _ lectureName :String){
         
-        //       강의실 자르기
-        let room = (getStart.components(separatedBy: " ")[0]).components(separatedBy: "(")[1]
+//       강의실 자르기
+//        let room = (getStart.components(separatedBy: " ")[0])
+//        let room_no = getStart.characters.in
+        
+//        let room_ct = room.components(separatedBy: "(").count
+//        
+//        for i in 1..<room_ct{
+//            room_no+=room.components(separatedBy: "(")[i]
+//        }
+        let room_no = getStart.characters.index(of: "(")
+        let room_de = getStart.substring(from: room_no!)
+        let room = room_de.substring(from: room_de.index(after: room_de.startIndex)).components(separatedBy: " ")[0]
         
         //       과목명
         if lectureName != "" {

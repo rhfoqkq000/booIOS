@@ -12,4 +12,7 @@ struct MenuInfo {
     var gang = String()
     var kyo = String()
     var inter = String()
+    var hadan_kyo = String()
+    var hadan_gang = String()
+    var library = String()
 }

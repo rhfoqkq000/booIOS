@@ -85,7 +85,6 @@ class CircleChangeViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath){
             cell.accessoryType = .checkmark
-            print(cell.tag)
         }
     }
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
@@ -190,12 +189,11 @@ class CircleChangeViewController: UIViewController, UITableViewDelegate, UITable
                                 if json["result_code"] == 1{
                                     //                                   self.con.toastText("성공!")
                                 }else{
-                                    print("HomeViewController getJSON result code not matched")
                                     self.con.toastText("불러오기 실패")
                                 }
                                 
                             case .failure(let error):
-                                self.con.toastText("아마도 서버가 맛간듯..")
+                                self.con.toastText("서버가 제대로 작동되고 있지 않습니다.")
                                 print(error)
                             }
                             

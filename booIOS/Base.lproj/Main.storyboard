@@ -1729,6 +1729,9 @@
                                         <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="pushSwitchAction:" destination="ZZz-eM-H0l" eventType="valueChanged" id="Kz4-J6-0TN"/>
+                                </connections>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1739,6 +1742,9 @@
                             <constraint firstItem="Ljx-zw-5ZV" firstAttribute="leading" secondItem="7zE-n3-pmc" secondAttribute="leadingMargin" id="ex3-Qj-D3f"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pushSwitch" destination="fht-T5-Lhk" id="PON-LU-xMg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yvv-q7-pzG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1854,20 +1860,42 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&gt;&gt;로딩화면 디자인&lt;&lt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="oc6-Tw-xnT">
+                                <rect key="frame" x="16" y="226" width="230" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="230" id="cLL-N4-Mks"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="안채림" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="FCQ-p2-cml">
+                                <rect key="frame" x="16" y="259" width="230" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="230" id="6DL-hL-xEN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="QBc-oU-CGq" firstAttribute="top" secondItem="Ywk-qx-eiE" secondAttribute="bottom" constant="15" id="1EA-II-iej"/>
                             <constraint firstItem="zAc-IX-0JM" firstAttribute="leading" secondItem="BIi-io-Tsu" secondAttribute="leadingMargin" id="3c6-vK-5d5"/>
+                            <constraint firstItem="oc6-Tw-xnT" firstAttribute="top" secondItem="Fgk-KK-XSE" secondAttribute="bottom" constant="15" id="7nW-Rq-ZEE"/>
                             <constraint firstItem="22s-3D-BjF" firstAttribute="top" secondItem="ZMX-Qh-ov9" secondAttribute="bottom" constant="8" id="GV8-qe-BvW"/>
                             <constraint firstItem="Fgk-KK-XSE" firstAttribute="top" secondItem="zAc-IX-0JM" secondAttribute="bottom" constant="15" id="JWe-xQ-SyN"/>
                             <constraint firstItem="QBc-oU-CGq" firstAttribute="leading" secondItem="BIi-io-Tsu" secondAttribute="leadingMargin" id="N7A-FW-LbU"/>
                             <constraint firstItem="Ywk-qx-eiE" firstAttribute="leading" secondItem="BIi-io-Tsu" secondAttribute="leadingMargin" id="N9Y-B1-84R"/>
+                            <constraint firstItem="FCQ-p2-cml" firstAttribute="top" secondItem="oc6-Tw-xnT" secondAttribute="bottom" constant="15" id="PWK-rO-bIa"/>
+                            <constraint firstItem="FCQ-p2-cml" firstAttribute="leading" secondItem="BIi-io-Tsu" secondAttribute="leadingMargin" id="Pii-aK-rJe"/>
                             <constraint firstItem="zAc-IX-0JM" firstAttribute="top" secondItem="gbg-pf-ZWV" secondAttribute="bottom" constant="15" id="TPk-fr-eQp"/>
                             <constraint firstItem="gbg-pf-ZWV" firstAttribute="leading" secondItem="BIi-io-Tsu" secondAttribute="leadingMargin" id="cwD-Za-FCG"/>
                             <constraint firstItem="Ywk-qx-eiE" firstAttribute="top" secondItem="22s-3D-BjF" secondAttribute="bottom" constant="15" id="dcG-6q-tyi"/>
                             <constraint firstItem="gbg-pf-ZWV" firstAttribute="top" secondItem="QBc-oU-CGq" secondAttribute="bottom" constant="15" id="gMz-cm-rN5"/>
                             <constraint firstItem="22s-3D-BjF" firstAttribute="leading" secondItem="BIi-io-Tsu" secondAttribute="leadingMargin" id="hnx-ng-UA9"/>
+                            <constraint firstItem="oc6-Tw-xnT" firstAttribute="leading" secondItem="BIi-io-Tsu" secondAttribute="leadingMargin" id="nFH-MW-vSw"/>
                             <constraint firstItem="Fgk-KK-XSE" firstAttribute="leading" secondItem="zAc-IX-0JM" secondAttribute="leading" id="zfn-mu-yk7"/>
                         </constraints>
                     </view>
@@ -2051,6 +2079,9 @@
                             <constraint firstItem="snW-ut-Zgo" firstAttribute="leading" secondItem="1OO-E5-7TD" secondAttribute="leading" constant="8" id="tAC-zM-sCB"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="segController" destination="snW-ut-Zgo" id="Foe-oY-vj7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z5W-rk-iIJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -5220,6 +5251,9 @@ Firebase</string>
                             <outlet property="animation" destination="bbg-Fk-Fcu" id="ly9-dl-598"/>
                         </connections>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="segController" destination="f4u-lV-FLI" id="XMJ-hd-eHh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zjw-HS-JGQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="bbg-Fk-Fcu" customClass="RAMBounceAnimation" customModule="booIOS" customModuleProvider="target"/>
@@ -5241,7 +5275,7 @@ Firebase</string>
         <image name="studIcon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="VwH-Tn-0E2"/>
+        <segue reference="nKh-BN-3eN"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.96862745098039216" green="0.58039215686274503" blue="0.47843137254901957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

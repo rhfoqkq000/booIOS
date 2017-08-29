@@ -65,7 +65,6 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
         case 2:
             return 2
         default:
-            print("??")
             return 0
         }
     }
@@ -162,14 +161,14 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 break
 //                관리자로그인
             case 1:
-                UIApplication.shared.open(NSURL(string: "http://dongaboomin.xyz:8000/admin/index")! as URL)
+                UIApplication.shared.open(NSURL(string: "http://45.77.31.224")! as URL)
                 break
             default:
                 break
             }
             break
         default:
-            print("오류에영")
+            break
         }
     }
     

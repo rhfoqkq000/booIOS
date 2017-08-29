@@ -20,7 +20,6 @@ class PrivacyViewController: UIViewController {
         super.viewDidLoad()
         
         if userDefaults.integer(forKey: "privacyAgreement") == 1{
-            print("이미 개인정보활용에 동의했으니 로그인으로 넘어간당")
 //            self.performSegue(withIdentifier: "toLoginSeque", sender: self)
             DispatchQueue.main.async() {
                 self.performSegue(withIdentifier: "toLoginSeque", sender: self)

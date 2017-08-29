@@ -47,7 +47,6 @@ class GradeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        print("id는 \(userDefaults.string(forKey:"stuId")!), pw는 \(userDefaults.string(forKey:"stuPw")!)")
         getJSON(targetId: userDefaults.string(forKey:"stuId")!, targetPw: userDefaults.string(forKey:"stuPw")!)
         
         topView.layer.addBorder(edge: [.bottom], color: UIColor.darkGray, thickness: 1.0)
@@ -64,7 +63,7 @@ class GradeViewController: UIViewController {
         progressHUD.show()
         let parameters: Parameters = ["stuId": userDefaults.string(forKey:"stuId")!,"stuPw":userDefaults.string(forKey:"stuPw")!]
         let todoEndpoint: String = "https://www.dongaboomin.xyz:20433/donga/getGraduated"
-        let queue = DispatchQueue(label: "xyz.dongaboomin.seat", qos: .utility, attributes: [.concurrent])
+        let queue = DispatchQueue(label: "xyz.dongaboomin.grade", qos: .utility, attributes: [.concurrent])
         Alamofire.request(todoEndpoint, method: .post, parameters: parameters).validate()
             .responseJSON(queue: queue,
                           completionHandler : { response in
@@ -74,7 +73,6 @@ class GradeViewController: UIViewController {
                                 if json["result_code"] == 1{
                                     self.result_body = json["result_body"]
                                 }else{
-                                    print("GradeViewController result code not matched")
                                     self.con.toastText("불러오기 실패")
                                 }
                                 

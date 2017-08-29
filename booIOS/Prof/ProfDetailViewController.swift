@@ -23,7 +23,6 @@ class ProfDetailViewController: UIViewController, UITableViewDataSource, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("넘어온 데이터 : \(major)")
         getJSON(targetDate: major)
     }
     
@@ -34,7 +33,7 @@ class ProfDetailViewController: UIViewController, UITableViewDataSource, UITable
         let todoEndpoint: String = "http://www.dongaboomin.xyz:3000/getPro?major=\(major)"
         let todoEndpointEscapes = todoEndpoint.addingPercentEncoding( withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
         
-        let queue = DispatchQueue(label: "com.example.boo", qos: .utility, attributes: [.concurrent])
+        let queue = DispatchQueue(label: "xyz.dongaboomin.prof", qos: .utility, attributes: [.concurrent])
         indicator.startAnimating()
         Alamofire.request(todoEndpointEscapes!, method: .get).validate()
             .responseJSON(queue: queue,
@@ -46,7 +45,6 @@ class ProfDetailViewController: UIViewController, UITableViewDataSource, UITable
                                 if json["result_code"] == 200{
                                     self.profArray = json["result_body"]
                                 }else{
-                                    print("ProfDetailViewController result code not matched")
                                     self.con.toastText("불러오기 실패")
                                 }
                           
@@ -75,7 +73,6 @@ class ProfDetailViewController: UIViewController, UITableViewDataSource, UITable
         
         if profArray.isEmpty {
             self.con.toastText("불러오기 실패")
-            print("어이쿠 저런...")
         } else {
             let dicTemp = profArray[indexPath.row]
             
@@ -137,7 +134,6 @@ class ProfDetailViewController: UIViewController, UITableViewDataSource, UITable
     @IBAction func mailAction(_ sender: Any) {
         let mail = sender as! UIButton
         let proMail = profArray[mail.tag]["email"]
-        print("mail : \(proMail)")
         
         let url = URL(string: "mailto:\(proMail)")
         UIApplication.shared.open(url!, options: [:], completionHandler: nil)

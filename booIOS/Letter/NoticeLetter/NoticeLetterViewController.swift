@@ -53,7 +53,6 @@ class NoticeLetterViewController: UIViewController, UITableViewDelegate, UITable
                                     self.result_body = json["result_body"]
                                     self.countOfLetters = self.result_body.count
                                 }else{
-                                    print("PushViewController getJSON result code not matched")
                                     self.con.toastText("불러오기 실패")
                                 }
                             case .failure(let error):
@@ -86,9 +85,7 @@ class NoticeLetterViewController: UIViewController, UITableViewDelegate, UITable
                                 case .success(let value):
                                     let json = JSON(value)
                                     if json["result_code"] == 1{
-                                        print("일반쪽지지웠당")
                                     }else{
-                                        print("normal_read result code not matched")
                                         self.con.toastText("삭제 실패")
                                     }
                                 case .failure(let error):
@@ -144,7 +141,6 @@ class NoticeLetterViewController: UIViewController, UITableViewDelegate, UITable
 //            print("앱 뱃지 \(userDefaults.integer(forKey: "notReadPush"))로 줄어듬 ^0^")
 //        }
         
-        print("공지아이디는 \(self.result_body[indexPath.row]["id"])")
         let parameters: Parameters = ["notis_id": self.result_body[indexPath.row]["id"]]
         let todoEndpoint: String = "https://www.dongaboomin.xyz:20433/normal_read"
         let queue = DispatchQueue(label: "xyz.dongaboomin.normalRead", qos: .utility, attributes: [.concurrent])
@@ -155,9 +151,8 @@ class NoticeLetterViewController: UIViewController, UITableViewDelegate, UITable
                             case .success(let value):
                                 let json = JSON(value)
                                 if json["result_code"] == 1{
-                                    print("읽기 성공")
                                 }else{
-                                    print("normal_read result code not matched")
+                                    
                                     self.con.toastText("통신 오류")
                                 }
                             case .failure(let error):

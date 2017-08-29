@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -30,14 +31,23 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="경영정보학과 제 18대 학생회 다채움 협조" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGR-mZ-swr">
+                                <rect key="frame" x="16" y="639" width="343" height="18"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="haj-n4-1oI" firstAttribute="top" secondItem="GGR-mZ-swr" secondAttribute="bottom" constant="10" id="01c-ig-LHb"/>
                             <constraint firstItem="6lg-ql-Eet" firstAttribute="top" secondItem="w54-jw-ue0" secondAttribute="top" id="Adm-f3-cGU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GGR-mZ-swr" secondAttribute="trailing" id="JcU-HD-gVu"/>
                             <constraint firstAttribute="trailing" secondItem="3MU-9n-bAE" secondAttribute="trailing" id="KoD-H9-UfZ"/>
                             <constraint firstItem="6lg-ql-Eet" firstAttribute="leading" secondItem="w54-jw-ue0" secondAttribute="leading" id="bQz-fn-bKl"/>
                             <constraint firstAttribute="trailing" secondItem="6lg-ql-Eet" secondAttribute="trailing" id="pPB-u9-hqF"/>
                             <constraint firstItem="3MU-9n-bAE" firstAttribute="leading" secondItem="w54-jw-ue0" secondAttribute="leading" id="qCa-Cc-ChF"/>
+                            <constraint firstItem="GGR-mZ-swr" firstAttribute="leading" secondItem="w54-jw-ue0" secondAttribute="leadingMargin" id="qNW-gn-wNU"/>
                             <constraint firstItem="haj-n4-1oI" firstAttribute="top" secondItem="6lg-ql-Eet" secondAttribute="bottom" id="r5h-IM-Urv"/>
                             <constraint firstItem="3MU-9n-bAE" firstAttribute="top" secondItem="zlg-mP-LFr" secondAttribute="bottom" constant="58" id="vmn-bZ-IYF"/>
                         </constraints>

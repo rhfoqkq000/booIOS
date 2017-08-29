@@ -79,12 +79,11 @@ class SubAttendLetterViewController: UIViewController {
                                     self.result_body = json["result_body"]
                                     self.con.toastText("\(LetterSingleton._sharedInstance.noticeLetterID!)\(attendResult)")
                                 }else{
-                                    print("normal_read result code not matched")
                                     self.con.toastText("전송 실패")
                                 }
                             case .failure(let error):
-                                print(error)
                                 self.con.toastText("전송 실패")
+                                print(error)
                             }
                             
                             DispatchQueue.main.async {

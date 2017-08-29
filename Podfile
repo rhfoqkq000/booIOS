@@ -16,4 +16,11 @@ target 'booIOS' do
     pod 'Firebase/Messaging'
     pod 'Firebase/Auth'
     pod 'RaisePlaceholder', '~> 1.0'
+    pod 'Fabric'
+    pod 'Crashlytics'
+end
+
+target 'titmetable' do
+    pod 'Alamofire', '~> 4.4'
+    pod 'SwiftyJSON'
 end

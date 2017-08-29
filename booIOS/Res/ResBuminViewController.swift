@@ -15,7 +15,7 @@ class ResBuminViewController:  UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var tableview: UITableView!
-    @IBOutlet var indicator: UIActivityIndicatorView!
+//    @IBOutlet var indicator: UIActivityIndicatorView!
     
     
     //        오늘 날짜 얻어오기
@@ -42,8 +42,6 @@ class ResBuminViewController:  UIViewController, UITableViewDelegate, UITableVie
         formatter.dateFormat = "yyyy-MM-dd"
         result = formatter.string(from: date)
         self.dateLabel.text = result
-        print(date)
-        
         convert = formatter.date(from: dateLabel.text!)!
         getJSON(targetDate: result)
         
@@ -77,7 +75,6 @@ class ResBuminViewController:  UIViewController, UITableViewDelegate, UITableVie
                                     bumin_kyo = json["result_body"]["bumin_kyo"].stringValue
                                 }else{
                                     self.con.toastText("불러오기 실패")
-                                    print("ResViewController result code not matched")
                                 }
                             case .failure(let error):
                                 self.con.toastText("불러오기 실패")
@@ -125,7 +122,6 @@ class ResBuminViewController:  UIViewController, UITableViewDelegate, UITableVie
         
         cell = tableView.dequeueReusableCell(withIdentifier: "resCell")! as! ResCell
         if content.isEmpty {
-            print("식당 값이 없당")
             cell.resContent.text = "메뉴가 없당!"
         } else {
             let pattern = "^\\n"

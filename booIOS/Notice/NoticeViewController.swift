@@ -44,7 +44,6 @@ class NoticeViewController: UIViewController, UITableViewDelegate, UITableViewDa
                                     }
 
                                 }else{
-                                    print("SeatViewController getJSON result code not matched")
                                     self.con.toastText("불러오기 실패")
                                 }
                             case .failure(let error):
@@ -82,11 +81,9 @@ class NoticeViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedRow = indexPath.row
        
-        print("1")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("2")
         if segue.identifier == "noticeDetail" {
             let indexPath = self.tableview.indexPathForSelectedRow
             let senderController = segue.destination as! NoticeDetailViewController

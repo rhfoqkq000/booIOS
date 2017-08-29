@@ -55,7 +55,6 @@ class AttendLetterViewController:  UIViewController, UITableViewDelegate, UITabl
                                     self.result_body = json["result_body"]
                                     self.countOfAttendLetters = self.result_body.count
                                 }else{
-                                    print("PushViewController getJSON result code not matched")
                                     self.con.toastText("불러오기 실패")
                                 }
                             case .failure(let error):
@@ -120,14 +119,12 @@ class AttendLetterViewController:  UIViewController, UITableViewDelegate, UITabl
                             case .success(let value):
                                 let json = JSON(value)
                                 if json["result_code"] == 1{
-                                    print("동아리 쪽지 읽었당")
                                 }else{
-                                    print("normal_read result code not matched")
                                     self.con.toastText("통신 오류")
                                 }
                             case .failure(let error):
-                                print(error)
                                 self.con.toastText("통신 오류")
+                                print(error)
                             }
                             
                             DispatchQueue.main.async {
@@ -161,9 +158,7 @@ class AttendLetterViewController:  UIViewController, UITableViewDelegate, UITabl
                                 case .success(let value):
                                     let json = JSON(value)
                                     if json["result_code"] == 1{
-                                        print("동아리쪽지지웠당")
                                     }else{
-                                        print("normal_read result code not matched")
                                         self.con.toastText("삭제 실패")
                                     }
                                 case .failure(let error):

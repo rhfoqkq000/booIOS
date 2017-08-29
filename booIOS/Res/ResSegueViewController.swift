@@ -11,6 +11,11 @@ import UIKit
 class ResSegueViewController: UIViewController {
     
     var container: ContainerViewController!
+    @IBOutlet weak var segController: UISegmentedControl!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        segController.selectedSegmentIndex = 0;
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

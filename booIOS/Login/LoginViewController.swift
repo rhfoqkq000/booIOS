@@ -31,17 +31,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print("로그인 시작부분이야")
-        
         if userDefaults.string(forKey: "stuId") != nil && (userDefaults.string(forKey:"stuPw") != nil) && (userDefaults.string(forKey: "id") != nil){
             let progressHUD = ProgressHUD(text: "로딩 중입니다...")
             self.view.addSubview(progressHUD)
             progressHUD.show()
             let device_id = UIDevice.current.identifierForVendor!.uuidString
+            let os_enum = "IOS"
+            let model = UIDevice.current.modelName
+            let tOperator = CTTelephonyNetworkInfo().subscriberCellularProvider?.carrierName
+            let systemVersion = UIDevice.current.systemVersion
             let token = InstanceID.instanceID().token()!
+            let normalId = userDefaults.string(forKey: "id")!
             let deviceUpdateTodoEndpoint: String = "https://www.dongaboomin.xyz:20433/deviceUpdate"
-            let deviceUpdateParameters = ["device_id":device_id, "push_service_id": token]
-            let deviceUpdateQueue = DispatchQueue(label: "com.Boo", qos: .utility, attributes: [.concurrent])
+//            let deviceUpdateParameters = ["device_id":device_id, "push_service_id":token]
+            let deviceUpdateParameters = ["device_id":device_id, "os_enum":os_enum, "model":model, "operator":tOperator!, "api_level":systemVersion, "push_service_id":token, "normal_user_id":normalId]
+            
+            let deviceUpdateQueue = DispatchQueue(label: "xyz.dongaboomin.deviceUpdate", qos: .utility, attributes: [.concurrent])
             var isUpdated = 0
             Alamofire.request(deviceUpdateTodoEndpoint, method: .post, parameters: deviceUpdateParameters, encoding: JSONEncoding(options:[])).validate()
                 .responseJSON(queue: deviceUpdateQueue,
@@ -56,8 +61,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                         print("욧시 로그인 없이 디바이스 정보가 고쳐졌어")
                                         
                                     }else{
-                                        self.con.toastText("로그인 실패")
-                                        print("result code not matched")
+                                        print("deviceUpdate resultCode :: \(json["result_code"])")
                                     }
                                 case .failure(let error):
                                     self.con.toastText("로그인 실패")
@@ -76,16 +80,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                 }
                 }
             )
+            
         }
-
+        
         idTextField.addBorderBottom(height: 1.0, color: UIColor.lightGray)
         pwTextField.addBorderBottom(height: 1.0, color: UIColor.lightGray)
         
         toEmptyButton.layer.cornerRadius = 20;
+        toEmptyButton.layer.borderWidth = 1;
+        toEmptyButton.layer.borderColor = UIColor(red: 88/255, green: 175/255, blue: 172/255, alpha: 1.0).cgColor
         // Do any additional setup after loading the view.
-       
+        
     }
- 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -132,16 +139,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
         )
     }
-
     
-
+    
     func getJSON(_ id:String, _ pw:String){
         let progressHUD = ProgressHUD(text: "로딩 중입니다...")
         self.view.addSubview(progressHUD)
         progressHUD.show()
+        print("getJSON 통신시작합니당")
+        
         let todoEndpoint: String = "https://www.dongaboomin.xyz:20433/donga/login"
         let parameters = ["stuId":id, "stuPw":pw]
-        let queue = DispatchQueue(label: "com.Boo", qos: .utility, attributes: [.concurrent])
+        let queue = DispatchQueue(label: "xyz.dongaboomin.login", qos: .utility, attributes: [.concurrent])
         var loginIsSuccess = ""
         Alamofire.request(todoEndpoint, method: .post, parameters:parameters, encoding:JSONEncoding(options:[])).validate()
             .responseJSON(queue: queue,
@@ -149,16 +157,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             switch response.result{
                             case .success(let value):
                                 let json = JSON(value)
+                                
                                 if json["result_code"] == 1{
                                     loginIsSuccess = json["result_code"].stringValue
                                     
                                     //이미 앱 내부에 저장된 ID, PW값 유무를 판별해서 없으면 앱 내부에 저장, 있으면 그냥 넘어감
                                     if self.userDefaults.string(forKey: "stuId") != nil {
                                         print("값이 있음")
+                                        
                                     }else{
                                         self.userDefaults.set(id, forKey:"stuId")
                                         self.userDefaults.set(pw, forKey:"stuPw")
                                         self.userDefaults.set(json["result_body"]["id"].stringValue, forKey: "id")
+                                        print("값이 없어서 넣음 : \(String(describing: self.userDefaults.string(forKey: "stuId")))")
+                                        
                                     }
                                     
                                     if self.userDefaults.object(forKey: "deviceInserted") == nil{
@@ -166,17 +178,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                         let device_id = UIDevice.current.identifierForVendor!.uuidString
                                         let os_enum = "IOS"
                                         let model = UIDevice.current.modelName
-//                                        let tOperator = CTTelephonyNetworkInfo().subscriberCellularProvider?.carrierName
+                                        let tOperator = (CTTelephonyNetworkInfo().subscriberCellularProvider?.carrierName)!
                                         let systemVersion = UIDevice.current.systemVersion
                                         let token = InstanceID.instanceID().token()!
-                                        print(token)
-                                        let normalId = json["result_body"]["id"].stringValue
+                                        let normalId = self.userDefaults.string(forKey: "id")!
                                         
-                                                                            print("device_id : \(device_id), os_enum : \(os_enum), model : \(model), operator : OK, api_level : \(systemVersion), push_service_id : \(token), normal_user_id : \(normalId)")
+                                        //                                    print("device_id : \(device_id), os_enum : \(os_enum), model : \(model), operator : OK, api_level : \(systemVersion), push_service_id : \(token), normal_user_id : \(normalId)")
                                         
                                         let deviceInsertTodoEndpoint: String = "https://www.dongaboomin.xyz:20433/deviceInsert"
-                                        let deviceInsertParameters = ["device_id":device_id, "os_enum":os_enum, "model":model, "operator":"YOO JEONG", "api_level":systemVersion, "push_service_id":token, "normal_user_id":normalId]
-                                        let deviceInsertQueue = DispatchQueue(label: "com.Boo", qos: .utility, attributes: [.concurrent])
+                                        let deviceInsertParameters = ["device_id":device_id, "os_enum":os_enum, "model":model, "operator":tOperator, "api_level":systemVersion, "push_service_id":token, "normal_user_id":normalId]
+//                                        print("device_id::\(device_id), ")
+                                        let deviceInsertQueue = DispatchQueue(label: "xyz.dongaboomin.deviceUpdate", qos: .utility, attributes: [.concurrent])
                                         Alamofire.request(deviceInsertTodoEndpoint, method: .post, parameters: deviceInsertParameters, encoding: JSONEncoding(options:[])).validate()
                                             .responseJSON(queue: deviceInsertQueue,
                                                           completionHandler : { response in
@@ -184,20 +196,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                                             switch response.result{
                                                             case .success(let value):
                                                                 let json = JSON(value)
-                                                                if json["result_code"] == 1{
+                                                                if json["result_code"] == 1 || json["result_code"] == 2{
                                                                     self.userDefaults.set(22, forKey: "deviceInserted")
                                                                     print("욧시 디바이스정보가들어갔어")
-                                                                    
                                                                     self.getUserCircle(self.userDefaults.string(forKey: "id")!,pw,loginIsSuccess)
 
-                                                                    
-                                                                    
-                                                                }else if json["result_code"] == 2{
-                                                                    self.getUserCircle(self.userDefaults.string(forKey: "id")!,pw,loginIsSuccess)
-
-                                                                    print("디바이스 정보 입력 후의 result code not matched")
-                                                                }else{
-                                                                                                                                        self.con.toastText("로그인 실패")
+                                                                }else {
+                                                                    print("result code not matched::\(json["result_code"])")
                                                                 }
                                                             case .failure(let error):
                                                                 self.con.toastText("불러오기 실패")
@@ -205,18 +210,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                                             }
                                                             
                                                             DispatchQueue.main.async {
-                                                                
-                                                            }
+                                                                progressHUD.hide()                                                         }
                                             }
                                         )
-
+                                        
                                     }else{
                                         print("디바이스 정보 입력된것갓은디;;")
                                         let device_id = UIDevice.current.identifierForVendor!.uuidString
                                         let token = InstanceID.instanceID().token()!
                                         let deviceUpdateTodoEndpoint: String = "https://www.dongaboomin.xyz:20433/deviceUpdate"
                                         let deviceUpdateParameters = ["device_id":device_id, "push_service_id":token]
-                                        let deviceUpdateQueue = DispatchQueue(label: "com.Boo", qos: .utility, attributes: [.concurrent])
+                                        let deviceUpdateQueue = DispatchQueue(label: "xyz.dongaboomin.deviceUpdate", qos: .utility, attributes: [.concurrent])
                                         Alamofire.request(deviceUpdateTodoEndpoint, method: .post, parameters: deviceUpdateParameters, encoding: JSONEncoding(options:[])).validate()
                                             .responseJSON(queue: deviceUpdateQueue,
                                                           completionHandler : { response in
@@ -227,15 +231,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                                                 if json["result_code"] == 1{
                                                                     self.userDefaults.set(22, forKey: "deviceInserted")
                                                                     print("욧시 디바이스 정보가 고쳐졌어")
-                                                                    
-                                                                    
                                                                     self.getUserCircle(self.userDefaults.string(forKey: "id")!,pw,loginIsSuccess)
 
-                                                                    
-                                                                    
                                                                 }else{
-                                                                    self.con.toastText("로그인 실패! 앱을 재실행해주세요.")
-                                                                    print("디바이스 정보 고쳐지고 나서 result code not matched")
+                                                                    print("result code not matched")
                                                                 }
                                                             case .failure(let error):
                                                                 self.con.toastText("불러오기 실패")
@@ -243,30 +242,28 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                                             }
                                                             
                                                             DispatchQueue.main.async {
-                                                                
+                                                                progressHUD.hide()
                                                             }
                                             }
                                         )
                                     }
-
+                                    
                                 }else{
-                                    print("비밀번호 틀린것같음")
-                                    self.con.toastText("로그인 실패")
+//                                    progressHUD.hide()
+                                    self.con.toastText("로그인 실패1")
                                 }
-
+                                
                             case .failure(let error):
                                 print(error)
-                                self.con.toastText("로그인 실패")
+//                                progressHUD.hide()
+                                self.con.toastText("로그인 실패2")
                             }
                             
                             DispatchQueue.main.async {
                                 //UI 업데이트는 여기
-                                print("UIUPDATE START")
                                 progressHUD.hide()
-//                                self.getUserCircle(self.userDefaults.string(forKey: "id")!,pw,loginIsSuccess)
-
-                            
                             }
+                            
             }
         )
     }
@@ -279,5 +276,4 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-        
 }

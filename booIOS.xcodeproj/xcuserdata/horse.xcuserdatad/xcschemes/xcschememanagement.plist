@@ -9,9 +9,19 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>titmetable.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>13</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>CB2F3E471F5000B6006E1D07</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>CBF141C01F0E930E00D62BC0</key>
 		<dict>
 			<key>primary</key>
