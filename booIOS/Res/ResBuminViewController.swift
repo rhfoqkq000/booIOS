@@ -43,6 +43,9 @@ class ResBuminViewController:  UIViewController, UITableViewDelegate, UITableVie
         result = formatter.string(from: date)
         self.dateLabel.text = result
         convert = formatter.date(from: dateLabel.text!)!
+        
+        ResSingleton._sharedInstance.bumin = result
+        
         getJSON(targetDate: result)
         
     }
@@ -51,11 +54,13 @@ class ResBuminViewController:  UIViewController, UITableViewDelegate, UITableVie
         super.didReceiveMemoryWarning()
     }
     
-    func getJSON(targetDate date:String){
+    func getJSON(targetDate dateOri:String){
+        ResSingleton._sharedInstance.bumin = dateOri
+        let date = ResSingleton._sharedInstance.bumin
         let progressHUD = ProgressHUD(text: "로딩 중입니다...")
         self.view.addSubview(progressHUD)
         progressHUD.show()
-        let todoEndpoint: String = "http://www.dongaboomin.xyz:3000/meal?date=\(date)"
+        let todoEndpoint: String = "http://www.dongaboomin.xyz:3000/meal?date=\(date!)"
         let queue = DispatchQueue(label: "xyz.dongaboomin.res.bumin", qos: .utility, attributes: [.concurrent])
         
         Alamofire.request(todoEndpoint, method: .get).validate()

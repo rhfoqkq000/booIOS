@@ -41,6 +41,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             let tOperator = CTTelephonyNetworkInfo().subscriberCellularProvider?.carrierName
             let systemVersion = UIDevice.current.systemVersion
             let token = InstanceID.instanceID().token()!
+//            let token = "푸쉬ㅜ쉬베이베"
             let normalId = userDefaults.string(forKey: "id")!
             let deviceUpdateTodoEndpoint: String = "https://www.dongaboomin.xyz:20433/deviceUpdate"
 //            let deviceUpdateParameters = ["device_id":device_id, "push_service_id":token]
@@ -82,6 +83,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             )
             
         }
+        
+//            self.performSegue(withIdentifier: "loginSeque", sender: self)
+
         
         idTextField.addBorderBottom(height: 1.0, color: UIColor.lightGray)
         pwTextField.addBorderBottom(height: 1.0, color: UIColor.lightGray)

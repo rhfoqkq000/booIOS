@@ -42,6 +42,7 @@ class ResHadanViewController: UIViewController, UITableViewDelegate, UITableView
         formatter.dateFormat = "yyyy-MM-dd"
         result = formatter.string(from: date)
         self.dateLabel.text = result
+        ResSingleton._sharedInstance.hadan = result
         
         convert = formatter.date(from: dateLabel.text!)!
         getJSON(targetDate: result)
@@ -52,11 +53,13 @@ class ResHadanViewController: UIViewController, UITableViewDelegate, UITableView
         super.didReceiveMemoryWarning()
     }
     
-    func getJSON(targetDate date:String){
+    func getJSON(targetDate dateOri:String){
+        ResSingleton._sharedInstance.hadan = dateOri
+        let date = ResSingleton._sharedInstance.hadan
         let progressHUD = ProgressHUD(text: "로딩 중입니다...")
         self.view.addSubview(progressHUD)
         progressHUD.show()
-        let todoEndpoint: String = "http://www.dongaboomin.xyz:3000/meal?date=\(date)"
+        let todoEndpoint: String = "http://www.dongaboomin.xyz:3000/meal?date=\(date!)"
             let queue = DispatchQueue(label: "xyz.dongaboomin.res.hadan", qos: .utility, attributes: [.concurrent])
             
             Alamofire.request(todoEndpoint, method: .get).validate()

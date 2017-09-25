@@ -73,8 +73,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         UserDefaults(suiteName:"group.xyz.dongaboomin.npe")?.set(userDefaults.string(forKey: "stuPw"), forKey: "widgetStuPw")
         
         let date = Date()
-//        day = getTargetDay(targetDay: date)
-        day = "수"
+        day = getTargetDay(targetDay: date)
+//        day = "수"
         
         let formatter = DateFormatter()
         var result:String = ""
@@ -289,6 +289,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 cell.roomLabel.text = sortedArr[indexPath.row].room
                 cell.backgroundColor = UIColor(red: 247/255, green: 148/255, blue: 122/255, alpha: 1.0)
             }else{
+                
             }
             
 //        }
